@@ -1,0 +1,244 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "02/06/2024 14:42:19"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    tx_baud_counter
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module tx_baud_counter_vlg_sample_tst(
+	clk,
+	reset,
+	reset_count,
+	sampler_tx
+);
+input  clk;
+input  reset;
+input  reset_count;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clk or reset or reset_count)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module tx_baud_counter_vlg_check_tst (
+	baud_output,
+	half_baud_output,
+	sampler_rx
+);
+input  baud_output;
+input  half_baud_output;
+input sampler_rx;
+
+reg  baud_output_expected;
+reg  half_baud_output_expected;
+
+reg  baud_output_prev;
+reg  half_baud_output_prev;
+
+reg  baud_output_expected_prev;
+reg  half_baud_output_expected_prev;
+
+reg  last_baud_output_exp;
+reg  last_half_baud_output_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:2] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 2'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	baud_output_prev = baud_output;
+	half_baud_output_prev = half_baud_output;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	baud_output_expected_prev = baud_output_expected;
+	half_baud_output_expected_prev = half_baud_output_expected;
+end
+
+
+
+// expected baud_output
+initial
+begin
+	baud_output_expected = 1'bX;
+	baud_output_expected = #119000 1'b0;
+end 
+
+// expected half_baud_output
+initial
+begin
+	half_baud_output_expected = 1'bX;
+	half_baud_output_expected = #1199000 1'b0;
+end 
+// generate trigger
+always @(baud_output_expected or baud_output or half_baud_output_expected or half_baud_output)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected baud_output = %b | expected half_baud_output = %b | ",baud_output_expected_prev,half_baud_output_expected_prev);
+	$display("| real baud_output = %b | real half_baud_output = %b | ",baud_output_prev,half_baud_output_prev);
+`endif
+	if (
+		( baud_output_expected_prev !== 1'bx ) && ( baud_output_prev !== baud_output_expected_prev )
+		&& ((baud_output_expected_prev !== last_baud_output_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port baud_output :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", baud_output_expected_prev);
+		$display ("     Real value = %b", baud_output_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_baud_output_exp = baud_output_expected_prev;
+	end
+	if (
+		( half_baud_output_expected_prev !== 1'bx ) && ( half_baud_output_prev !== half_baud_output_expected_prev )
+		&& ((half_baud_output_expected_prev !== last_half_baud_output_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port half_baud_output :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", half_baud_output_expected_prev);
+		$display ("     Real value = %b", half_baud_output_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_half_baud_output_exp = half_baud_output_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#30000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module tx_baud_counter_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg reset;
+reg reset_count;
+// wires                                               
+wire baud_output;
+wire half_baud_output;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+tx_baud_counter i1 (
+// port map - connection between master ports and signals/registers   
+	.baud_output(baud_output),
+	.clk(clk),
+	.half_baud_output(half_baud_output),
+	.reset(reset),
+	.reset_count(reset_count)
+);
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #10000 1'b1;
+	#10000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b1;
+	reset = #100000 1'b0;
+	reset = #20000 1'b1;
+end 
+
+// reset_count
+initial
+begin
+	reset_count = 1'b0;
+	reset_count = #220000 1'b1;
+	reset_count = #20000 1'b0;
+end 
+
+tx_baud_counter_vlg_sample_tst tb_sample (
+	.clk(clk),
+	.reset(reset),
+	.reset_count(reset_count),
+	.sampler_tx(sampler)
+);
+
+tx_baud_counter_vlg_check_tst tb_out(
+	.baud_output(baud_output),
+	.half_baud_output(half_baud_output),
+	.sampler_rx(sampler)
+);
+endmodule
+

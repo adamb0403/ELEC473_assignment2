@@ -1,0 +1,16 @@
+|tx_counter
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_out <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+

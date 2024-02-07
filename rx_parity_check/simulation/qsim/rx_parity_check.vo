@@ -1,0 +1,384 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+
+// DATE "02/06/2024 16:07:58"
+
+// 
+// Device: Altera EP4CGX15BF14C6 Package FBGA169
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module rx_parity_check (
+	parity_in,
+	parity_out,
+	p_check_out,
+	framing_out);
+input 	[9:0] parity_in;
+output 	[6:0] parity_out;
+output 	p_check_out;
+output 	framing_out;
+
+// Design Ports Information
+// parity_in[0]	=>  Location: PIN_F13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[0]	=>  Location: PIN_N13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[1]	=>  Location: PIN_M13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[2]	=>  Location: PIN_H10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[3]	=>  Location: PIN_L12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[4]	=>  Location: PIN_K13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[5]	=>  Location: PIN_K8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_out[6]	=>  Location: PIN_N9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// p_check_out	=>  Location: PIN_L11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// framing_out	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[1]	=>  Location: PIN_F12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[2]	=>  Location: PIN_K11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[3]	=>  Location: PIN_L13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[4]	=>  Location: PIN_H12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[5]	=>  Location: PIN_F10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[6]	=>  Location: PIN_K9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[7]	=>  Location: PIN_M9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[8]	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// parity_in[9]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \parity_in[0]~input_o ;
+wire \parity_out[0]~output_o ;
+wire \parity_out[1]~output_o ;
+wire \parity_out[2]~output_o ;
+wire \parity_out[3]~output_o ;
+wire \parity_out[4]~output_o ;
+wire \parity_out[5]~output_o ;
+wire \parity_out[6]~output_o ;
+wire \p_check_out~output_o ;
+wire \framing_out~output_o ;
+wire \parity_in[1]~input_o ;
+wire \parity_in[2]~input_o ;
+wire \parity_in[3]~input_o ;
+wire \parity_in[4]~input_o ;
+wire \parity_in[5]~input_o ;
+wire \parity_in[6]~input_o ;
+wire \parity_in[7]~input_o ;
+wire \always0~0_combout ;
+wire \parity_in[8]~input_o ;
+wire \always0~1_combout ;
+wire \always0~2_combout ;
+wire \parity_in[9]~input_o ;
+
+
+// Location: IOOBUF_X33_Y10_N9
+cycloneiv_io_obuf \parity_out[0]~output (
+	.i(\parity_in[1]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[0]~output .bus_hold = "false";
+defparam \parity_out[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y10_N2
+cycloneiv_io_obuf \parity_out[1]~output (
+	.i(\parity_in[2]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[1]~output .bus_hold = "false";
+defparam \parity_out[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y14_N2
+cycloneiv_io_obuf \parity_out[2]~output (
+	.i(\parity_in[3]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[2]~output .bus_hold = "false";
+defparam \parity_out[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y12_N2
+cycloneiv_io_obuf \parity_out[3]~output (
+	.i(\parity_in[4]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[3]~output .bus_hold = "false";
+defparam \parity_out[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y15_N2
+cycloneiv_io_obuf \parity_out[4]~output (
+	.i(\parity_in[5]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[4]~output .bus_hold = "false";
+defparam \parity_out[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y0_N9
+cycloneiv_io_obuf \parity_out[5]~output (
+	.i(\parity_in[6]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[5]~output .bus_hold = "false";
+defparam \parity_out[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y0_N2
+cycloneiv_io_obuf \parity_out[6]~output (
+	.i(\parity_in[7]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\parity_out[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \parity_out[6]~output .bus_hold = "false";
+defparam \parity_out[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y0_N2
+cycloneiv_io_obuf \p_check_out~output (
+	.i(!\always0~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\p_check_out~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \p_check_out~output .bus_hold = "false";
+defparam \p_check_out~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y31_N2
+cycloneiv_io_obuf \framing_out~output (
+	.i(!\parity_in[9]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\framing_out~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \framing_out~output .bus_hold = "false";
+defparam \framing_out~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y16_N1
+cycloneiv_io_ibuf \parity_in[1]~input (
+	.i(parity_in[1]),
+	.ibar(gnd),
+	.o(\parity_in[1]~input_o ));
+// synopsys translate_off
+defparam \parity_in[1]~input .bus_hold = "false";
+defparam \parity_in[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y11_N1
+cycloneiv_io_ibuf \parity_in[2]~input (
+	.i(parity_in[2]),
+	.ibar(gnd),
+	.o(\parity_in[2]~input_o ));
+// synopsys translate_off
+defparam \parity_in[2]~input .bus_hold = "false";
+defparam \parity_in[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y12_N8
+cycloneiv_io_ibuf \parity_in[3]~input (
+	.i(parity_in[3]),
+	.ibar(gnd),
+	.o(\parity_in[3]~input_o ));
+// synopsys translate_off
+defparam \parity_in[3]~input .bus_hold = "false";
+defparam \parity_in[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y14_N8
+cycloneiv_io_ibuf \parity_in[4]~input (
+	.i(parity_in[4]),
+	.ibar(gnd),
+	.o(\parity_in[4]~input_o ));
+// synopsys translate_off
+defparam \parity_in[4]~input .bus_hold = "false";
+defparam \parity_in[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y24_N1
+cycloneiv_io_ibuf \parity_in[5]~input (
+	.i(parity_in[5]),
+	.ibar(gnd),
+	.o(\parity_in[5]~input_o ));
+// synopsys translate_off
+defparam \parity_in[5]~input .bus_hold = "false";
+defparam \parity_in[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N1
+cycloneiv_io_ibuf \parity_in[6]~input (
+	.i(parity_in[6]),
+	.ibar(gnd),
+	.o(\parity_in[6]~input_o ));
+// synopsys translate_off
+defparam \parity_in[6]~input .bus_hold = "false";
+defparam \parity_in[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X24_Y0_N1
+cycloneiv_io_ibuf \parity_in[7]~input (
+	.i(parity_in[7]),
+	.ibar(gnd),
+	.o(\parity_in[7]~input_o ));
+// synopsys translate_off
+defparam \parity_in[7]~input .bus_hold = "false";
+defparam \parity_in[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y11_N0
+cycloneiv_lcell_comb \always0~0 (
+// Equation(s):
+// \always0~0_combout  = \parity_in[3]~input_o  $ (\parity_in[4]~input_o  $ (\parity_in[1]~input_o  $ (\parity_in[2]~input_o )))
+
+	.dataa(\parity_in[3]~input_o ),
+	.datab(\parity_in[4]~input_o ),
+	.datac(\parity_in[1]~input_o ),
+	.datad(\parity_in[2]~input_o ),
+	.cin(gnd),
+	.combout(\always0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \always0~0 .lut_mask = 16'h6996;
+defparam \always0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y25_N8
+cycloneiv_io_ibuf \parity_in[8]~input (
+	.i(parity_in[8]),
+	.ibar(gnd),
+	.o(\parity_in[8]~input_o ));
+// synopsys translate_off
+defparam \parity_in[8]~input .bus_hold = "false";
+defparam \parity_in[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y11_N2
+cycloneiv_lcell_comb \always0~1 (
+// Equation(s):
+// \always0~1_combout  = \parity_in[6]~input_o  $ (\parity_in[7]~input_o  $ (\parity_in[8]~input_o  $ (\parity_in[5]~input_o )))
+
+	.dataa(\parity_in[6]~input_o ),
+	.datab(\parity_in[7]~input_o ),
+	.datac(\parity_in[8]~input_o ),
+	.datad(\parity_in[5]~input_o ),
+	.cin(gnd),
+	.combout(\always0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \always0~1 .lut_mask = 16'h6996;
+defparam \always0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y11_N20
+cycloneiv_lcell_comb \always0~2 (
+// Equation(s):
+// \always0~2_combout  = \always0~0_combout  $ (\always0~1_combout )
+
+	.dataa(gnd),
+	.datab(\always0~0_combout ),
+	.datac(gnd),
+	.datad(\always0~1_combout ),
+	.cin(gnd),
+	.combout(\always0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \always0~2 .lut_mask = 16'h33CC;
+defparam \always0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y31_N8
+cycloneiv_io_ibuf \parity_in[9]~input (
+	.i(parity_in[9]),
+	.ibar(gnd),
+	.o(\parity_in[9]~input_o ));
+// synopsys translate_off
+defparam \parity_in[9]~input .bus_hold = "false";
+defparam \parity_in[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y16_N8
+cycloneiv_io_ibuf \parity_in[0]~input (
+	.i(parity_in[0]),
+	.ibar(gnd),
+	.o(\parity_in[0]~input_o ));
+// synopsys translate_off
+defparam \parity_in[0]~input .bus_hold = "false";
+defparam \parity_in[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+assign parity_out[0] = \parity_out[0]~output_o ;
+
+assign parity_out[1] = \parity_out[1]~output_o ;
+
+assign parity_out[2] = \parity_out[2]~output_o ;
+
+assign parity_out[3] = \parity_out[3]~output_o ;
+
+assign parity_out[4] = \parity_out[4]~output_o ;
+
+assign parity_out[5] = \parity_out[5]~output_o ;
+
+assign parity_out[6] = \parity_out[6]~output_o ;
+
+assign p_check_out = \p_check_out~output_o ;
+
+assign framing_out = \framing_out~output_o ;
+
+endmodule

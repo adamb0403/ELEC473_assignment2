@@ -1,0 +1,310 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "02/06/2024 16:37:14"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    rx_controller
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module rx_controller_vlg_sample_tst(
+	clk,
+	ctrl_counter,
+	ctrl_half_baud,
+	ctrl_rx,
+	reset,
+	sampler_tx
+);
+input  clk;
+input  ctrl_counter;
+input  ctrl_half_baud;
+input  ctrl_rx;
+input  reset;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clk or ctrl_counter or ctrl_half_baud or ctrl_rx or reset)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module rx_controller_vlg_check_tst (
+	ctrl_reset_baud,
+	ctrl_sr_load,
+	current_state,
+	sampler_rx
+);
+input  ctrl_reset_baud;
+input  ctrl_sr_load;
+input  current_state;
+input sampler_rx;
+
+reg  ctrl_reset_baud_expected;
+reg  ctrl_sr_load_expected;
+reg  current_state_expected;
+
+reg  ctrl_reset_baud_prev;
+reg  ctrl_sr_load_prev;
+reg  current_state_prev;
+
+reg  ctrl_reset_baud_expected_prev;
+reg  ctrl_sr_load_expected_prev;
+reg  current_state_expected_prev;
+
+reg  last_ctrl_reset_baud_exp;
+reg  last_ctrl_sr_load_exp;
+reg  last_current_state_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:3] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 3'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	ctrl_reset_baud_prev = ctrl_reset_baud;
+	ctrl_sr_load_prev = ctrl_sr_load;
+	current_state_prev = current_state;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	ctrl_reset_baud_expected_prev = ctrl_reset_baud_expected;
+	ctrl_sr_load_expected_prev = ctrl_sr_load_expected;
+	current_state_expected_prev = current_state_expected;
+end
+
+
+
+// expected ctrl_reset_baud
+initial
+begin
+	ctrl_reset_baud_expected = 1'bX;
+end 
+
+// expected ctrl_sr_load
+initial
+begin
+	ctrl_sr_load_expected = 1'bX;
+end 
+
+// expected current_state
+initial
+begin
+	current_state_expected = 1'bX;
+end 
+// generate trigger
+always @(ctrl_reset_baud_expected or ctrl_reset_baud or ctrl_sr_load_expected or ctrl_sr_load or current_state_expected or current_state)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected ctrl_reset_baud = %b | expected ctrl_sr_load = %b | expected current_state = %b | ",ctrl_reset_baud_expected_prev,ctrl_sr_load_expected_prev,current_state_expected_prev);
+	$display("| real ctrl_reset_baud = %b | real ctrl_sr_load = %b | real current_state = %b | ",ctrl_reset_baud_prev,ctrl_sr_load_prev,current_state_prev);
+`endif
+	if (
+		( ctrl_reset_baud_expected_prev !== 1'bx ) && ( ctrl_reset_baud_prev !== ctrl_reset_baud_expected_prev )
+		&& ((ctrl_reset_baud_expected_prev !== last_ctrl_reset_baud_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ctrl_reset_baud :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ctrl_reset_baud_expected_prev);
+		$display ("     Real value = %b", ctrl_reset_baud_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_ctrl_reset_baud_exp = ctrl_reset_baud_expected_prev;
+	end
+	if (
+		( ctrl_sr_load_expected_prev !== 1'bx ) && ( ctrl_sr_load_prev !== ctrl_sr_load_expected_prev )
+		&& ((ctrl_sr_load_expected_prev !== last_ctrl_sr_load_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ctrl_sr_load :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ctrl_sr_load_expected_prev);
+		$display ("     Real value = %b", ctrl_sr_load_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ctrl_sr_load_exp = ctrl_sr_load_expected_prev;
+	end
+	if (
+		( current_state_expected_prev !== 1'bx ) && ( current_state_prev !== current_state_expected_prev )
+		&& ((current_state_expected_prev !== last_current_state_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port current_state :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", current_state_expected_prev);
+		$display ("     Real value = %b", current_state_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_current_state_exp = current_state_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module rx_controller_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg ctrl_counter;
+reg ctrl_half_baud;
+reg ctrl_rx;
+reg reset;
+// wires                                               
+wire ctrl_reset_baud;
+wire ctrl_sr_load;
+wire current_state;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+rx_controller i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.ctrl_counter(ctrl_counter),
+	.ctrl_half_baud(ctrl_half_baud),
+	.ctrl_reset_baud(ctrl_reset_baud),
+	.ctrl_rx(ctrl_rx),
+	.ctrl_sr_load(ctrl_sr_load),
+	.current_state(current_state),
+	.reset(reset)
+);
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #10000 1'b1;
+	#10000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b1;
+end 
+
+// ctrl_counter
+initial
+begin
+	ctrl_counter = 1'b0;
+	ctrl_counter = #420000 1'b1;
+	ctrl_counter = #20000 1'b0;
+end 
+
+// ctrl_half_baud
+initial
+begin
+	ctrl_half_baud = 1'b0;
+	ctrl_half_baud = #60000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+	ctrl_half_baud = #20000 1'b1;
+	ctrl_half_baud = #20000 1'b0;
+end 
+
+// ctrl_rx
+initial
+begin
+	ctrl_rx = 1'b0;
+	ctrl_rx = #40000 1'b1;
+	ctrl_rx = #80000 1'b0;
+	ctrl_rx = #80000 1'b1;
+	ctrl_rx = #80000 1'b0;
+end 
+
+rx_controller_vlg_sample_tst tb_sample (
+	.clk(clk),
+	.ctrl_counter(ctrl_counter),
+	.ctrl_half_baud(ctrl_half_baud),
+	.ctrl_rx(ctrl_rx),
+	.reset(reset),
+	.sampler_tx(sampler)
+);
+
+rx_controller_vlg_check_tst tb_out(
+	.ctrl_reset_baud(ctrl_reset_baud),
+	.ctrl_sr_load(ctrl_sr_load),
+	.current_state(current_state),
+	.sampler_rx(sampler)
+);
+endmodule
+

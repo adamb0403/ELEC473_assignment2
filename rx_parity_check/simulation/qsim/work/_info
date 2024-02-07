@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_parity_check\simulation\qsim
+vrx_parity_check
+Z1 I<cEza]13?mfkkede_QB]M3
+Z2 V]IlXP3Fn=b`G9BKUoKBYR1
+Z3 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_parity_check\simulation\qsim
+Z4 w1707235678
+Z5 8rx_parity_check.vo
+Z6 Frx_parity_check.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|rx_parity_check.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 QWM96@dm:YE[?Uc5ibmJ=0
+!s85 0
+Z11 !s108 1707235679.591000
+Z12 !s107 rx_parity_check.vo|
+!s101 -O0
+vrx_parity_check_vlg_check_tst
+!i10b 1
+Z13 !s100 X0UOmXifRzdlSV?d]`7Xz3
+Z14 IbH]VL2[XQa2J`e^bz6SBk0
+Z15 VGTgGISn5^>HkD`MmA>3zH3
+R3
+Z16 w1707235677
+Z17 8rx_parity_check.vt
+Z18 Frx_parity_check.vt
+L0 57
+R7
+r1
+!s85 0
+31
+Z19 !s108 1707235679.841000
+Z20 !s107 rx_parity_check.vt|
+Z21 !s90 -work|work|rx_parity_check.vt|
+!s101 -O0
+R9
+vrx_parity_check_vlg_sample_tst
+!i10b 1
+Z22 !s100 alDACo]LmeM53377OEN_j0
+Z23 IX4FhmD5HeA6^NhZXX3=<H0
+Z24 Vbbe;:C^1<8dJ1PlkbYmf]2
+R3
+R16
+R17
+R18
+L0 29
+R7
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R9
+vrx_parity_check_vlg_vec_tst
+!i10b 1
+Z25 !s100 IGf8AaGZ>2m>JG]nm@HkL0
+Z26 I=1]9Wk?JDEUbYKzGMH`b_3
+Z27 VMiLImCS0P:zC51^Jo2DJo1
+R3
+R16
+R17
+R18
+Z28 L0 313
+R7
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R9

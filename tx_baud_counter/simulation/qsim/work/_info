@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dM:\ELEC473\projects\assignment1\tx_baud_counter\simulation\qsim
+vtx_baud_counter
+Z1 !s100 HBd773=mPB:TS60AXo9]V1
+Z2 I32dac2h<?ZJH6ZF77j`Kj1
+Z3 VUbYUV9a]kA6XKU=AaE`?^2
+Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\tx_baud_counter\simulation\qsim
+Z5 w1707230541
+Z6 8tx_baud_counter.vo
+Z7 Ftx_baud_counter.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|tx_baud_counter.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1707230542.154000
+Z12 !s107 tx_baud_counter.vo|
+!s101 -O0
+vtx_baud_counter_vlg_check_tst
+!i10b 1
+Z13 !s100 Y=V>L@UfOWJk2bOFiG3e@0
+Z14 IP^Si0CK?GOI<DAYi<o]0A1
+Z15 Vf129]38Fl593kjH;i[B3@0
+R4
+Z16 w1707230540
+Z17 8tx_baud_counter.vt
+Z18 Ftx_baud_counter.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1707230542.435000
+Z20 !s107 tx_baud_counter.vt|
+Z21 !s90 -work|work|tx_baud_counter.vt|
+!s101 -O0
+R10
+vtx_baud_counter_vlg_sample_tst
+!i10b 1
+Z22 !s100 z7>z1LNVFAWOmma7mmZ:l2
+Z23 IeN=:Y4oT[dBGAdG_>8Pj52
+Z24 VERD>X?Ln:WDz@Bd9<dXZb1
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vtx_baud_counter_vlg_vec_tst
+!i10b 1
+!s100 @5:dKUM1NDI3;ShEVk2GS0
+IOj_2VQOh:_<9:^^5zlH]]3
+Z25 VdYjo_U8Wz[Jg2Dg?n0SVg1
+R4
+R16
+R17
+R18
+Z26 L0 185
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

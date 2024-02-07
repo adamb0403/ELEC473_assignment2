@@ -1,0 +1,17 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/rx_controller.v
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/rx_controller.vwf
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/db/rx_controller.cbx.xml
+design_name = rx_controller
+instance = comp, \ctrl_counter~input , ctrl_counter~input, rx_controller, 1
+instance = comp, \clk~input , clk~input, rx_controller, 1
+instance = comp, \ctrl_sr_load~output , ctrl_sr_load~output, rx_controller, 1
+instance = comp, \current_state~output , current_state~output, rx_controller, 1
+instance = comp, \ctrl_reset_baud~output , ctrl_reset_baud~output, rx_controller, 1
+instance = comp, \ctrl_half_baud~input , ctrl_half_baud~input, rx_controller, 1
+instance = comp, \reset~input , reset~input, rx_controller, 1
+instance = comp, \ctrl_rx~input , ctrl_rx~input, rx_controller, 1
+instance = comp, \current_state~0 , current_state~0, rx_controller, 1
+instance = comp, \current_state~reg0 , current_state~reg0, rx_controller, 1
+instance = comp, \ctrl_sr_load~0 , ctrl_sr_load~0, rx_controller, 1
+instance = comp, \ctrl_reset_baud~0 , ctrl_reset_baud~0, rx_controller, 1

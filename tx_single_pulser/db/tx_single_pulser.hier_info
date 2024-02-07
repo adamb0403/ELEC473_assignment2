@@ -1,0 +1,9 @@
+|tx_single_pulser
+clk => current_state.CLK
+reset => current_state.OUTPUTSELECT
+pulser_in => current_state.OUTPUTSELECT
+pulser_in => current_state.OUTPUTSELECT
+pulser_in => pulser_out.IN1
+pulser_out <= pulser_out.DB_MAX_OUTPUT_PORT_TYPE
+
+

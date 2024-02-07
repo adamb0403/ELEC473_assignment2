@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_shift_register\simulation\qsim
+vrx_shift_register
+Z1 Ig>[GV<FloX3zfm[41d6XL0
+Z2 VOWbM<QU>5mS^6`NN6VoM73
+Z3 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_shift_register\simulation\qsim
+Z4 w1707254314
+Z5 8rx_shift_register.vo
+Z6 Frx_shift_register.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|rx_shift_register.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 cVQA1jF5aCZ`S?cE4=NeM0
+!s85 0
+Z11 !s108 1707254315.571000
+Z12 !s107 rx_shift_register.vo|
+!s101 -O0
+vrx_shift_register_vlg_check_tst
+!i10b 1
+!s100 fSU=b85gmQllCd=Di8W7R2
+IT<ULY4US`IY^F<LzSgS?:3
+VhW2^hHY4oWW5g61HE?UH33
+R3
+Z13 w1707254313
+Z14 8rx_shift_register.vt
+Z15 Frx_shift_register.vt
+L0 63
+R7
+r1
+!s85 0
+31
+Z16 !s108 1707254315.671000
+Z17 !s107 rx_shift_register.vt|
+Z18 !s90 -work|work|rx_shift_register.vt|
+!s101 -O0
+R9
+vrx_shift_register_vlg_sample_tst
+!i10b 1
+!s100 hjk83kd??41L5_cNWEUMF0
+IH>eJC@XC@6QC;U4CB_^3i1
+V6ZfSYJ1dV7A7ZWfMT=W>03
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R9
+vrx_shift_register_vlg_vec_tst
+!i10b 1
+!s100 M82B]PO7RdoWAmR2ld;oS3
+I=ZAaKdOW[;V_dSMI2a4;E1
+Z19 V21o;97QfO>E_P73LQa=>X3
+R3
+R13
+R14
+R15
+L0 348
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R9

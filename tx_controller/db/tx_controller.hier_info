@@ -1,0 +1,16 @@
+|tx_controller
+clk => current_state[0]~reg0.CLK
+clk => current_state[1]~reg0.CLK
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+ctrl_pulser => current_state.OUTPUTSELECT
+ctrl_pulser => current_state.OUTPUTSELECT
+ctrl_baud => ctrl_sr_shift.IN1
+ctrl_counter => current_state.OUTPUTSELECT
+ctrl_counter => current_state.OUTPUTSELECT
+ctrl_sr_load <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_sr_shift <= ctrl_sr_shift.DB_MAX_OUTPUT_PORT_TYPE
+
+

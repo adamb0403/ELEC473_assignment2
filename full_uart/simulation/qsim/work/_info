@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\full_uart\simulation\qsim
+vfull_uart
+Z1 !s100 73nIaMQ9PV^nVa;CICDz?3
+Z2 INFaa^53TRFCA5?AM^Ri7?0
+Z3 V?:c:J=:PeNzIZ4JCUmjfi1
+Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\full_uart\simulation\qsim
+Z5 w1707308407
+Z6 8full_uart.vo
+Z7 Ffull_uart.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|full_uart.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1707308408.604000
+Z12 !s107 full_uart.vo|
+!s101 -O0
+vfull_uart_vlg_check_tst
+!i10b 1
+!s100 d2LeIOBkXRm8Q<I^PT5Z00
+I=^Lm;6T1C1GSAg0d2:A950
+Z13 VeI@BMFWl3Gka2VTCV27Dj0
+R4
+Z14 w1707308406
+Z15 8full_uart.vt
+Z16 Ffull_uart.vt
+L0 63
+R8
+r1
+!s85 0
+31
+Z17 !s108 1707308408.857000
+Z18 !s107 full_uart.vt|
+Z19 !s90 -work|work|full_uart.vt|
+!s101 -O0
+R10
+vfull_uart_vlg_sample_tst
+!i10b 1
+Z20 !s100 dRh5l9A_1@2nU?mkoMkKG0
+Z21 I0=;U>I?8OLAdNEgzOV>j]1
+Z22 V?0bzAXg2SfTjJNV[T]j?b0
+R4
+R14
+R15
+R16
+L0 29
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10
+vfull_uart_vlg_vec_tst
+!i10b 1
+!s100 `8lX5ESUOWD83alS0G=K10
+IDBM1:6aV5AYab:6HShmjF3
+Z23 V3@DFfJi_=hL=E90C02mhk0
+R4
+R14
+R15
+R16
+Z24 L0 803
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10

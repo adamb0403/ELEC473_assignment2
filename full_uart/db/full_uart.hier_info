@@ -1,0 +1,479 @@
+|full_uart
+CLOCK_50 => CLOCK_50.IN2
+KEY[0] => KEY[0].IN2
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
+SW[0] => SW[0].IN1
+SW[1] => ~NO_FANOUT~
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+UART_RXD => UART_RXD.IN1
+UART_TXD <= tx_uart:tx.UART_TXD
+tx_ctrl_state[0] <= tx_uart:tx.ctrl_state
+tx_ctrl_state[1] <= tx_uart:tx.ctrl_state
+rx_ctrl_state <= rx_uart:rx.ctrl_state
+rx_ctrl_load_counter <= rx_uart:rx.ctrl_load_counter
+rx_sr_parity[0] <= rx_uart:rx.sr_parity
+rx_sr_parity[1] <= rx_uart:rx.sr_parity
+rx_sr_parity[2] <= rx_uart:rx.sr_parity
+rx_sr_parity[3] <= rx_uart:rx.sr_parity
+rx_sr_parity[4] <= rx_uart:rx.sr_parity
+rx_sr_parity[5] <= rx_uart:rx.sr_parity
+rx_sr_parity[6] <= rx_uart:rx.sr_parity
+rx_sr_parity[7] <= rx_uart:rx.sr_parity
+rx_sr_parity[8] <= rx_uart:rx.sr_parity
+rx_sr_parity[9] <= rx_uart:rx.sr_parity
+rx_sr_parity[10] <= rx_uart:rx.sr_parity
+rx_parity_7sd[0] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[1] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[2] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[3] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[4] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[5] <= rx_uart:rx.parity_7sd
+rx_parity_7sd[6] <= rx_uart:rx.parity_7sd
+HEX5[0] <= tx_uart:tx.HEX5
+HEX5[1] <= tx_uart:tx.HEX5
+HEX5[2] <= tx_uart:tx.HEX5
+HEX5[3] <= tx_uart:tx.HEX5
+HEX5[4] <= tx_uart:tx.HEX5
+HEX5[5] <= tx_uart:tx.HEX5
+HEX5[6] <= tx_uart:tx.HEX5
+HEX4[0] <= tx_uart:tx.HEX4
+HEX4[1] <= tx_uart:tx.HEX4
+HEX4[2] <= tx_uart:tx.HEX4
+HEX4[3] <= tx_uart:tx.HEX4
+HEX4[4] <= tx_uart:tx.HEX4
+HEX4[5] <= tx_uart:tx.HEX4
+HEX4[6] <= tx_uart:tx.HEX4
+HEX1[0] <= rx_uart:rx.HEX1
+HEX1[1] <= rx_uart:rx.HEX1
+HEX1[2] <= rx_uart:rx.HEX1
+HEX1[3] <= rx_uart:rx.HEX1
+HEX1[4] <= rx_uart:rx.HEX1
+HEX1[5] <= rx_uart:rx.HEX1
+HEX1[6] <= rx_uart:rx.HEX1
+HEX0[0] <= rx_uart:rx.HEX0
+HEX0[1] <= rx_uart:rx.HEX0
+HEX0[2] <= rx_uart:rx.HEX0
+HEX0[3] <= rx_uart:rx.HEX0
+HEX0[4] <= rx_uart:rx.HEX0
+HEX0[5] <= rx_uart:rx.HEX0
+HEX0[6] <= rx_uart:rx.HEX0
+LEDR[2] <= rx_uart:rx.LEDR
+LEDG[6] <= rx_uart:rx.LEDG
+
+
+|full_uart|tx_uart:tx
+CLOCK_50 => CLOCK_50.IN6
+KEY[0] => KEY[0].IN5
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => KEY[3].IN1
+SW[2] => SW[2].IN2
+SW[3] => SW[3].IN2
+SW[4] => SW[4].IN2
+SW[5] => SW[5].IN2
+SW[6] => SW[6].IN2
+SW[7] => SW[7].IN2
+SW[8] => SW[8].IN2
+UART_TXD <= tx_shift_register:sr.tx_sr_out
+ctrl_state[0] <= tx_controller:ctrl.current_state
+ctrl_state[1] <= tx_controller:ctrl.current_state
+HEX5[0] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[1] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[2] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[3] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[4] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[5] <= tx_7segdecoder:msb.seven_seg_output
+HEX5[6] <= tx_7segdecoder:msb.seven_seg_output
+HEX4[0] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[1] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[2] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[3] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[4] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[5] <= tx_7segdecoder:lsb.seven_seg_output
+HEX4[6] <= tx_7segdecoder:lsb.seven_seg_output
+
+
+|full_uart|tx_uart:tx|tx_7segdecoder:msb
+seven_seg_input[0] => Decoder0.IN3
+seven_seg_input[1] => Decoder0.IN2
+seven_seg_input[2] => Decoder0.IN1
+seven_seg_input[3] => Decoder0.IN0
+seven_seg_output[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_7segdecoder:lsb
+seven_seg_input[0] => Decoder0.IN3
+seven_seg_input[1] => Decoder0.IN2
+seven_seg_input[2] => Decoder0.IN1
+seven_seg_input[3] => Decoder0.IN0
+seven_seg_output[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_baud_counter:baud
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+reset => always0.IN0
+reset_count => always0.IN1
+baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_counter:counter
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_out <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_synchroniser:synchroniser
+clk => ff2.CLK
+clk => ff1.CLK
+key_in => ff1.DATAIN
+key_out <= ff2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_single_pulser:pulser
+clk => current_state.CLK
+reset => current_state.OUTPUTSELECT
+pulser_in => current_state.OUTPUTSELECT
+pulser_in => current_state.OUTPUTSELECT
+pulser_in => pulser_out.IN1
+pulser_out <= pulser_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_parity:parity
+parity_in[0] => WideXnor0.IN0
+parity_in[0] => parity_out[2].DATAIN
+parity_in[1] => WideXnor0.IN1
+parity_in[1] => parity_out[3].DATAIN
+parity_in[2] => WideXnor0.IN2
+parity_in[2] => parity_out[4].DATAIN
+parity_in[3] => WideXnor0.IN3
+parity_in[3] => parity_out[5].DATAIN
+parity_in[4] => WideXnor0.IN4
+parity_in[4] => parity_out[6].DATAIN
+parity_in[5] => WideXnor0.IN5
+parity_in[5] => parity_out[7].DATAIN
+parity_in[6] => WideXnor0.IN6
+parity_in[6] => parity_out[8].DATAIN
+parity_out[0] <= <VCC>
+parity_out[1] <= <GND>
+parity_out[2] <= parity_in[0].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[3] <= parity_in[1].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[4] <= parity_in[2].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[5] <= parity_in[3].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[6] <= parity_in[4].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[7] <= parity_in[5].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[8] <= parity_in[6].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[9] <= WideXnor0.DB_MAX_OUTPUT_PORT_TYPE
+parity_out[10] <= <VCC>
+
+
+|full_uart|tx_uart:tx|tx_shift_register:sr
+clk => tmp_data[0].CLK
+clk => tmp_data[1].CLK
+clk => tmp_data[2].CLK
+clk => tmp_data[3].CLK
+clk => tmp_data[4].CLK
+clk => tmp_data[5].CLK
+clk => tmp_data[6].CLK
+clk => tmp_data[7].CLK
+clk => tmp_data[8].CLK
+clk => tmp_data[9].CLK
+clk => tmp_data[10].CLK
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_load => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_shift => tmp_data.OUTPUTSELECT
+tx_sr_in[0] => tmp_data.DATAB
+tx_sr_in[1] => tmp_data.DATAB
+tx_sr_in[2] => tmp_data.DATAB
+tx_sr_in[3] => tmp_data.DATAB
+tx_sr_in[4] => tmp_data.DATAB
+tx_sr_in[5] => tmp_data.DATAB
+tx_sr_in[6] => tmp_data.DATAB
+tx_sr_in[7] => tmp_data.DATAB
+tx_sr_in[8] => tmp_data.DATAB
+tx_sr_in[9] => tmp_data.DATAB
+tx_sr_in[10] => tmp_data.DATAB
+tx_sr_out <= tmp_data[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|tx_controller:ctrl
+clk => current_state[0]~reg0.CLK
+clk => current_state[1]~reg0.CLK
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+ctrl_pulser => current_state.OUTPUTSELECT
+ctrl_pulser => current_state.OUTPUTSELECT
+ctrl_baud => ctrl_sr_shift.IN1
+ctrl_counter => current_state.OUTPUTSELECT
+ctrl_counter => current_state.OUTPUTSELECT
+ctrl_sr_load <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_sr_shift <= ctrl_sr_shift.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx
+CLOCK_50 => CLOCK_50.IN4
+KEY[0] => KEY[0].IN4
+SW[0] => ~NO_FANOUT~
+UART_RXD => UART_RXD.IN2
+ctrl_state <= rx_controller:ctrl_rx.current_state
+ctrl_load_counter <= ctrl_load_counter.DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[0] <= sr_parity[0].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[1] <= sr_parity[1].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[2] <= sr_parity[2].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[3] <= sr_parity[3].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[4] <= sr_parity[4].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[5] <= sr_parity[5].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[6] <= sr_parity[6].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[7] <= sr_parity[7].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[8] <= sr_parity[8].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[9] <= sr_parity[9].DB_MAX_OUTPUT_PORT_TYPE
+sr_parity[10] <= sr_parity[10].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[0] <= parity_7sd[0].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[1] <= parity_7sd[1].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[2] <= parity_7sd[2].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[3] <= parity_7sd[3].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[4] <= parity_7sd[4].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[5] <= parity_7sd[5].DB_MAX_OUTPUT_PORT_TYPE
+parity_7sd[6] <= parity_7sd[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[1] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[2] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[3] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[4] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[5] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX1[6] <= tx_7segdecoder:msb_rx.seven_seg_output
+HEX0[0] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[1] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[2] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[3] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[4] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[5] <= tx_7segdecoder:lsb_rx.seven_seg_output
+HEX0[6] <= tx_7segdecoder:lsb_rx.seven_seg_output
+LEDR[2] <= rx_parity_check:parity_rx.p_check_out
+LEDG[6] <= rx_parity_check:parity_rx.framing_out
+
+
+|full_uart|rx_uart:rx|tx_7segdecoder:msb_rx
+seven_seg_input[0] => Decoder0.IN3
+seven_seg_input[1] => Decoder0.IN2
+seven_seg_input[2] => Decoder0.IN1
+seven_seg_input[3] => Decoder0.IN0
+seven_seg_output[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|tx_7segdecoder:lsb_rx
+seven_seg_input[0] => Decoder0.IN3
+seven_seg_input[1] => Decoder0.IN2
+seven_seg_input[2] => Decoder0.IN1
+seven_seg_input[3] => Decoder0.IN0
+seven_seg_output[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg_output[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|tx_baud_counter:baud_rx
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+reset => always0.IN0
+reset_count => always0.IN1
+baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|tx_counter:counter_rx
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_enable => count.OUTPUTSELECT
+count_out <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|rx_parity_check:parity_rx
+parity_in[0] => ~NO_FANOUT~
+parity_in[1] => ~NO_FANOUT~
+parity_in[2] => WideXnor0.IN0
+parity_in[2] => parity_out[0].DATAIN
+parity_in[3] => WideXnor0.IN1
+parity_in[3] => parity_out[1].DATAIN
+parity_in[4] => WideXnor0.IN2
+parity_in[4] => parity_out[2].DATAIN
+parity_in[5] => WideXnor0.IN3
+parity_in[5] => parity_out[3].DATAIN
+parity_in[6] => WideXnor0.IN4
+parity_in[6] => parity_out[4].DATAIN
+parity_in[7] => WideXnor0.IN5
+parity_in[7] => parity_out[5].DATAIN
+parity_in[8] => WideXnor0.IN6
+parity_in[8] => parity_out[6].DATAIN
+parity_in[9] => always0.IN1
+parity_in[10] => framing_out.DATAIN
+parity_out[0] <= parity_in[2].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[1] <= parity_in[3].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[2] <= parity_in[4].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[3] <= parity_in[5].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[4] <= parity_in[6].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[5] <= parity_in[7].DB_MAX_OUTPUT_PORT_TYPE
+parity_out[6] <= parity_in[8].DB_MAX_OUTPUT_PORT_TYPE
+p_check_out <= always0.DB_MAX_OUTPUT_PORT_TYPE
+framing_out <= parity_in[10].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|rx_shift_register:sr_rx
+clk => tmp_data[0].CLK
+clk => tmp_data[1].CLK
+clk => tmp_data[2].CLK
+clk => tmp_data[3].CLK
+clk => tmp_data[4].CLK
+clk => tmp_data[5].CLK
+clk => tmp_data[6].CLK
+clk => tmp_data[7].CLK
+clk => tmp_data[8].CLK
+clk => tmp_data[9].CLK
+clk => tmp_data[10].CLK
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+reset => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_load => tmp_data.OUTPUTSELECT
+rx_sr_in => tmp_data.DATAB
+rx_sr_out[0] <= tmp_data[0].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[1] <= tmp_data[1].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[2] <= tmp_data[2].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[3] <= tmp_data[3].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[4] <= tmp_data[4].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[5] <= tmp_data[5].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[6] <= tmp_data[6].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[7] <= tmp_data[7].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[8] <= tmp_data[8].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[9] <= tmp_data[9].DB_MAX_OUTPUT_PORT_TYPE
+rx_sr_out[10] <= tmp_data[10].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|rx_controller:ctrl_rx
+clk => current_state~reg0.CLK
+reset => current_state.OUTPUTSELECT
+ctrl_counter => current_state.OUTPUTSELECT
+ctrl_half_baud => ctrl_sr_load.IN1
+ctrl_rx => current_state.OUTPUTSELECT
+ctrl_rx => ctrl_reset_baud.IN1
+ctrl_sr_load <= ctrl_sr_load.DB_MAX_OUTPUT_PORT_TYPE
+current_state <= current_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_reset_baud <= ctrl_reset_baud.DB_MAX_OUTPUT_PORT_TYPE
+
+

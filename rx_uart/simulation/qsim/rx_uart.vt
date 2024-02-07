@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "02/06/2024 21:52:55"
+// Generated on "02/07/2024 11:23:44"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    rx_uart
 // 
@@ -272,96 +272,115 @@ end
 initial
 begin
 	ctrl_load_counter_expected = 1'bX;
+	ctrl_load_counter_expected = #1999000 1'b0;
 end 
 // expected parity_7sd[ 6 ]
 initial
 begin
 	parity_7sd_expected[6] = 1'bX;
+	parity_7sd_expected[6] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 5 ]
 initial
 begin
 	parity_7sd_expected[5] = 1'bX;
+	parity_7sd_expected[5] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 4 ]
 initial
 begin
 	parity_7sd_expected[4] = 1'bX;
+	parity_7sd_expected[4] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 3 ]
 initial
 begin
 	parity_7sd_expected[3] = 1'bX;
+	parity_7sd_expected[3] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 2 ]
 initial
 begin
 	parity_7sd_expected[2] = 1'bX;
+	parity_7sd_expected[2] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 1 ]
 initial
 begin
 	parity_7sd_expected[1] = 1'bX;
+	parity_7sd_expected[1] = #1999000 1'b0;
 end 
 // expected parity_7sd[ 0 ]
 initial
 begin
 	parity_7sd_expected[0] = 1'bX;
+	parity_7sd_expected[0] = #1999000 1'b0;
 end 
 // expected sr_parity[ 10 ]
 initial
 begin
 	sr_parity_expected[10] = 1'bX;
+	sr_parity_expected[10] = #1999000 1'b0;
 end 
 // expected sr_parity[ 9 ]
 initial
 begin
 	sr_parity_expected[9] = 1'bX;
+	sr_parity_expected[9] = #1999000 1'b0;
 end 
 // expected sr_parity[ 8 ]
 initial
 begin
 	sr_parity_expected[8] = 1'bX;
+	sr_parity_expected[8] = #1999000 1'b0;
 end 
 // expected sr_parity[ 7 ]
 initial
 begin
 	sr_parity_expected[7] = 1'bX;
+	sr_parity_expected[7] = #1999000 1'b0;
 end 
 // expected sr_parity[ 6 ]
 initial
 begin
 	sr_parity_expected[6] = 1'bX;
+	sr_parity_expected[6] = #1999000 1'b0;
 end 
 // expected sr_parity[ 5 ]
 initial
 begin
 	sr_parity_expected[5] = 1'bX;
+	sr_parity_expected[5] = #1999000 1'b0;
 end 
 // expected sr_parity[ 4 ]
 initial
 begin
 	sr_parity_expected[4] = 1'bX;
+	sr_parity_expected[4] = #1999000 1'b0;
 end 
 // expected sr_parity[ 3 ]
 initial
 begin
 	sr_parity_expected[3] = 1'bX;
+	sr_parity_expected[3] = #1999000 1'b0;
 end 
 // expected sr_parity[ 2 ]
 initial
 begin
 	sr_parity_expected[2] = 1'bX;
+	sr_parity_expected[2] = #1999000 1'b0;
 end 
 // expected sr_parity[ 1 ]
 initial
 begin
 	sr_parity_expected[1] = 1'bX;
+	sr_parity_expected[1] = #1999000 1'b0;
 end 
 // expected sr_parity[ 0 ]
 initial
 begin
 	sr_parity_expected[0] = 1'bX;
+	sr_parity_expected[0] = #1999000 1'b0;
 end 
 // generate trigger
 always @(HEX0_expected or HEX0 or HEX1_expected or HEX1 or LEDG_expected or LEDG or LEDR_expected or LEDR or ctrl_load_counter_expected or ctrl_load_counter or ctrl_state_expected or ctrl_state or parity_7sd_expected or parity_7sd or sr_parity_expected or sr_parity)
@@ -852,7 +871,7 @@ initial
 
 begin 
 $timeformat(-12,3," ps",6);
-#2000000;
+#3000000;
 if (nummismatches > 0)
 	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
 else
@@ -909,6 +928,8 @@ end
 initial
 begin
 	KEY[0] = 1'b1;
+	KEY[0] = #2300000 1'b0;
+	KEY[0] = #20000 1'b1;
 end 
 
 // UART_RXD
@@ -921,7 +942,19 @@ begin
 	UART_RXD = #160000 1'b1;
 	UART_RXD = #80000 1'b0;
 	UART_RXD = #80000 1'b1;
-	UART_RXD = #1310000 1'b0;
+	UART_RXD = #200000 1'b0;
+	UART_RXD = #240000 1'b1;
+	UART_RXD = #160000 1'b0;
+	UART_RXD = #80000 1'b1;
+	UART_RXD = #80000 1'b0;
+	UART_RXD = #80000 1'b1;
+	UART_RXD = #480000 1'b0;
+	UART_RXD = #80000 1'b1;
+	UART_RXD = #160000 1'b0;
+	UART_RXD = #240000 1'b1;
+	UART_RXD = #80000 1'b0;
+	UART_RXD = #160000 1'b1;
+	UART_RXD = #80000 1'b0;
 end 
 
 rx_uart_vlg_sample_tst tb_sample (

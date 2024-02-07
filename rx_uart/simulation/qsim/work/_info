@@ -4,78 +4,78 @@ K3
 cModel Technology
 Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_uart\simulation\qsim
 vrx_uart
-Z1 I4jGAeAXUdGDQDHNY`AoaN0
-Z2 Ve3hIMGZC0EeJhD?AJ0eL93
-Z3 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_uart\simulation\qsim
-Z4 w1707256376
-Z5 8rx_uart.vo
-Z6 Frx_uart.vo
+Z1 !s100 hU:XBmX<SY3?I]SJNN^ND2
+Z2 I4jGAeAXUdGDQDHNY`AoaN0
+Z3 Ve3hIMGZC0EeJhD?AJ0eL93
+Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_uart\simulation\qsim
+Z5 w1707305025
+Z6 8rx_uart.vo
+Z7 Frx_uart.vo
 L0 31
-Z7 OV;L;10.1d;51
+Z8 OV;L;10.1d;51
 r1
 31
-Z8 !s90 -work|work|rx_uart.vo|
-Z9 o-work work -O0
+Z9 !s90 -work|work|rx_uart.vo|
+Z10 o-work work -O0
 !i10b 1
-Z10 !s100 hU:XBmX<SY3?I]SJNN^ND2
 !s85 0
-Z11 !s108 1707256376.676000
+Z11 !s108 1707305027.711000
 Z12 !s107 rx_uart.vo|
 !s101 -O0
 vrx_uart_vlg_check_tst
 !i10b 1
-Z13 !s100 YaQG5A3IU`H9Bk=g2WGP^0
-Z14 Iz<zoolMRg55HLFo^Ch=181
-Z15 VR4j^bbDCaDe8?NZYaT8LR2
-R3
-Z16 w1707256375
-Z17 8rx_uart.vt
-Z18 Frx_uart.vt
+!s100 WJ15b5QPiQo[4;?P<VdKm0
+II4ZBcG=J??^>UE8M51In22
+Z13 VR4j^bbDCaDe8?NZYaT8LR2
+R4
+Z14 w1707305024
+Z15 8rx_uart.vt
+Z16 Frx_uart.vt
 L0 63
-R7
+R8
 r1
 !s85 0
 31
-Z19 !s108 1707256376.772000
-Z20 !s107 rx_uart.vt|
-Z21 !s90 -work|work|rx_uart.vt|
+Z17 !s108 1707305027.877000
+Z18 !s107 rx_uart.vt|
+Z19 !s90 -work|work|rx_uart.vt|
 !s101 -O0
-R9
+R10
 vrx_uart_vlg_sample_tst
 !i10b 1
-Z22 !s100 4QL?kVzg2TR48foEcLV2@2
-Z23 I?H7g;a@<m6iEGmeVRFj202
-Z24 VNgDkYcS=3B]=7Qca59bCz2
-R3
+Z20 !s100 4QL?kVzg2TR48foEcLV2@2
+Z21 I?H7g;a@<m6iEGmeVRFj202
+Z22 VNgDkYcS=3B]=7Qca59bCz2
+R4
+R14
+R15
 R16
-R17
-R18
 L0 29
-R7
+R8
 r1
 !s85 0
 31
+R17
+R18
 R19
-R20
-R21
 !s101 -O0
-R9
+R10
 vrx_uart_vlg_vec_tst
 !i10b 1
-Z25 !s100 d@a_2Yea967J5m_neL9Q;0
-Z26 IRRMMiDfWeCV7_z0cBU_A=2
-Z27 Vo3QP39XM7E:B]aKfdP>6D0
-R3
+!s100 jl:bUimdFj7AM6>X4WO1M0
+I`bVM5kIKdQXU5=VdW6m722
+Z23 Vo3QP39XM7E:B]aKfdP>6D0
+R4
+R14
+R15
 R16
-R17
-R18
-Z28 L0 864
-R7
+L0 883
+R8
 r1
 !s85 0
 31
+R17
+R18
 R19
-R20
-R21
 !s101 -O0
-R9
+R10

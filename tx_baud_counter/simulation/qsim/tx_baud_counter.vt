@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "02/06/2024 14:42:19"
+// Generated on "02/07/2024 18:14:39"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    tx_baud_counter
 // 
@@ -61,30 +61,36 @@ endmodule
 module tx_baud_counter_vlg_check_tst (
 	baud_output,
 	half_baud_output,
+	irda_baud_output,
 	sampler_rx
 );
 input  baud_output;
 input  half_baud_output;
+input  irda_baud_output;
 input sampler_rx;
 
 reg  baud_output_expected;
 reg  half_baud_output_expected;
+reg  irda_baud_output_expected;
 
 reg  baud_output_prev;
 reg  half_baud_output_prev;
+reg  irda_baud_output_prev;
 
 reg  baud_output_expected_prev;
 reg  half_baud_output_expected_prev;
+reg  irda_baud_output_expected_prev;
 
 reg  last_baud_output_exp;
 reg  last_half_baud_output_exp;
+reg  last_irda_baud_output_exp;
 
 reg trigger;
 
 integer i;
 integer nummismatches;
 
-reg [1:2] on_first_change ;
+reg [1:3] on_first_change ;
 
 
 initial
@@ -92,7 +98,7 @@ begin
 trigger = 0;
 i = 0;
 nummismatches = 0;
-on_first_change = 2'b1;
+on_first_change = 3'b1;
 end
 
 // update real /o prevs
@@ -101,6 +107,7 @@ always @(trigger)
 begin
 	baud_output_prev = baud_output;
 	half_baud_output_prev = half_baud_output;
+	irda_baud_output_prev = irda_baud_output;
 end
 
 // update expected /o prevs
@@ -109,6 +116,7 @@ always @(trigger)
 begin
 	baud_output_expected_prev = baud_output_expected;
 	half_baud_output_expected_prev = half_baud_output_expected;
+	irda_baud_output_expected_prev = irda_baud_output_expected;
 end
 
 
@@ -126,8 +134,14 @@ begin
 	half_baud_output_expected = 1'bX;
 	half_baud_output_expected = #1199000 1'b0;
 end 
+
+// expected irda_baud_output
+initial
+begin
+	irda_baud_output_expected = 1'bX;
+end 
 // generate trigger
-always @(baud_output_expected or baud_output or half_baud_output_expected or half_baud_output)
+always @(baud_output_expected or baud_output or half_baud_output_expected or half_baud_output or irda_baud_output_expected or irda_baud_output)
 begin
 	trigger <= ~trigger;
 end
@@ -137,8 +151,8 @@ begin
 `ifdef debug_tbench
 	$display("Scanning pattern %d @time = %t",i,$realtime );
 	i = i + 1;
-	$display("| expected baud_output = %b | expected half_baud_output = %b | ",baud_output_expected_prev,half_baud_output_expected_prev);
-	$display("| real baud_output = %b | real half_baud_output = %b | ",baud_output_prev,half_baud_output_prev);
+	$display("| expected baud_output = %b | expected half_baud_output = %b | expected irda_baud_output = %b | ",baud_output_expected_prev,half_baud_output_expected_prev,irda_baud_output_expected_prev);
+	$display("| real baud_output = %b | real half_baud_output = %b | real irda_baud_output = %b | ",baud_output_prev,half_baud_output_prev,irda_baud_output_prev);
 `endif
 	if (
 		( baud_output_expected_prev !== 1'bx ) && ( baud_output_prev !== baud_output_expected_prev )
@@ -166,6 +180,19 @@ begin
 		on_first_change[2] = 1'b0;
 		last_half_baud_output_exp = half_baud_output_expected_prev;
 	end
+	if (
+		( irda_baud_output_expected_prev !== 1'bx ) && ( irda_baud_output_prev !== irda_baud_output_expected_prev )
+		&& ((irda_baud_output_expected_prev !== last_irda_baud_output_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port irda_baud_output :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", irda_baud_output_expected_prev);
+		$display ("     Real value = %b", irda_baud_output_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_irda_baud_output_exp = irda_baud_output_expected_prev;
+	end
 
 	trigger <= ~trigger;
 end
@@ -191,6 +218,7 @@ reg reset_count;
 // wires                                               
 wire baud_output;
 wire half_baud_output;
+wire irda_baud_output;
 
 wire sampler;                             
 
@@ -200,6 +228,7 @@ tx_baud_counter i1 (
 	.baud_output(baud_output),
 	.clk(clk),
 	.half_baud_output(half_baud_output),
+	.irda_baud_output(irda_baud_output),
 	.reset(reset),
 	.reset_count(reset_count)
 );
@@ -238,6 +267,7 @@ tx_baud_counter_vlg_sample_tst tb_sample (
 tx_baud_counter_vlg_check_tst tb_out(
 	.baud_output(baud_output),
 	.half_baud_output(half_baud_output),
+	.irda_baud_output(irda_baud_output),
 	.sampler_rx(sampler)
 );
 endmodule

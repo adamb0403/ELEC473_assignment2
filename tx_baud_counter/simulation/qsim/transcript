@@ -16,7 +16,6 @@
 # vsim -L cycloneii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.tx_baud_counter_vlg_vec_tst 
 # Loading work.tx_baud_counter_vlg_vec_tst
 # Loading work.tx_baud_counter
-# Loading cycloneii_ver.cycloneii_lcell_ff
 # Loading cycloneii_ver.cycloneii_lcell_comb
 # Loading cycloneii_ver.cycloneii_io
 # Loading cycloneii_ver.cycloneii_mux21
@@ -25,15 +24,16 @@
 # Loading cycloneii_ver.cycloneii_clkctrl
 # Loading cycloneii_ver.cycloneii_mux41
 # Loading cycloneii_ver.cycloneii_ena_reg
+# Loading cycloneii_ver.cycloneii_lcell_ff
 # Loading work.tx_baud_counter_vlg_sample_tst
 # Loading work.tx_baud_counter_vlg_check_tst
 # Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
+# ERROR! Vector Mismatch for output port half_baud_output :: @time = 13260000.000 ps
+#      Expected value = 0
+#      Real value = 1
 # ERROR! Vector Mismatch for output port baud_output :: @time = 26260000.000 ps
 #      Expected value = 0
 #      Real value = 1
-# ERROR! Vector Mismatch for output port half_baud_output :: @time = 26320000.000 ps
-#      Expected value = 0
-#      Real value = 1
 #           2 mismatched vectors : Simulation failed !
-# ** Note: $finish    : tx_baud_counter.vt(181)
+# ** Note: $finish    : tx_baud_counter.vt(208)
 #    Time: 30 us  Iteration: 0  Instance: /tx_baud_counter_vlg_vec_tst/tb_out

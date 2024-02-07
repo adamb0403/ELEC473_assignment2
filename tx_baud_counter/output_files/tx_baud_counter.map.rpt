@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tx_baud_counter
-Tue Feb 06 14:38:18 2024
+Wed Feb 07 18:14:17 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Feb 06 14:38:18 2024           ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 07 18:14:17 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; tx_baud_counter                                 ;
 ; Top-level Entity Name              ; tx_baud_counter                                 ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 19                                              ;
-;     Total combinational functions  ; 19                                              ;
+; Total logic elements               ; 24                                              ;
+;     Total combinational functions  ; 24                                              ;
 ;     Dedicated logic registers      ; 11                                              ;
 ; Total registers                    ; 11                                              ;
-; Total pins                         ; 5                                               ;
+; Total pins                         ; 6                                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -169,28 +169,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 19           ;
+; Estimated Total logic elements              ; 24           ;
 ;                                             ;              ;
-; Total combinational functions               ; 19           ;
+; Total combinational functions               ; 24           ;
 ; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 5            ;
-;     -- 3 input functions                    ; 1            ;
-;     -- <=2 input functions                  ; 13           ;
+;     -- 4 input functions                    ; 7            ;
+;     -- 3 input functions                    ; 5            ;
+;     -- <=2 input functions                  ; 12           ;
 ;                                             ;              ;
 ; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 9            ;
+;     -- normal mode                          ; 14           ;
 ;     -- arithmetic mode                      ; 10           ;
 ;                                             ;              ;
 ; Total registers                             ; 11           ;
 ;     -- Dedicated logic registers            ; 11           ;
 ;     -- I/O registers                        ; 0            ;
 ;                                             ;              ;
-; I/O pins                                    ; 5            ;
+; I/O pins                                    ; 6            ;
 ; Embedded Multiplier 9-bit elements          ; 0            ;
-; Maximum fan-out node                        ; count[10]~31 ;
+; Maximum fan-out node                        ; count[10]~24 ;
 ; Maximum fan-out                             ; 11           ;
-; Total fan-out                               ; 83           ;
-; Average fan-out                             ; 2.37         ;
+; Total fan-out                               ; 102          ;
+; Average fan-out                             ; 2.49         ;
 +---------------------------------------------+--------------+
 
 
@@ -199,7 +199,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |tx_baud_counter           ; 19 (19)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |tx_baud_counter    ; work         ;
+; |tx_baud_counter           ; 24 (24)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |tx_baud_counter    ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -243,7 +243,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Feb 06 14:38:14 2024
+    Info: Processing started: Wed Feb 07 18:14:16 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tx_baud_counter -c tx_baud_counter
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file tx_baud_counter.v
@@ -251,14 +251,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file tx_baud
 Info (12127): Elaborating entity "tx_baud_counter" for the top level hierarchy
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 24 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 30 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 19 logic cells
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 24 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4594 megabytes
-    Info: Processing ended: Tue Feb 06 14:38:18 2024
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Wed Feb 07 18:14:17 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

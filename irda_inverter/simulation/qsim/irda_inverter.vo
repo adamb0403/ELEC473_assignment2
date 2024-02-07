@@ -1,0 +1,128 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+
+// DATE "02/07/2024 18:41:13"
+
+// 
+// Device: Altera EP4CGX15BF14C6 Package FBGA169
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module irda_inverter (
+	bit_input,
+	irda_baud,
+	SW,
+	bit_output);
+input 	bit_input;
+input 	irda_baud;
+input 	[0:0] SW;
+output 	bit_output;
+
+// Design Ports Information
+// bit_output	=>  Location: PIN_N6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// irda_baud	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bit_input	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[0]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \bit_output~output_o ;
+wire \irda_baud~input_o ;
+wire \SW[0]~input_o ;
+wire \bit_input~input_o ;
+wire \bit_output~0_combout ;
+
+
+// Location: IOOBUF_X12_Y0_N2
+cycloneiv_io_obuf \bit_output~output (
+	.i(\bit_output~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\bit_output~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \bit_output~output .bus_hold = "false";
+defparam \bit_output~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X10_Y31_N1
+cycloneiv_io_ibuf \irda_baud~input (
+	.i(irda_baud),
+	.ibar(gnd),
+	.o(\irda_baud~input_o ));
+// synopsys translate_off
+defparam \irda_baud~input .bus_hold = "false";
+defparam \irda_baud~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X12_Y31_N8
+cycloneiv_io_ibuf \SW[0]~input (
+	.i(SW[0]),
+	.ibar(gnd),
+	.o(\SW[0]~input_o ));
+// synopsys translate_off
+defparam \SW[0]~input .bus_hold = "false";
+defparam \SW[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X12_Y31_N1
+cycloneiv_io_ibuf \bit_input~input (
+	.i(bit_input),
+	.ibar(gnd),
+	.o(\bit_input~input_o ));
+// synopsys translate_off
+defparam \bit_input~input .bus_hold = "false";
+defparam \bit_input~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N16
+cycloneiv_lcell_comb \bit_output~0 (
+// Equation(s):
+// \bit_output~0_combout  = (\SW[0]~input_o  & (\irda_baud~input_o  & !\bit_input~input_o )) # (!\SW[0]~input_o  & ((\bit_input~input_o )))
+
+	.dataa(\irda_baud~input_o ),
+	.datab(gnd),
+	.datac(\SW[0]~input_o ),
+	.datad(\bit_input~input_o ),
+	.cin(gnd),
+	.combout(\bit_output~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bit_output~0 .lut_mask = 16'h0FA0;
+defparam \bit_output~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign bit_output = \bit_output~output_o ;
+
+endmodule

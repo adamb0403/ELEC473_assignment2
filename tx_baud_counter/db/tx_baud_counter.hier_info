@@ -14,5 +14,6 @@ reset => always0.IN0
 reset_count => always0.IN1
 baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+irda_baud_output <= irda_baud_output.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -1,6 +1,6 @@
 module tx_uart (input CLOCK_50,
                 input [3:0] KEY,
-                input [8:2] SW,
+                input [8:0] SW,
                 output UART_TXD,
                 output [1:0] ctrl_state,
                 output [6:0] HEX5,
@@ -10,9 +10,12 @@ module tx_uart (input CLOCK_50,
     wire synchroniser_pulser;
     wire pulser_ctrl;
     wire baud_ctrl;
+    wire half_baud_ctrl;
+    wire irda_baud_ctrl;
     wire counter_ctrl;
     wire ctrl_shift_counter;
     wire ctrl_load;
+    wire sr_inv;
     wire [10:0] parity_sr;
 
     // Instantiating each block and connecting them within this file through passing inputs/outputs
@@ -29,7 +32,9 @@ module tx_uart (input CLOCK_50,
     tx_baud_counter baud (
         .clk(CLOCK_50),
         .reset(KEY[0]),
-        .baud_output(baud_ctrl)
+        .baud_output(baud_ctrl),
+        .half_baud_output(half_baud_ctrl),
+        .irda_baud_output(irda_baud_ctrl)
         );
 
     tx_counter counter (
@@ -63,7 +68,7 @@ module tx_uart (input CLOCK_50,
         .tx_sr_load(ctrl_load),
         .tx_sr_shift(ctrl_shift_counter),
         .tx_sr_in(parity_sr[10:0]),
-        .tx_sr_out(UART_TXD)
+        .tx_sr_out(sr_inv)
     );
 
     tx_controller ctrl (
@@ -71,10 +76,18 @@ module tx_uart (input CLOCK_50,
         .reset(KEY[0]),
         .ctrl_pulser(pulser_ctrl),
         .ctrl_baud(baud_ctrl),
+        .ctrl_half_baud(half_baud_ctrl),
+        .ctrl_irda_baud(irda_baud_ctrl),
         .ctrl_counter(counter_ctrl),
         .ctrl_sr_load(ctrl_load),
         .ctrl_sr_shift(ctrl_shift_counter),
         .current_state(ctrl_state[1:0])
     );
 	 
+     irda_inverter inv (
+        .bit_input(sr_inv),
+        .bit_output(UART_TXD),
+        .SW(SW[0]),
+        .irda_baud(irda_baud_ctrl),
+     );
 endmodule

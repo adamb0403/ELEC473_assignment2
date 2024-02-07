@@ -4,8 +4,8 @@ KEY[0] => KEY[0].IN2
 KEY[1] => KEY[1].IN1
 KEY[2] => KEY[2].IN1
 KEY[3] => KEY[3].IN1
-SW[0] => SW[0].IN1
-SW[1] => ~NO_FANOUT~
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN1
 SW[2] => SW[2].IN1
 SW[3] => SW[3].IN1
 SW[4] => SW[4].IN1
@@ -75,6 +75,8 @@ KEY[0] => KEY[0].IN5
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
 KEY[3] => KEY[3].IN1
+SW[0] => SW[0].IN1
+SW[1] => ~NO_FANOUT~
 SW[2] => SW[2].IN2
 SW[3] => SW[3].IN2
 SW[4] => SW[4].IN2
@@ -82,7 +84,7 @@ SW[5] => SW[5].IN2
 SW[6] => SW[6].IN2
 SW[7] => SW[7].IN2
 SW[8] => SW[8].IN2
-UART_TXD <= tx_shift_register:sr.tx_sr_out
+UART_TXD <= irda_inverter:inv.bit_output
 ctrl_state[0] <= tx_controller:ctrl.current_state
 ctrl_state[1] <= tx_controller:ctrl.current_state
 HEX5[0] <= tx_7segdecoder:msb.seven_seg_output
@@ -145,6 +147,7 @@ reset => always0.IN0
 reset_count => always0.IN1
 baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+irda_baud_output <= irda_baud_output.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|tx_uart:tx|tx_counter:counter
@@ -274,12 +277,22 @@ reset => current_state.OUTPUTSELECT
 ctrl_pulser => current_state.OUTPUTSELECT
 ctrl_pulser => current_state.OUTPUTSELECT
 ctrl_baud => ctrl_sr_shift.IN1
+ctrl_half_baud => ~NO_FANOUT~
+ctrl_irda_baud => ~NO_FANOUT~
 ctrl_counter => current_state.OUTPUTSELECT
 ctrl_counter => current_state.OUTPUTSELECT
 ctrl_sr_load <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_sr_shift <= ctrl_sr_shift.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|irda_inverter:inv
+bit_input => bit_output.DATAA
+bit_input => bit_output.IN0
+irda_baud => bit_output.IN1
+SW[0] => bit_output.OUTPUTSELECT
+bit_output <= bit_output.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|rx_uart:rx
@@ -369,6 +382,7 @@ reset => always0.IN0
 reset_count => always0.IN1
 baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+irda_baud_output <= irda_baud_output.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|rx_uart:rx|tx_counter:counter_rx

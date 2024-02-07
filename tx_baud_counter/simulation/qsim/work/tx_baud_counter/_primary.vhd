@@ -6,6 +6,7 @@ entity tx_baud_counter is
         reset           : in     vl_logic;
         reset_count     : in     vl_logic;
         baud_output     : out    vl_logic;
-        half_baud_output: out    vl_logic
+        half_baud_output: out    vl_logic;
+        irda_baud_output: out    vl_logic
     );
 end tx_baud_counter;

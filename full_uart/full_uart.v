@@ -18,7 +18,7 @@ module full_uart (input CLOCK_50,
     tx_uart tx (
         .CLOCK_50(CLOCK_50),
         .KEY(KEY[3:0]),
-        .SW(SW[8:2]),
+        .SW(SW[8:0]),
         .UART_TXD(UART_TXD),
         .HEX5(HEX5[6:0]),
         .HEX4(HEX4[6:0]),

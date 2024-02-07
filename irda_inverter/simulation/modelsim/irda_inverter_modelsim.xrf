@@ -1,0 +1,10 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_inverter/irda_inverter.v
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_inverter/irda_inverter.vwf
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_inverter/db/irda_inverter.cbx.xml
+design_name = irda_inverter
+instance = comp, \bit_output~output , bit_output~output, irda_inverter, 1
+instance = comp, \irda_baud~input , irda_baud~input, irda_inverter, 1
+instance = comp, \SW[0]~input , SW[0]~input, irda_inverter, 1
+instance = comp, \bit_input~input , bit_input~input, irda_inverter, 1
+instance = comp, \bit_output~0 , bit_output~0, irda_inverter, 1

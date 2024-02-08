@@ -32,6 +32,16 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
+SIGNAL("irda_inverter_vlg_vec_tst|IRDA_input")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
 SIGNAL("irda_inverter_vlg_vec_tst|SW")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -52,7 +62,7 @@ SIGNAL("irda_inverter_vlg_vec_tst|SW[0]")
 	PARENT = "irda_inverter_vlg_vec_tst|SW";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|bit_input")
+SIGNAL("irda_inverter_vlg_vec_tst|UART_input")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -72,7 +82,17 @@ SIGNAL("irda_inverter_vlg_vec_tst|irda_baud")
 	PARENT = "";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|bit_output")
+SIGNAL("irda_inverter_vlg_vec_tst|IRDA_output")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("irda_inverter_vlg_vec_tst|UART_output")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -152,7 +172,7 @@ SIGNAL("irda_inverter_vlg_vec_tst|i1|devoe")
 	PARENT = "";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_output~output_o")
+SIGNAL("irda_inverter_vlg_vec_tst|i1|UART_output~output_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -162,7 +182,7 @@ SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_output~output_o")
 	PARENT = "";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|i1|irda_baud~input_o")
+SIGNAL("irda_inverter_vlg_vec_tst|i1|IRDA_output~output_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -182,7 +202,7 @@ SIGNAL("irda_inverter_vlg_vec_tst|i1|SW[0]~input_o")
 	PARENT = "";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_input~input_o")
+SIGNAL("irda_inverter_vlg_vec_tst|i1|UART_input~input_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -192,7 +212,7 @@ SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_input~input_o")
 	PARENT = "";
 }
 
-SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_output~0_combout")
+SIGNAL("irda_inverter_vlg_vec_tst|i1|UART_output~0_combout")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -200,6 +220,51 @@ SIGNAL("irda_inverter_vlg_vec_tst|i1|bit_output~0_combout")
 	LSB_INDEX = -1;
 	DIRECTION = INPUT;
 	PARENT = "";
+}
+
+SIGNAL("irda_inverter_vlg_vec_tst|i1|IRDA_input~input_o")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("irda_inverter_vlg_vec_tst|i1|irda_baud~input_o")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("irda_inverter_vlg_vec_tst|i1|IRDA_output~0_combout")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|IRDA_input")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 500.0;
+	}
 }
 
 TRANSITION_LIST("irda_inverter_vlg_vec_tst|SW[0]")
@@ -213,7 +278,7 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|SW[0]")
 	}
 }
 
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|bit_input")
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|UART_input")
 {
 	NODE
 	{
@@ -222,13 +287,7 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|bit_input")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 130.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 500.0;
+		LEVEL 0 FOR 920.0;
 	}
 }
 
@@ -257,16 +316,12 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|irda_baud")
 	}
 }
 
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|bit_output")
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|IRDA_output")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 30.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 110.0;
+		LEVEL 0 FOR 190.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 100.0;
 		LEVEL 1 FOR 10.0;
@@ -278,6 +333,21 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|bit_output")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 50.0;
 		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 310.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|UART_output")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 580.0;
 		LEVEL 0 FOR 310.0;
 	}
 }
@@ -372,7 +442,7 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|devoe")
 	}
 }
 
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_output~output_o")
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|UART_output~output_o")
 {
 	NODE
 	{
@@ -381,7 +451,18 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_output~output_o")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 110.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 580.0;
+		LEVEL 0 FOR 310.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|IRDA_output~output_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 190.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 100.0;
 		LEVEL 1 FOR 10.0;
@@ -394,6 +475,60 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_output~output_o")
 		LEVEL 0 FOR 50.0;
 		LEVEL 1 FOR 90.0;
 		LEVEL 0 FOR 310.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|SW[0]~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 110.0;
+		LEVEL 1 FOR 580.0;
+		LEVEL 0 FOR 310.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|UART_input~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 920.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|UART_output~0_combout")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 580.0;
+		LEVEL 0 FOR 310.0;
+	}
+}
+
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|IRDA_input~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 500.0;
 	}
 }
 
@@ -422,46 +557,12 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|irda_baud~input_o")
 	}
 }
 
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|SW[0]~input_o")
+TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|IRDA_output~0_combout")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 110.0;
-		LEVEL 1 FOR 580.0;
-		LEVEL 0 FOR 310.0;
-	}
-}
-
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_input~input_o")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 30.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 130.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 500.0;
-	}
-}
-
-TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_output~0_combout")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 30.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 110.0;
+		LEVEL 0 FOR 190.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 100.0;
 		LEVEL 1 FOR 10.0;
@@ -479,12 +580,21 @@ TRANSITION_LIST("irda_inverter_vlg_vec_tst|i1|bit_output~0_combout")
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|SW";
+	CHANNEL = "irda_inverter_vlg_vec_tst|IRDA_input";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
 	TREE_LEVEL = 0;
-	CHILDREN = 1;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|SW";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+	CHILDREN = 2;
 }
 
 DISPLAY_LINE
@@ -492,23 +602,14 @@ DISPLAY_LINE
 	CHANNEL = "irda_inverter_vlg_vec_tst|SW[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 1;
-	TREE_LEVEL = 1;
-	PARENT = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "irda_inverter_vlg_vec_tst|bit_input";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
 	TREE_INDEX = 2;
-	TREE_LEVEL = 0;
+	TREE_LEVEL = 1;
+	PARENT = 1;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|irda_baud";
+	CHANNEL = "irda_inverter_vlg_vec_tst|UART_input";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -517,7 +618,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|bit_output";
+	CHANNEL = "irda_inverter_vlg_vec_tst|irda_baud";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
@@ -526,7 +627,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|sampler";
+	CHANNEL = "irda_inverter_vlg_vec_tst|IRDA_output";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 5;
@@ -535,7 +636,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|gnd";
+	CHANNEL = "irda_inverter_vlg_vec_tst|UART_output";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 6;
@@ -544,7 +645,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|vcc";
+	CHANNEL = "irda_inverter_vlg_vec_tst|sampler";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 7;
@@ -553,7 +654,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|unknown";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|gnd";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 8;
@@ -562,7 +663,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devclrn";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|vcc";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 9;
@@ -571,7 +672,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devpor";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|unknown";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 10;
@@ -580,7 +681,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devoe";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devclrn";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 11;
@@ -589,7 +690,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|bit_output~output_o";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devpor";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 12;
@@ -598,7 +699,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|irda_baud~input_o";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|devoe";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 13;
@@ -607,7 +708,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|SW[0]~input_o";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|UART_output~output_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 14;
@@ -616,7 +717,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|bit_input~input_o";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|IRDA_output~output_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 15;
@@ -625,10 +726,55 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "irda_inverter_vlg_vec_tst|i1|bit_output~0_combout";
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|SW[0]~input_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 16;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|UART_input~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 17;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|UART_output~0_combout";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 18;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|IRDA_input~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|irda_baud~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 20;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "irda_inverter_vlg_vec_tst|i1|IRDA_output~0_combout";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 21;
 	TREE_LEVEL = 0;
 }
 ;

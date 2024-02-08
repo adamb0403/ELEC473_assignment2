@@ -4,78 +4,78 @@ K3
 cModel Technology
 Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_inverter\simulation\qsim
 virda_inverter
-Z1 ILP=SMR=hW:DS?54e08^1H3
-Z2 V1W>K>WPGlzHiRHC1WS?MR0
-Z3 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_inverter\simulation\qsim
-Z4 w1707331273
+Z1 I59LmJm1=DWI9?ToO`RDh]0
+Z2 VA01Mm4>Kf]?iD4e8XGVVJ3
+Z3 dM:\ELEC473\projects\ELEC473_assignment2\irda_inverter\simulation\qsim
+Z4 w1707396903
 Z5 8irda_inverter.vo
 Z6 Firda_inverter.vo
 L0 31
 Z7 OV;L;10.1d;51
 r1
 31
-Z8 o-work work -O0
+Z8 !s90 -work|work|irda_inverter.vo|
+Z9 o-work work -O0
 !i10b 1
-Z9 !s100 jm[6icfV;BPU1?OGfOIjb2
+Z10 !s100 `fMCAUY1jWlf8hT]DG<?L0
 !s85 0
-Z10 !s108 1707331274.420000
-Z11 !s107 irda_inverter.vo|
-Z12 !s90 -work|work|irda_inverter.vo|
+Z11 !s108 1707396902.441000
+Z12 !s107 irda_inverter.vo|
 !s101 -O0
 virda_inverter_vlg_check_tst
 !i10b 1
-!s100 2VNYlO9z6d>ceSWJX8lHP3
-ILYlJB3X:nn[IBJaLRQc@o3
-Vi47V;6:MElihJoe50ebPS3
+!s100 KUebMamNGEEKD]4Q=kU<g0
+IUgifBFf7cTQz18n3CX4]]3
+Z13 V]Ck@?k6H6Gn?2PUI]@Nf]0
 R3
-Z13 w1707331272
-Z14 8irda_inverter.vt
-Z15 Firda_inverter.vt
-L0 61
+Z14 w1707396902
+Z15 8irda_inverter.vt
+Z16 Firda_inverter.vt
+L0 63
 R7
 r1
 !s85 0
 31
-Z16 !s108 1707331274.496000
-Z17 !s107 irda_inverter.vt|
-Z18 !s90 -work|work|irda_inverter.vt|
+Z17 !s108 1707396902.625000
+Z18 !s107 irda_inverter.vt|
+Z19 !s90 -work|work|irda_inverter.vt|
 !s101 -O0
-R8
+R9
 virda_inverter_vlg_sample_tst
 !i10b 1
-!s100 NE@zmRKGlH7G:eS]0o=h?2
-IdlV9AS;`oD9`ND:aOVmZ92
-VB_W[8B>`Lin_mA24E@em;2
+!s100 dE0[?=oIf>kBXd0BFd9^e3
+Ih0:SSI`:73K]mg`22:nER0
+Ve?9KLFg1HA@8C^>dm?2<I1
 R3
-R13
 R14
 R15
+R16
 L0 29
 R7
 r1
 !s85 0
 31
-R16
 R17
 R18
+R19
 !s101 -O0
-R8
+R9
 virda_inverter_vlg_vec_tst
 !i10b 1
-!s100 hF;B;b<zUT<aeS:e6Qh@m3
-IE7XXSWzf:=MGQ:Oj5AOAI0
-V^O@[LVVfE7h@NL@Vlag??0
+!s100 ;UHUMBoaofn@UW7Te`2Ke2
+IfoaDC@lIUYdj<[;=2X5nW3
+Z20 V^O@[LVVfE7h@NL@Vlag??0
 R3
-R13
 R14
 R15
-L0 156
+R16
+L0 185
 R7
 r1
 !s85 0
 31
-R16
 R17
 R18
+R19
 !s101 -O0
-R8
+R9

@@ -2,6 +2,7 @@ module tx_uart (input CLOCK_50,
                 input [3:0] KEY,
                 input [8:0] SW,
                 output UART_TXD,
+                output IRDA_TXD,
                 output [1:0] ctrl_state,
                 output [6:0] HEX5,
                 output [6:0] HEX4);
@@ -85,8 +86,10 @@ module tx_uart (input CLOCK_50,
     );
 	 
      irda_inverter inv (
-        .bit_input(sr_inv),
-        .bit_output(UART_TXD),
+        .UART_input(sr_inv),
+        .IRDA_input(sr_inv),
+        .UART_output(UART_TXD),
+        .IRDA_output(IRDA_TXD),
         .SW(SW[0]),
         .irda_baud(irda_baud_ctrl),
      );

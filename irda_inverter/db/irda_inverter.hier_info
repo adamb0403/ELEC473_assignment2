@@ -1,8 +1,10 @@
 |irda_inverter
-bit_input => bit_output.DATAA
-bit_input => bit_output.IN0
-irda_baud => bit_output.IN1
-SW[0] => bit_output.OUTPUTSELECT
-bit_output <= bit_output.DB_MAX_OUTPUT_PORT_TYPE
+UART_input => UART_output.DATAB
+IRDA_input => IRDA_output.IN0
+irda_baud => IRDA_output.IN1
+SW[0] => IRDA_output.OUTPUTSELECT
+SW[0] => UART_output.OUTPUTSELECT
+UART_output <= UART_output.DB_MAX_OUTPUT_PORT_TYPE
+IRDA_output <= IRDA_output.DB_MAX_OUTPUT_PORT_TYPE
 
 

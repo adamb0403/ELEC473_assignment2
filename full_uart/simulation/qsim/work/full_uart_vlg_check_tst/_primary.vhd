@@ -6,6 +6,7 @@ entity full_uart_vlg_check_tst is
         HEX1            : in     vl_logic_vector(6 downto 0);
         HEX4            : in     vl_logic_vector(6 downto 0);
         HEX5            : in     vl_logic_vector(6 downto 0);
+        IRDA_TXD        : in     vl_logic;
         LEDG            : in     vl_logic_vector(6 downto 6);
         LEDR            : in     vl_logic_vector(2 downto 2);
         UART_TXD        : in     vl_logic;

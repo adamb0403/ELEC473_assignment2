@@ -6,7 +6,9 @@ entity full_uart is
         KEY             : in     vl_logic_vector(3 downto 0);
         SW              : in     vl_logic_vector(8 downto 0);
         UART_RXD        : in     vl_logic;
+        IRDA_RXD        : in     vl_logic;
         UART_TXD        : out    vl_logic;
+        IRDA_TXD        : out    vl_logic;
         tx_ctrl_state   : out    vl_logic_vector(1 downto 0);
         rx_ctrl_state   : out    vl_logic;
         rx_ctrl_load_counter: out    vl_logic;

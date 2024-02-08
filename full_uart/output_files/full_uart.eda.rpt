@@ -1,6 +1,6 @@
 EDA Netlist Writer report for full_uart
-Wed Feb 07 19:15:32 2024
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Thu Feb 08 12:14:51 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
 ---------------------
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Feb 07 19:15:32 2024 ;
+; EDA Netlist Writer Status ; Successful - Thu Feb 08 12:14:51 2024 ;
 ; Revision Name             ; full_uart                             ;
 ; Top-level Entity Name     ; full_uart                             ;
 ; Family                    ; Cyclone II                            ;
@@ -65,13 +65,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                       ;
-+--------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                  ;
-+--------------------------------------------------------------------------------------------------+
-; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/full_uart/simulation/modelsim/full_uart.vo ;
-+--------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                         ;
++------------------------------------------------------------------------------------+
+; Generated Files                                                                    ;
++------------------------------------------------------------------------------------+
+; M:/ELEC473/projects/ELEC473_assignment2/full_uart/simulation/modelsim/full_uart.vo ;
++------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -79,14 +79,14 @@ applicable agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Feb 07 19:15:31 2024
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Thu Feb 08 12:14:50 2024
 Info: Command: quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog full_uart -c full_uart
-Info (204019): Generated file full_uart.vo in folder "C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/full_uart/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file full_uart.vo in folder "M:/ELEC473/projects/ELEC473_assignment2/full_uart/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4515 megabytes
-    Info: Processing ended: Wed Feb 07 19:15:32 2024
+    Info: Peak virtual memory: 4529 megabytes
+    Info: Processing ended: Thu Feb 08 12:14:51 2024
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

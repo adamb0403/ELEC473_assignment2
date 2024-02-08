@@ -11,7 +11,7 @@ module tx_baud_counter (input clk,
 	assign baud_output = (count == 11'd15); // 1301 clk cycles at 20ns = 38400 bps baud rate
     assign half_baud_output = (count == 10'd7);
     assign irda_baud_output = ((count >= 10'd7) && (count <= 10'd10)); // (3/16)*1302 + 651 = 895 for pulse width from half baud
-
+    assign irda_rx_baud_output = ((count >= 10'd8)); // (3/32)*1302 + 651 = 773 for pulse width from half baud
 
     always @(posedge clk) begin
         if (!reset || reset_count) begin

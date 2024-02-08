@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Feb 07 18:37:20 2024
-Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Fitter Status : Successful - Thu Feb 08 12:53:12 2024
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : irda_inverter
 Top-level Entity Name : irda_inverter
 Family : Cyclone IV GX
 Device : EP4CGX15BF14C6
 Timing Models : Final
-Total logic elements : 1 / 14,400 ( < 1 % )
-    Total combinational functions : 1 / 14,400 ( < 1 % )
+Total logic elements : 2 / 14,400 ( < 1 % )
+    Total combinational functions : 2 / 14,400 ( < 1 % )
     Dedicated logic registers : 0 / 14,400 ( 0 % )
 Total registers : 0
-Total pins : 4 / 81 ( 5 % )
+Total pins : 6 / 81 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 0 / 552,960 ( 0 % )
 Embedded Multiplier 9-bit elements : 0

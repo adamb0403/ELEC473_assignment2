@@ -1,5 +1,5 @@
 Flow report for rx_controller
-Tue Feb 06 16:37:15 2024
+Fri Feb 09 12:03:01 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Feb 06 16:37:15 2024           ;
+; Flow Status                        ; Successful - Fri Feb 09 12:03:01 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; rx_controller                                   ;
 ; Top-level Entity Name              ; rx_controller                                   ;
@@ -49,7 +49,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 3 / 14,400 ( < 1 % )                            ;
 ;     Dedicated logic registers      ; 1 / 14,400 ( < 1 % )                            ;
 ; Total registers                    ; 1                                               ;
-; Total pins                         ; 8 / 81 ( 10 % )                                 ;
+; Total pins                         ; 10 / 81 ( 12 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 552,960 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -68,23 +68,26 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/06/2024 16:31:03 ;
+; Start date & time ; 02/09/2024 12:02:31 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rx_controller       ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                 ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 141734660896995.170723706316072 ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                        ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; --          ; Top        ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --         ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                     ;
++-------------------------------------+---------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+---------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 141734660896995.170748015126184 ; --            ; --          ; --             ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                              ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                        ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; --          ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --             ;
++-------------------------------------+---------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -92,15 +95,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4628 MB             ; 00:00:02                           ;
-; Fitter                    ; 00:00:10     ; 1.0                     ; 4968 MB             ; 00:00:10                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 4605 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 4612 MB             ; 00:00:04                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4565 MB             ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4565 MB             ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4565 MB             ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4565 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:23     ; --                      ; --                  ; 00:00:22                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 4624 MB             ; 00:00:02                           ;
+; Fitter                    ; 00:00:12     ; 1.0                     ; 4972 MB             ; 00:00:10                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4601 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4592 MB             ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4552 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:25     ; --                      ; --                  ; 00:00:19                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -114,9 +114,6 @@ applicable agreement for further details.
 ; Assembler                 ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
 ; TimeQuest Timing Analyzer ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
 ; EDA Netlist Writer        ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-Q5NINCJ  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -127,10 +124,7 @@ quartus_map --read_settings_files=on --write_settings_files=off rx_controller -c
 quartus_fit --read_settings_files=off --write_settings_files=off rx_controller -c rx_controller
 quartus_asm --read_settings_files=off --write_settings_files=off rx_controller -c rx_controller
 quartus_sta rx_controller -c rx_controller
-quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog rx_controller -c rx_controller --vector_source=C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/rx_controller.vwf --testbench_file=./simulation/qsim/rx_controller.vt
-quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog rx_controller -c rx_controller
-quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog rx_controller -c rx_controller --vector_source=C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/rx_controller.vwf --testbench_file=./simulation/qsim/rx_controller.vt
-quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog rx_controller -c rx_controller
+quartus_eda --read_settings_files=off --write_settings_files=off rx_controller -c rx_controller
 
 
 

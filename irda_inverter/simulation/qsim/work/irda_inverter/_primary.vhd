@@ -7,6 +7,7 @@ entity irda_inverter is
         irda_baud       : in     vl_logic;
         SW              : in     vl_logic_vector(0 downto 0);
         UART_output     : out    vl_logic;
-        IRDA_output     : out    vl_logic
+        IRDA_output     : out    vl_logic;
+        rx_output       : out    vl_logic
     );
 end irda_inverter;

@@ -17,6 +17,7 @@ module tx_uart (input CLOCK_50,
     wire ctrl_shift_counter;
     wire ctrl_load;
     wire sr_inv;
+    wire inv_enc;
     wire [10:0] parity_sr;
 
     // Instantiating each block and connecting them within this file through passing inputs/outputs
@@ -85,12 +86,18 @@ module tx_uart (input CLOCK_50,
         .current_state(ctrl_state[1:0])
     );
 	 
-     irda_inverter inv (
+     irda_inverter inv_tx (
         .UART_input(sr_inv),
         .IRDA_input(sr_inv),
         .UART_output(UART_TXD),
-        .IRDA_output(IRDA_TXD),
+        .IRDA_output(inv_enc),
         .SW(SW[0]),
-        .irda_baud(irda_baud_ctrl),
+        .irda_baud(irda_baud_ctrl)
+     );
+
+     irda_encoder enc_tx (
+        .encoder_input(inv_enc),
+        .encoder_output(IRDA_TXD),
+        .irda_baud(irda_baud_ctrl)
      );
 endmodule

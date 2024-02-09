@@ -1,0 +1,9 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_encoder/irda_encoder.v
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_encoder/irda_encoder.vwf
+source_file = 1, C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_encoder/db/irda_encoder.cbx.xml
+design_name = irda_encoder
+instance = comp, \encoder_output~output , encoder_output~output, irda_encoder, 1
+instance = comp, \encoder_input~input , encoder_input~input, irda_encoder, 1
+instance = comp, \irda_baud~input , irda_baud~input, irda_encoder, 1
+instance = comp, \encoder_output~0 , encoder_output~0, irda_encoder, 1

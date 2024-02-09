@@ -14,6 +14,7 @@ module rx_uart (input CLOCK_50,
 
     // Wires between each block, denoted as to_from
     wire baud_ctrl;
+    wire half_baud_ctrl;
     wire ctrl_baud;
     wire irda_half_baud_ctrl;
     wire counter_ctrl;
@@ -37,7 +38,8 @@ module rx_uart (input CLOCK_50,
         .clk(CLOCK_50),
         .reset(KEY[0]),
         .reset_count(ctrl_baud),
-        .half_baud_output(baud_ctrl),
+        .baud_output(baud_ctrl),
+        .half_baud_output(half_baud_ctrl),
         .irda_rx_baud_output(irda_half_baud_ctrl)
     );
 
@@ -59,27 +61,28 @@ module rx_uart (input CLOCK_50,
         .clk(CLOCK_50),
         .reset(KEY[0]),
         .rx_sr_load(ctrl_load_counter),
-        .rx_sr_in(inv_sr),
+        .rx_sr_in(inv_sr_ctrl),
         .rx_sr_out(sr_parity[10:0])
     );
 
     rx_controller ctrl_rx (
         .clk(CLOCK_50),
         .reset(KEY[0]),
-        .ctrl_rx(UART_RXD),
-        .ctrl_half_baud(baud_ctrl),
+        .SW(SW[0]),
+        .ctrl_rx(inv_sr_ctrl),
+        .ctrl_half_baud(half_baud_ctrl),
         .ctrl_irda_half_baud(irda_half_baud_ctrl),
+        .ctrl_full_baud(baud_ctrl),
         .ctrl_counter(counter_ctrl),
         .ctrl_reset_baud(ctrl_baud),
         .ctrl_sr_load(ctrl_load_counter),
         .current_state(ctrl_state)
     );
 
-    irda_inverter inv (
+    irda_inverter inv_rx (
         .UART_input(UART_RXD),
         .IRDA_input(IRDA_RXD),
-        .UART_output(inv_sr),
-        .IRDA_output(inv_sr),
+        .rx_output(inv_sr_ctrl),
         .SW(SW[0]),
         .irda_baud(irda_half_baud_ctrl),
      );

@@ -1,0 +1,6 @@
+|irda_encoder
+encoder_input => encoder_output.IN0
+irda_baud => encoder_output.IN1
+encoder_output <= encoder_output.DB_MAX_OUTPUT_PORT_TYPE
+
+

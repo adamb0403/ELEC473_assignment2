@@ -14,15 +14,6 @@
 # Top level modules:
 # 	full_uart_vlg_vec_tst
 # vsim -L cycloneii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.full_uart_vlg_vec_tst 
-# //  ModelSim ALTERA 10.1d Nov  2 2012 
-# //
-# //  Copyright 1991-2012 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
-# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
-# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
-# //
 # Loading work.full_uart_vlg_vec_tst
 # Loading work.full_uart
 # Loading cycloneii_ver.cycloneii_lcell_ff
@@ -40,15 +31,9 @@
 # ERROR! Vector Mismatch for output port HEX0[6] :: @time = 1000000.000 ps
 #      Expected value = 0000000
 #      Real value = 1000000
-# ERROR! Vector Mismatch for output port HEX1[0] :: @time = 1000000.000 ps
+# ERROR! Vector Mismatch for output port HEX1[6] :: @time = 1000000.000 ps
 #      Expected value = 0000000
-#      Real value = 0011001
-# ERROR! Vector Mismatch for output port HEX1[3] :: @time = 1000000.000 ps
-#      Expected value = 0000000
-#      Real value = 0011001
-# ERROR! Vector Mismatch for output port HEX1[4] :: @time = 1000000.000 ps
-#      Expected value = 0000000
-#      Real value = 0011001
+#      Real value = 1000000
 # ERROR! Vector Mismatch for output port HEX4[3] :: @time = 1000000.000 ps
 #      Expected value = 0000000
 #      Real value = 1111000
@@ -67,27 +52,15 @@
 # ERROR! Vector Mismatch for output port HEX5[5] :: @time = 1000000.000 ps
 #      Expected value = 0000000
 #      Real value = 0100100
+# ERROR! Vector Mismatch for output port LEDG :: @time = 1000000.000 ps
+#      Expected value = 0
+#      Real value = 1
 # ERROR! Vector Mismatch for output port LEDR :: @time = 1000000.000 ps
 #      Expected value = 0
 #      Real value = 1
-# ERROR! Vector Mismatch for output port HEX1[1] :: @time = 1220000.000 ps
-#      Expected value = 0000000
-#      Real value = 0000010
-# ERROR! Vector Mismatch for output port HEX1[5] :: @time = 1540000.000 ps
-#      Expected value = 0000000
-#      Real value = 1111000
-# ERROR! Vector Mismatch for output port HEX1[6] :: @time = 1540000.000 ps
-#      Expected value = 0000000
-#      Real value = 1111000
-# ERROR! Vector Mismatch for output port HEX0[1] :: @time = 2180000.000 ps
-#      Expected value = 0000000
-#      Real value = 1000110
-# ERROR! Vector Mismatch for output port HEX0[2] :: @time = 2180000.000 ps
-#      Expected value = 0000000
-#      Real value = 1000110
-# ERROR! Vector Mismatch for output port HEX0[3] :: @time = 2820000.000 ps
-#      Expected value = 0000000
-#      Real value = 0001110
-#          17 mismatched vectors : Simulation failed !
-# ** Note: $finish    : full_uart.vt(828)
-#    Time: 3 us  Iteration: 0  Instance: /full_uart_vlg_vec_tst/tb_out
+# ERROR! Vector Mismatch for output port UART_TXD :: @time = 3000000.000 ps
+#      Expected value = 0
+#      Real value = 1
+#          11 mismatched vectors : Simulation failed !
+# ** Note: $finish    : full_uart.vt(830)
+#    Time: 6 us  Iteration: 0  Instance: /full_uart_vlg_vec_tst/tb_out

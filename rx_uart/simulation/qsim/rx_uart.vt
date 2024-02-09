@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "02/07/2024 11:23:44"
+// Generated on "02/09/2024 12:40:51"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    rx_uart
 // 
@@ -28,12 +28,14 @@
 `timescale 1 ps/ 1 ps
 module rx_uart_vlg_sample_tst(
 	CLOCK_50,
+	IRDA_RXD,
 	KEY,
 	SW,
 	UART_RXD,
 	sampler_tx
 );
 input  CLOCK_50;
+input  IRDA_RXD;
 input [0:0] KEY;
 input [0:0] SW;
 input  UART_RXD;
@@ -41,7 +43,7 @@ output sampler_tx;
 
 reg sample;
 time current_time;
-always @(CLOCK_50 or KEY or SW or UART_RXD)
+always @(CLOCK_50 or IRDA_RXD or KEY or SW or UART_RXD)
                                                                                 
 begin                                                 
  if ($realtime > 0)                                   
@@ -871,7 +873,7 @@ initial
 
 begin 
 $timeformat(-12,3," ps",6);
-#3000000;
+#4000000;
 if (nummismatches > 0)
 	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
 else
@@ -884,6 +886,7 @@ module rx_uart_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg CLOCK_50;
+reg IRDA_RXD;
 reg [0:0] KEY;
 reg [0:0] SW;
 reg UART_RXD;
@@ -905,6 +908,7 @@ rx_uart i1 (
 	.CLOCK_50(CLOCK_50),
 	.HEX0(HEX0),
 	.HEX1(HEX1),
+	.IRDA_RXD(IRDA_RXD),
 	.KEY(KEY),
 	.LEDG(LEDG),
 	.LEDR(LEDR),
@@ -928,8 +932,12 @@ end
 initial
 begin
 	KEY[0] = 1'b1;
-	KEY[0] = #2300000 1'b0;
-	KEY[0] = #20000 1'b1;
+end 
+
+// SW[0]
+initial
+begin
+	SW[0] = 1'b1;
 end 
 
 // UART_RXD
@@ -937,28 +945,30 @@ initial
 begin
 	UART_RXD = 1'b1;
 	UART_RXD = #40000 1'b0;
-	UART_RXD = #80000 1'b1;
-	UART_RXD = #240000 1'b0;
-	UART_RXD = #160000 1'b1;
-	UART_RXD = #80000 1'b0;
-	UART_RXD = #80000 1'b1;
-	UART_RXD = #200000 1'b0;
-	UART_RXD = #240000 1'b1;
-	UART_RXD = #160000 1'b0;
-	UART_RXD = #80000 1'b1;
-	UART_RXD = #80000 1'b0;
-	UART_RXD = #80000 1'b1;
-	UART_RXD = #480000 1'b0;
-	UART_RXD = #80000 1'b1;
-	UART_RXD = #160000 1'b0;
-	UART_RXD = #240000 1'b1;
-	UART_RXD = #80000 1'b0;
-	UART_RXD = #160000 1'b1;
-	UART_RXD = #80000 1'b0;
+	UART_RXD = #320000 1'b1;
+	UART_RXD = #960000 1'b0;
+	UART_RXD = #640000 1'b1;
+	UART_RXD = #320000 1'b0;
+	UART_RXD = #320000 1'b1;
+end 
+
+// IRDA_RXD
+initial
+begin
+	IRDA_RXD = 1'b0;
+	IRDA_RXD = #200000 1'b1;
+	IRDA_RXD = #20000 1'b0;
+	IRDA_RXD = #1260000 1'b1;
+	IRDA_RXD = #20000 1'b0;
+	IRDA_RXD = #300000 1'b1;
+	IRDA_RXD = #20000 1'b0;
+	IRDA_RXD = #620000 1'b1;
+	IRDA_RXD = #20000 1'b0;
 end 
 
 rx_uart_vlg_sample_tst tb_sample (
 	.CLOCK_50(CLOCK_50),
+	.IRDA_RXD(IRDA_RXD),
 	.KEY(KEY),
 	.SW(SW),
 	.UART_RXD(UART_RXD),

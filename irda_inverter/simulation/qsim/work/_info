@@ -4,78 +4,78 @@ K3
 cModel Technology
 Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_inverter\simulation\qsim
 virda_inverter
-Z1 I59LmJm1=DWI9?ToO`RDh]0
-Z2 VA01Mm4>Kf]?iD4e8XGVVJ3
-Z3 dM:\ELEC473\projects\ELEC473_assignment2\irda_inverter\simulation\qsim
-Z4 w1707396903
-Z5 8irda_inverter.vo
-Z6 Firda_inverter.vo
+Z1 !s100 S5f6mZZ=n6IiU36LVc21@1
+Z2 IT2_n;<J@^5OK1fPMbcRZ71
+Z3 Vg>n>8jg4<T<Q@YaXezFGl3
+Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_inverter\simulation\qsim
+Z5 w1707481227
+Z6 8irda_inverter.vo
+Z7 Firda_inverter.vo
 L0 31
-Z7 OV;L;10.1d;51
+Z8 OV;L;10.1d;51
 r1
 31
-Z8 !s90 -work|work|irda_inverter.vo|
-Z9 o-work work -O0
+Z9 !s90 -work|work|irda_inverter.vo|
+Z10 o-work work -O0
 !i10b 1
-Z10 !s100 `fMCAUY1jWlf8hT]DG<?L0
 !s85 0
-Z11 !s108 1707396902.441000
+Z11 !s108 1707481228.333000
 Z12 !s107 irda_inverter.vo|
 !s101 -O0
 virda_inverter_vlg_check_tst
 !i10b 1
-!s100 KUebMamNGEEKD]4Q=kU<g0
-IUgifBFf7cTQz18n3CX4]]3
-Z13 V]Ck@?k6H6Gn?2PUI]@Nf]0
-R3
-Z14 w1707396902
-Z15 8irda_inverter.vt
-Z16 Firda_inverter.vt
+Z13 !s100 ?DkGnPmA<6ol;8Eih7a6j1
+Z14 I0VGYSf;Ug][jV@Ma:goOZ0
+Z15 Vied_6AK?z;Z=5h<_XVAUK3
+R4
+Z16 w1707481225
+Z17 8irda_inverter.vt
+Z18 Firda_inverter.vt
 L0 63
-R7
+R8
 r1
 !s85 0
 31
-Z17 !s108 1707396902.625000
-Z18 !s107 irda_inverter.vt|
-Z19 !s90 -work|work|irda_inverter.vt|
+Z19 !s108 1707481228.450000
+Z20 !s107 irda_inverter.vt|
+Z21 !s90 -work|work|irda_inverter.vt|
 !s101 -O0
-R9
+R10
 virda_inverter_vlg_sample_tst
 !i10b 1
-!s100 dE0[?=oIf>kBXd0BFd9^e3
-Ih0:SSI`:73K]mg`22:nER0
-Ve?9KLFg1HA@8C^>dm?2<I1
-R3
-R14
-R15
+Z22 !s100 dE0[?=oIf>kBXd0BFd9^e3
+Z23 Ih0:SSI`:73K]mg`22:nER0
+Z24 Ve?9KLFg1HA@8C^>dm?2<I1
+R4
 R16
+R17
+R18
 L0 29
-R7
+R8
 r1
 !s85 0
 31
-R17
-R18
 R19
+R20
+R21
 !s101 -O0
-R9
+R10
 virda_inverter_vlg_vec_tst
 !i10b 1
-!s100 ;UHUMBoaofn@UW7Te`2Ke2
-IfoaDC@lIUYdj<[;=2X5nW3
-Z20 V^O@[LVVfE7h@NL@Vlag??0
-R3
-R14
-R15
+!s100 JglP]Qg[e?Sie5hO<0<I@3
+I2<QGC0K3eReKM=WFIIi^B0
+Z25 V^O@[LVVfE7h@NL@Vlag??0
+R4
 R16
-L0 185
-R7
+R17
+R18
+Z26 L0 212
+R8
 r1
 !s85 0
 31
-R17
-R18
 R19
+R20
+R21
 !s101 -O0
-R9
+R10

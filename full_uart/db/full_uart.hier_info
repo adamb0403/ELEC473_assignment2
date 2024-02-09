@@ -86,8 +86,8 @@ SW[5] => SW[5].IN2
 SW[6] => SW[6].IN2
 SW[7] => SW[7].IN2
 SW[8] => SW[8].IN2
-UART_TXD <= irda_inverter:inv.UART_output
-IRDA_TXD <= irda_inverter:inv.IRDA_output
+UART_TXD <= irda_inverter:inv_tx.UART_output
+IRDA_TXD <= irda_encoder:enc_tx.encoder_output
 ctrl_state[0] <= tx_controller:ctrl.current_state
 ctrl_state[1] <= tx_controller:ctrl.current_state
 HEX5[0] <= tx_7segdecoder:msb.seven_seg_output
@@ -151,6 +151,7 @@ reset_count => always0.IN1
 baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
 irda_baud_output <= irda_baud_output.DB_MAX_OUTPUT_PORT_TYPE
+irda_rx_baud_output <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|tx_uart:tx|tx_counter:counter
@@ -290,21 +291,32 @@ current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_sr_shift <= ctrl_sr_shift.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|full_uart|tx_uart:tx|irda_inverter:inv
-bit_input => UART_output.DATAA
-bit_input => IRDA_output.IN0
-irda_baud => IRDA_output.IN1
-SW[0] => UART_output.OUTPUTSELECT
+|full_uart|tx_uart:tx|irda_inverter:inv_tx
+UART_input => UART_output.DATAB
+UART_input => rx_output.DATAB
+IRDA_input => IRDA_output.DATAA
+IRDA_input => rx_output.DATAA
+irda_baud => ~NO_FANOUT~
 SW[0] => IRDA_output.OUTPUTSELECT
+SW[0] => UART_output.OUTPUTSELECT
+SW[0] => rx_output.OUTPUTSELECT
 UART_output <= UART_output.DB_MAX_OUTPUT_PORT_TYPE
 IRDA_output <= IRDA_output.DB_MAX_OUTPUT_PORT_TYPE
+rx_output <= rx_output.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|tx_uart:tx|irda_encoder:enc_tx
+encoder_input => encoder_output.IN0
+irda_baud => encoder_output.IN1
+encoder_output <= encoder_output.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|rx_uart:rx
 CLOCK_50 => CLOCK_50.IN4
 KEY[0] => KEY[0].IN4
-SW[0] => ~NO_FANOUT~
-UART_RXD => UART_RXD.IN2
+SW[0] => SW[0].IN2
+UART_RXD => UART_RXD.IN1
+IRDA_RXD => IRDA_RXD.IN1
 ctrl_state <= rx_controller:ctrl_rx.current_state
 ctrl_load_counter <= ctrl_load_counter.DB_MAX_OUTPUT_PORT_TYPE
 sr_parity[0] <= sr_parity[0].DB_MAX_OUTPUT_PORT_TYPE
@@ -388,6 +400,7 @@ reset_count => always0.IN1
 baud_output <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 half_baud_output <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
 irda_baud_output <= irda_baud_output.DB_MAX_OUTPUT_PORT_TYPE
+irda_rx_baud_output <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |full_uart|rx_uart:rx|tx_counter:counter_rx
@@ -487,12 +500,34 @@ rx_sr_out[10] <= tmp_data[10].DB_MAX_OUTPUT_PORT_TYPE
 |full_uart|rx_uart:rx|rx_controller:ctrl_rx
 clk => current_state~reg0.CLK
 reset => current_state.OUTPUTSELECT
+SW[0] => ctrl_sr_load.OUTPUTSELECT
+SW[0] => ctrl_reset_baud.OUTPUTSELECT
+SW[0] => always0.IN0
+SW[0] => always0.IN0
 ctrl_counter => current_state.OUTPUTSELECT
 ctrl_half_baud => ctrl_sr_load.IN1
-ctrl_rx => current_state.OUTPUTSELECT
+ctrl_irda_half_baud => ~NO_FANOUT~
+ctrl_full_baud => ctrl_sr_load.IN1
+ctrl_rx => ctrl_reset_baud.IN1
+ctrl_rx => always0.IN1
+ctrl_rx => always0.IN1
 ctrl_rx => ctrl_reset_baud.IN1
 ctrl_sr_load <= ctrl_sr_load.DB_MAX_OUTPUT_PORT_TYPE
 current_state <= current_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_reset_baud <= ctrl_reset_baud.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|full_uart|rx_uart:rx|irda_inverter:inv_rx
+UART_input => UART_output.DATAB
+UART_input => rx_output.DATAB
+IRDA_input => IRDA_output.DATAA
+IRDA_input => rx_output.DATAA
+irda_baud => ~NO_FANOUT~
+SW[0] => IRDA_output.OUTPUTSELECT
+SW[0] => UART_output.OUTPUTSELECT
+SW[0] => rx_output.OUTPUTSELECT
+UART_output <= UART_output.DB_MAX_OUTPUT_PORT_TYPE
+IRDA_output <= IRDA_output.DB_MAX_OUTPUT_PORT_TYPE
+rx_output <= rx_output.DB_MAX_OUTPUT_PORT_TYPE
 
 

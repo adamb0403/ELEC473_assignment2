@@ -1,0 +1,114 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+
+// DATE "02/09/2024 12:34:18"
+
+// 
+// Device: Altera EP4CGX15BF14C6 Package FBGA169
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module irda_encoder (
+	encoder_input,
+	irda_baud,
+	encoder_output);
+input 	encoder_input;
+input 	irda_baud;
+output 	encoder_output;
+
+// Design Ports Information
+// encoder_output	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// encoder_input	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// irda_baud	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \encoder_output~output_o ;
+wire \encoder_input~input_o ;
+wire \irda_baud~input_o ;
+wire \encoder_output~0_combout ;
+
+
+// Location: IOOBUF_X33_Y28_N2
+cycloneiv_io_obuf \encoder_output~output (
+	.i(\encoder_output~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\encoder_output~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \encoder_output~output .bus_hold = "false";
+defparam \encoder_output~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y27_N1
+cycloneiv_io_ibuf \encoder_input~input (
+	.i(encoder_input),
+	.ibar(gnd),
+	.o(\encoder_input~input_o ));
+// synopsys translate_off
+defparam \encoder_input~input .bus_hold = "false";
+defparam \encoder_input~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y28_N8
+cycloneiv_io_ibuf \irda_baud~input (
+	.i(irda_baud),
+	.ibar(gnd),
+	.o(\irda_baud~input_o ));
+// synopsys translate_off
+defparam \irda_baud~input .bus_hold = "false";
+defparam \irda_baud~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y28_N8
+cycloneiv_lcell_comb \encoder_output~0 (
+// Equation(s):
+// \encoder_output~0_combout  = (\encoder_input~input_o  & \irda_baud~input_o )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\encoder_input~input_o ),
+	.datad(\irda_baud~input_o ),
+	.cin(gnd),
+	.combout(\encoder_output~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \encoder_output~0 .lut_mask = 16'hF000;
+defparam \encoder_output~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign encoder_output = \encoder_output~output_o ;
+
+endmodule

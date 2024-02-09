@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_encoder\simulation\qsim
+virda_encoder
+Z1 IBz;?7Fa<<F4<Si_0@`74c2
+Z2 VffI<LV4^FOWUd0PjI2WnN3
+Z3 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\irda_encoder\simulation\qsim
+Z4 w1707482058
+Z5 8irda_encoder.vo
+Z6 Firda_encoder.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+!i10b 1
+Z9 !s100 o8Yg4A7:fflWCji9D09DL2
+!s85 0
+Z10 !s108 1707482059.727000
+Z11 !s107 irda_encoder.vo|
+Z12 !s90 -work|work|irda_encoder.vo|
+!s101 -O0
+virda_encoder_vlg_check_tst
+!i10b 1
+!s100 A`VbjYa^8F=5lU3=:VMW<3
+IHn>z?>4<FRXEoc;8aELd[2
+Vl2K5JdazRf=<oUza370e32
+R3
+Z13 w1707482056
+Z14 8irda_encoder.vt
+Z15 Firda_encoder.vt
+L0 59
+R7
+r1
+!s85 0
+31
+Z16 !s108 1707482059.956000
+Z17 !s107 irda_encoder.vt|
+Z18 !s90 -work|work|irda_encoder.vt|
+!s101 -O0
+R8
+virda_encoder_vlg_sample_tst
+!i10b 1
+!s100 9E;bHZ9T9JzEZLfW15=B:2
+I8c__:IiA2oa7H<?T53ElU0
+VmVe099zQ0lZM]lGl1BRdi2
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+virda_encoder_vlg_vec_tst
+!i10b 1
+!s100 IHVQ_[FOLL7PKzoI]VNR@0
+I;If5LldzBZW[FlFlJ[fmW2
+VTP[R7=g`Xz<]R[YjHlRM71
+R3
+R13
+R14
+R15
+L0 154
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8

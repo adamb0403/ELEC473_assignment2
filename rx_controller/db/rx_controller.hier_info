@@ -1,10 +1,17 @@
 |rx_controller
 clk => current_state~reg0.CLK
 reset => current_state.OUTPUTSELECT
+SW[0] => ctrl_sr_load.OUTPUTSELECT
+SW[0] => ctrl_reset_baud.OUTPUTSELECT
+SW[0] => always0.IN0
+SW[0] => always0.IN0
 ctrl_counter => current_state.OUTPUTSELECT
 ctrl_half_baud => ctrl_sr_load.IN1
+ctrl_irda_half_baud => ctrl_sr_load.IN1
 ctrl_rx => ctrl_reset_baud.IN1
-ctrl_rx => current_state.OUTPUTSELECT
+ctrl_rx => always0.IN1
+ctrl_rx => always0.IN1
+ctrl_rx => ctrl_reset_baud.IN1
 ctrl_sr_load <= ctrl_sr_load.DB_MAX_OUTPUT_PORT_TYPE
 current_state <= current_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_reset_baud <= ctrl_reset_baud.DB_MAX_OUTPUT_PORT_TYPE

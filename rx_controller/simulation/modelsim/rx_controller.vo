@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-// DATE "02/06/2024 16:37:15"
+// DATE "02/09/2024 12:03:01"
 
 // 
 // Device: Altera EP4CGX15BF14C6 Package FBGA169
@@ -31,30 +31,36 @@
 module rx_controller (
 	clk,
 	reset,
+	SW,
 	ctrl_counter,
 	ctrl_half_baud,
+	ctrl_irda_half_baud,
 	ctrl_rx,
 	ctrl_sr_load,
 	current_state,
 	ctrl_reset_baud);
 input 	clk;
 input 	reset;
+input 	[0:0] SW;
 input 	ctrl_counter;
 input 	ctrl_half_baud;
+input 	ctrl_irda_half_baud;
 input 	ctrl_rx;
 output 	ctrl_sr_load;
 output 	current_state;
 output 	ctrl_reset_baud;
 
 // Design Ports Information
-// ctrl_sr_load	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// current_state	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// ctrl_reset_baud	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// ctrl_half_baud	=>  Location: PIN_B6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// ctrl_rx	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// reset	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// ctrl_counter	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// clk	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_sr_load	=>  Location: PIN_L9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// current_state	=>  Location: PIN_N8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_reset_baud	=>  Location: PIN_M9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_irda_half_baud	=>  Location: PIN_K10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_half_baud	=>  Location: PIN_N11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[0]	=>  Location: PIN_K8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_rx	=>  Location: PIN_M11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset	=>  Location: PIN_K9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ctrl_counter	=>  Location: PIN_N12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_N10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -68,31 +74,43 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-wire \ctrl_counter~input_o ;
+wire \ctrl_rx~input_o ;
+wire \reset~input_o ;
 wire \clk~input_o ;
 wire \ctrl_sr_load~output_o ;
 wire \current_state~output_o ;
 wire \ctrl_reset_baud~output_o ;
 wire \ctrl_half_baud~input_o ;
-wire \reset~input_o ;
-wire \ctrl_rx~input_o ;
+wire \SW[0]~input_o ;
+wire \ctrl_counter~input_o ;
+wire \ctrl_reset_baud~0_combout ;
 wire \current_state~0_combout ;
 wire \current_state~reg0_q ;
+wire \ctrl_irda_half_baud~input_o ;
 wire \ctrl_sr_load~0_combout ;
-wire \ctrl_reset_baud~0_combout ;
 
 
-// Location: IOIBUF_X22_Y31_N8
-cycloneiv_io_ibuf \ctrl_counter~input (
-	.i(ctrl_counter),
+// Location: IOIBUF_X29_Y0_N8
+cycloneiv_io_ibuf \ctrl_rx~input (
+	.i(ctrl_rx),
 	.ibar(gnd),
-	.o(\ctrl_counter~input_o ));
+	.o(\ctrl_rx~input_o ));
 // synopsys translate_off
-defparam \ctrl_counter~input .bus_hold = "false";
-defparam \ctrl_counter~input .simulate_z_as = "z";
+defparam \ctrl_rx~input .bus_hold = "false";
+defparam \ctrl_rx~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X22_Y31_N1
+// Location: IOIBUF_X22_Y0_N1
+cycloneiv_io_ibuf \reset~input (
+	.i(reset),
+	.ibar(gnd),
+	.o(\reset~input_o ));
+// synopsys translate_off
+defparam \reset~input .bus_hold = "false";
+defparam \reset~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X26_Y0_N8
 cycloneiv_io_ibuf \clk~input (
 	.i(clk),
 	.ibar(gnd),
@@ -102,7 +120,7 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOOBUF_X14_Y31_N2
+// Location: IOOBUF_X24_Y0_N9
 cycloneiv_io_obuf \ctrl_sr_load~output (
 	.i(\ctrl_sr_load~0_combout ),
 	.oe(vcc),
@@ -115,7 +133,7 @@ defparam \ctrl_sr_load~output .bus_hold = "false";
 defparam \ctrl_sr_load~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X20_Y31_N9
+// Location: IOOBUF_X20_Y0_N9
 cycloneiv_io_obuf \current_state~output (
 	.i(\current_state~reg0_q ),
 	.oe(vcc),
@@ -128,9 +146,9 @@ defparam \current_state~output .bus_hold = "false";
 defparam \current_state~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X20_Y31_N2
+// Location: IOOBUF_X24_Y0_N2
 cycloneiv_io_obuf \ctrl_reset_baud~output (
-	.i(\ctrl_reset_baud~0_combout ),
+	.i(!\ctrl_reset_baud~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -141,7 +159,7 @@ defparam \ctrl_reset_baud~output .bus_hold = "false";
 defparam \ctrl_reset_baud~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X14_Y31_N8
+// Location: IOIBUF_X26_Y0_N1
 cycloneiv_io_ibuf \ctrl_half_baud~input (
 	.i(ctrl_half_baud),
 	.ibar(gnd),
@@ -151,44 +169,61 @@ defparam \ctrl_half_baud~input .bus_hold = "false";
 defparam \ctrl_half_baud~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X24_Y31_N1
-cycloneiv_io_ibuf \reset~input (
-	.i(reset),
+// Location: IOIBUF_X22_Y0_N8
+cycloneiv_io_ibuf \SW[0]~input (
+	.i(SW[0]),
 	.ibar(gnd),
-	.o(\reset~input_o ));
+	.o(\SW[0]~input_o ));
 // synopsys translate_off
-defparam \reset~input .bus_hold = "false";
-defparam \reset~input .simulate_z_as = "z";
+defparam \SW[0]~input .bus_hold = "false";
+defparam \SW[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X24_Y31_N8
-cycloneiv_io_ibuf \ctrl_rx~input (
-	.i(ctrl_rx),
+// Location: IOIBUF_X29_Y0_N1
+cycloneiv_io_ibuf \ctrl_counter~input (
+	.i(ctrl_counter),
 	.ibar(gnd),
-	.o(\ctrl_rx~input_o ));
+	.o(\ctrl_counter~input_o ));
 // synopsys translate_off
-defparam \ctrl_rx~input .bus_hold = "false";
-defparam \ctrl_rx~input .simulate_z_as = "z";
+defparam \ctrl_counter~input .bus_hold = "false";
+defparam \ctrl_counter~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X22_Y30_N4
+// Location: LCCOMB_X25_Y1_N24
+cycloneiv_lcell_comb \ctrl_reset_baud~0 (
+// Equation(s):
+// \ctrl_reset_baud~0_combout  = (\current_state~reg0_q ) # (\ctrl_rx~input_o  $ (\SW[0]~input_o ))
+
+	.dataa(\ctrl_rx~input_o ),
+	.datab(gnd),
+	.datac(\SW[0]~input_o ),
+	.datad(\current_state~reg0_q ),
+	.cin(gnd),
+	.combout(\ctrl_reset_baud~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \ctrl_reset_baud~0 .lut_mask = 16'hFF5A;
+defparam \ctrl_reset_baud~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y1_N28
 cycloneiv_lcell_comb \current_state~0 (
 // Equation(s):
-// \current_state~0_combout  = (\current_state~reg0_q  & (!\ctrl_counter~input_o  & (\reset~input_o ))) # (!\current_state~reg0_q  & (((\ctrl_rx~input_o ))))
+// \current_state~0_combout  = ((\reset~input_o  & (!\ctrl_counter~input_o  & \current_state~reg0_q ))) # (!\ctrl_reset_baud~0_combout )
 
-	.dataa(\ctrl_counter~input_o ),
-	.datab(\reset~input_o ),
+	.dataa(\reset~input_o ),
+	.datab(\ctrl_counter~input_o ),
 	.datac(\current_state~reg0_q ),
-	.datad(\ctrl_rx~input_o ),
+	.datad(\ctrl_reset_baud~0_combout ),
 	.cin(gnd),
 	.combout(\current_state~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \current_state~0 .lut_mask = 16'h4F40;
+defparam \current_state~0 .lut_mask = 16'h20FF;
 defparam \current_state~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X22_Y30_N5
+// Location: FF_X25_Y1_N29
 dffeas \current_state~reg0 (
 	.clk(\clk~input_o ),
 	.d(\current_state~0_combout ),
@@ -207,38 +242,31 @@ defparam \current_state~reg0 .is_wysiwyg = "true";
 defparam \current_state~reg0 .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X15_Y30_N16
+// Location: IOIBUF_X31_Y0_N8
+cycloneiv_io_ibuf \ctrl_irda_half_baud~input (
+	.i(ctrl_irda_half_baud),
+	.ibar(gnd),
+	.o(\ctrl_irda_half_baud~input_o ));
+// synopsys translate_off
+defparam \ctrl_irda_half_baud~input .bus_hold = "false";
+defparam \ctrl_irda_half_baud~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y1_N6
 cycloneiv_lcell_comb \ctrl_sr_load~0 (
 // Equation(s):
-// \ctrl_sr_load~0_combout  = (\ctrl_half_baud~input_o  & \current_state~reg0_q )
+// \ctrl_sr_load~0_combout  = (\current_state~reg0_q  & ((\SW[0]~input_o  & ((\ctrl_irda_half_baud~input_o ))) # (!\SW[0]~input_o  & (\ctrl_half_baud~input_o ))))
 
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\ctrl_half_baud~input_o ),
-	.datad(\current_state~reg0_q ),
+	.dataa(\ctrl_half_baud~input_o ),
+	.datab(\SW[0]~input_o ),
+	.datac(\current_state~reg0_q ),
+	.datad(\ctrl_irda_half_baud~input_o ),
 	.cin(gnd),
 	.combout(\ctrl_sr_load~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \ctrl_sr_load~0 .lut_mask = 16'hF000;
+defparam \ctrl_sr_load~0 .lut_mask = 16'hE020;
 defparam \ctrl_sr_load~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X22_Y30_N22
-cycloneiv_lcell_comb \ctrl_reset_baud~0 (
-// Equation(s):
-// \ctrl_reset_baud~0_combout  = (!\current_state~reg0_q  & \ctrl_rx~input_o )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\current_state~reg0_q ),
-	.datad(\ctrl_rx~input_o ),
-	.cin(gnd),
-	.combout(\ctrl_reset_baud~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \ctrl_reset_baud~0 .lut_mask = 16'h0F00;
-defparam \ctrl_reset_baud~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 assign ctrl_sr_load = \ctrl_sr_load~output_o ;

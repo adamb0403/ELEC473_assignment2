@@ -1,8 +1,10 @@
 module rx_controller (input clk,
                       input reset,
+                      input [0:0] SW,
                       input ctrl_counter,
                       input ctrl_half_baud,
                       input ctrl_irda_half_baud,
+                      input ctrl_full_baud,
                       input ctrl_rx,
                       output ctrl_sr_load,
                       output reg current_state,
@@ -13,8 +15,8 @@ module rx_controller (input clk,
     parameter state_load = 1'b1;
 
     // Assign the conditions in which the controller will tell the shift register to load or shift
-    assign ctrl_sr_load = ((current_state == state_load) && (ctrl_half_baud));
-    assign ctrl_reset_baud = ((current_state == state_0) && (!ctrl_rx));
+    assign ctrl_sr_load = SW[0] ? ((current_state == state_load) && (ctrl_full_baud)) : ((current_state == state_load) && (ctrl_half_baud));
+    assign ctrl_reset_baud = SW[0] ? ((current_state == state_0) && (ctrl_rx)) : ((current_state == state_0) && (!ctrl_rx));
 
     initial
         current_state = state_0; // Set the first state to state_0
@@ -26,7 +28,7 @@ module rx_controller (input clk,
         case (current_state)
             state_0:
             // While in state_0 move to state_load upon a pulser output
-                if (!ctrl_rx)
+                if ((!SW[0] && !ctrl_rx) || (SW[0] && !ctrl_rx))
                     current_state <= state_load;
             state_load:
             // While in state_load move to state_shift after sending the load signal

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for full_uart
-Thu Feb 08 12:12:16 2024
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+Fri Feb 09 12:48:40 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -19,12 +19,15 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  11. Parameter Settings for User Entity Instance: tx_uart:tx|tx_single_pulser:pulser
  12. Parameter Settings for User Entity Instance: tx_uart:tx|tx_controller:ctrl
  13. Parameter Settings for User Entity Instance: rx_uart:rx|rx_controller:ctrl_rx
- 14. Port Connectivity Checks: "rx_uart:rx|tx_baud_counter:baud_rx"
- 15. Port Connectivity Checks: "rx_uart:rx|tx_7segdecoder:msb_rx"
- 16. Port Connectivity Checks: "tx_uart:tx|tx_baud_counter:baud"
- 17. Port Connectivity Checks: "tx_uart:tx|tx_7segdecoder:msb"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 14. Port Connectivity Checks: "rx_uart:rx|irda_inverter:inv_rx"
+ 15. Port Connectivity Checks: "rx_uart:rx|tx_baud_counter:baud_rx"
+ 16. Port Connectivity Checks: "rx_uart:rx|tx_7segdecoder:msb_rx"
+ 17. Port Connectivity Checks: "rx_uart:rx"
+ 18. Port Connectivity Checks: "tx_uart:tx|irda_inverter:inv_tx"
+ 19. Port Connectivity Checks: "tx_uart:tx|tx_baud_counter:baud"
+ 20. Port Connectivity Checks: "tx_uart:tx|tx_7segdecoder:msb"
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -47,24 +50,24 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                          ;
-+------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 08 12:12:16 2024            ;
-; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
-; Revision Name                      ; full_uart                                        ;
-; Top-level Entity Name              ; full_uart                                        ;
-; Family                             ; Cyclone II                                       ;
-; Total logic elements               ; 122                                              ;
-;     Total combinational functions  ; 121                                              ;
-;     Dedicated logic registers      ; 58                                               ;
-; Total registers                    ; 58                                               ;
-; Total pins                         ; 70                                               ;
-; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 0                                                ;
-; Embedded Multiplier 9-bit elements ; 0                                                ;
-; Total PLLs                         ; 0                                                ;
-+------------------------------------+--------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Feb 09 12:48:40 2024           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; full_uart                                       ;
+; Top-level Entity Name              ; full_uart                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 123                                             ;
+;     Total combinational functions  ; 122                                             ;
+;     Dedicated logic registers      ; 58                                              ;
+; Total registers                    ; 58                                              ;
+; Total pins                         ; 70                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -152,44 +155,39 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                        ;
-+------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path         ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
-+------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
-; ../irda_inverter/irda_inverter.v         ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/irda_inverter/irda_inverter.v         ;         ;
-; ../tx_synchroniser/tx_synchroniser.v     ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_synchroniser/tx_synchroniser.v     ;         ;
-; ../tx_single_pulser/tx_single_pulser.v   ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_single_pulser/tx_single_pulser.v   ;         ;
-; ../tx_shift_register/tx_shift_register.v ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_shift_register/tx_shift_register.v ;         ;
-; ../tx_parity/tx_parity.v                 ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_parity/tx_parity.v                 ;         ;
-; ../tx_counter/tx_counter.v               ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_counter/tx_counter.v               ;         ;
-; ../tx_controller/tx_controller.v         ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_controller/tx_controller.v         ;         ;
-; ../tx_baud_counter/tx_baud_counter.v     ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_baud_counter/tx_baud_counter.v     ;         ;
-; ../tx_7segdecoder/tx_7segdecoder.v       ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_7segdecoder/tx_7segdecoder.v       ;         ;
-; ../rx_shift_register/rx_shift_register.v ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/rx_shift_register/rx_shift_register.v ;         ;
-; ../rx_parity_check/rx_parity_check.v     ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/rx_parity_check/rx_parity_check.v     ;         ;
-; ../rx_controller/rx_controller.v         ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/rx_controller/rx_controller.v         ;         ;
-; ../tx_uart/tx_uart.v                     ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/tx_uart/tx_uart.v                     ;         ;
-; ../rx_uart/rx_uart.v                     ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/rx_uart/rx_uart.v                     ;         ;
-; full_uart.v                              ; yes             ; User Verilog HDL File  ; M:/ELEC473/projects/ELEC473_assignment2/full_uart/full_uart.v                 ;         ;
-+------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path         ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                ; Library ;
++------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------+---------+
+; ../irda_encoder/irda_encoder.v           ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_encoder/irda_encoder.v           ;         ;
+; ../irda_inverter/irda_inverter.v         ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/irda_inverter/irda_inverter.v         ;         ;
+; ../tx_synchroniser/tx_synchroniser.v     ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_synchroniser/tx_synchroniser.v     ;         ;
+; ../tx_single_pulser/tx_single_pulser.v   ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_single_pulser/tx_single_pulser.v   ;         ;
+; ../tx_shift_register/tx_shift_register.v ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_shift_register/tx_shift_register.v ;         ;
+; ../tx_parity/tx_parity.v                 ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_parity/tx_parity.v                 ;         ;
+; ../tx_counter/tx_counter.v               ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_counter/tx_counter.v               ;         ;
+; ../tx_controller/tx_controller.v         ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_controller/tx_controller.v         ;         ;
+; ../tx_baud_counter/tx_baud_counter.v     ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_baud_counter/tx_baud_counter.v     ;         ;
+; ../tx_7segdecoder/tx_7segdecoder.v       ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_7segdecoder/tx_7segdecoder.v       ;         ;
+; ../rx_shift_register/rx_shift_register.v ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_shift_register/rx_shift_register.v ;         ;
+; ../rx_parity_check/rx_parity_check.v     ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_parity_check/rx_parity_check.v     ;         ;
+; ../rx_controller/rx_controller.v         ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_controller/rx_controller.v         ;         ;
+; ../tx_uart/tx_uart.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/tx_uart/tx_uart.v                     ;         ;
+; ../rx_uart/rx_uart.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/rx_uart.v                     ;         ;
+; full_uart.v                              ; yes             ; User Verilog HDL File  ; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/full_uart/full_uart.v                 ;         ;
++------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -197,16 +195,16 @@ applicable agreement for further details.
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 122      ;
+; Estimated Total logic elements              ; 123      ;
 ;                                             ;          ;
-; Total combinational functions               ; 121      ;
+; Total combinational functions               ; 122      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 59       ;
-;     -- 3 input functions                    ; 17       ;
-;     -- <=2 input functions                  ; 45       ;
+;     -- 4 input functions                    ; 58       ;
+;     -- 3 input functions                    ; 20       ;
+;     -- <=2 input functions                  ; 44       ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 101      ;
+;     -- normal mode                          ; 102      ;
 ;     -- arithmetic mode                      ; 20       ;
 ;                                             ;          ;
 ; Total registers                             ; 58       ;
@@ -217,7 +215,7 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
 ; Maximum fan-out                             ; 58       ;
-; Total fan-out                               ; 588      ;
+; Total fan-out                               ; 591      ;
 ; Average fan-out                             ; 2.36     ;
 +---------------------------------------------+----------+
 
@@ -227,17 +225,18 @@ applicable agreement for further details.
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
-; |full_uart                           ; 121 (0)           ; 58 (0)       ; 0           ; 0            ; 0       ; 0         ; 70   ; 0            ; |full_uart                                         ; work         ;
-;    |rx_uart:rx|                      ; 56 (0)            ; 27 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx                              ; work         ;
-;       |rx_controller:ctrl_rx|        ; 3 (3)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|rx_controller:ctrl_rx        ; work         ;
+; |full_uart                           ; 122 (0)           ; 58 (0)       ; 0           ; 0            ; 0       ; 0         ; 70   ; 0            ; |full_uart                                         ; work         ;
+;    |rx_uart:rx|                      ; 57 (0)            ; 27 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx                              ; work         ;
+;       |rx_controller:ctrl_rx|        ; 6 (6)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|rx_controller:ctrl_rx        ; work         ;
 ;       |rx_parity_check:parity_rx|    ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|rx_parity_check:parity_rx    ; work         ;
 ;       |rx_shift_register:sr_rx|      ; 12 (12)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|rx_shift_register:sr_rx      ; work         ;
 ;       |tx_7segdecoder:lsb_rx|        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|tx_7segdecoder:lsb_rx        ; work         ;
 ;       |tx_7segdecoder:msb_rx|        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|tx_7segdecoder:msb_rx        ; work         ;
-;       |tx_baud_counter:baud_rx|      ; 16 (16)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|tx_baud_counter:baud_rx      ; work         ;
+;       |tx_baud_counter:baud_rx|      ; 14 (14)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|tx_baud_counter:baud_rx      ; work         ;
 ;       |tx_counter:counter_rx|        ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|rx_uart:rx|tx_counter:counter_rx        ; work         ;
 ;    |tx_uart:tx|                      ; 65 (0)            ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx                              ; work         ;
-;       |irda_inverter:inv|            ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|irda_inverter:inv            ; work         ;
+;       |irda_encoder:enc_tx|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|irda_encoder:enc_tx          ; work         ;
+;       |irda_inverter:inv_tx|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|irda_inverter:inv_tx         ; work         ;
 ;       |tx_7segdecoder:lsb|           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|tx_7segdecoder:lsb           ; work         ;
 ;       |tx_7segdecoder:msb|           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|tx_7segdecoder:msb           ; work         ;
 ;       |tx_baud_counter:baud|         ; 12 (12)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |full_uart|tx_uart:tx|tx_baud_counter:baud         ; work         ;
@@ -292,14 +291,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|rx_uart:rx|rx_shift_register:sr_rx|tmp_data[7] ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|tx_uart:tx|tx_baud_counter:baud|count[5]       ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|rx_uart:rx|tx_baud_counter:baud_rx|count[4]    ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|rx_uart:rx|rx_shift_register:sr_rx|tmp_data[2] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|tx_uart:tx|tx_baud_counter:baud|count[4]       ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |full_uart|rx_uart:rx|tx_baud_counter:baud_rx|count[2]    ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |full_uart|rx_uart:rx|tx_counter:counter_rx|count[0]      ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_counter:counter|count[0]         ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_controller:ctrl|current_state[0] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_shift_register:sr|tmp_data[1]    ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_shift_register:sr|tmp_data[2]    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_shift_register:sr|tmp_data[0]    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |full_uart|tx_uart:tx|tx_shift_register:sr|tmp_data[5]    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 
 
@@ -337,12 +336,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx_uart:rx|irda_inverter:inv_rx"                                                                                ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                  ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; UART_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; IRDA_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "rx_uart:rx|tx_baud_counter:baud_rx"                                                                                  ;
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 ; Port             ; Type   ; Severity ; Details                                                                                                  ;
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; baud_output      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
 ; irda_baud_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
@@ -356,13 +364,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tx_uart:tx|tx_baud_counter:baud"                                                                                                                   ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type  ; Severity ; Details                                                                                                                                      ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; reset_count ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx_uart:rx"                                                                                                                                     ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; IRDA_RXD ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tx_uart:tx|irda_inverter:inv_tx"                                                                              ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                  ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; rx_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tx_uart:tx|tx_baud_counter:baud"                                                                                                                            ;
++---------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                ; Type   ; Severity ; Details                                                                                                                                      ;
++---------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset_count         ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; irda_rx_baud_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++---------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -388,41 +415,45 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Feb 08 12:12:13 2024
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Feb 09 12:48:37 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off full_uart -c full_uart
-Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 8 of the 8 physical processors detected instead.
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/irda_inverter/irda_inverter.v
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/irda_encoder/irda_encoder.v
+    Info (12023): Found entity 1: irda_encoder
+Warning (10263): Verilog HDL Event Control warning at irda_inverter.v(9): event expression contains "|" or "||"
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/irda_inverter/irda_inverter.v
     Info (12023): Found entity 1: irda_inverter
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_synchroniser/tx_synchroniser.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_synchroniser/tx_synchroniser.v
     Info (12023): Found entity 1: tx_synchroniser
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_single_pulser/tx_single_pulser.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_single_pulser/tx_single_pulser.v
     Info (12023): Found entity 1: tx_single_pulser
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_shift_register/tx_shift_register.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_shift_register/tx_shift_register.v
     Info (12023): Found entity 1: tx_shift_register
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_parity/tx_parity.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_parity/tx_parity.v
     Info (12023): Found entity 1: tx_parity
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_counter/tx_counter.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_counter/tx_counter.v
     Info (12023): Found entity 1: tx_counter
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_controller/tx_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_controller/tx_controller.v
     Info (12023): Found entity 1: tx_controller
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_baud_counter/tx_baud_counter.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_baud_counter/tx_baud_counter.v
     Info (12023): Found entity 1: tx_baud_counter
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_7segdecoder/tx_7segdecoder.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_7segdecoder/tx_7segdecoder.v
     Info (12023): Found entity 1: tx_7segdecoder
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/rx_shift_register/rx_shift_register.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/rx_shift_register/rx_shift_register.v
     Info (12023): Found entity 1: rx_shift_register
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/rx_parity_check/rx_parity_check.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/rx_parity_check/rx_parity_check.v
     Info (12023): Found entity 1: rx_parity_check
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/rx_controller/rx_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/rx_controller/rx_controller.v
     Info (12023): Found entity 1: rx_controller
-Warning (10275): Verilog HDL Module Instantiation warning at tx_uart.v(94): ignored dangling comma in List of Port Connections
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/tx_uart/tx_uart.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/tx_uart/tx_uart.v
     Info (12023): Found entity 1: tx_uart
-Info (12021): Found 1 design units, including 1 entities, in source file /elec473/projects/elec473_assignment2/rx_uart/rx_uart.v
+Warning (10275): Verilog HDL Module Instantiation warning at rx_uart.v(88): ignored dangling comma in List of Port Connections
+Info (12021): Found 1 design units, including 1 entities, in source file /users/adam/documents/git-repos/elec473_assignment2/rx_uart/rx_uart.v
     Info (12023): Found entity 1: rx_uart
 Info (12021): Found 1 design units, including 1 entities, in source file full_uart.v
     Info (12023): Found entity 1: full_uart
+Warning (10236): Verilog HDL Implicit Net warning at rx_uart.v(64): created implicit net for "inv_sr_ctrl"
 Info (12127): Elaborating entity "full_uart" for the top level hierarchy
 Info (12128): Elaborating entity "tx_uart" for hierarchy "tx_uart:tx"
 Info (12128): Elaborating entity "tx_7segdecoder" for hierarchy "tx_uart:tx|tx_7segdecoder:msb"
@@ -434,15 +465,15 @@ Info (12128): Elaborating entity "tx_single_pulser" for hierarchy "tx_uart:tx|tx
 Info (12128): Elaborating entity "tx_parity" for hierarchy "tx_uart:tx|tx_parity:parity"
 Info (12128): Elaborating entity "tx_shift_register" for hierarchy "tx_uart:tx|tx_shift_register:sr"
 Info (12128): Elaborating entity "tx_controller" for hierarchy "tx_uart:tx|tx_controller:ctrl"
-Info (12128): Elaborating entity "irda_inverter" for hierarchy "tx_uart:tx|irda_inverter:inv"
-Warning (10235): Verilog HDL Always Construct warning at irda_inverter.v(8): variable "SW" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at irda_inverter.v(10): variable "irda_baud" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info (12128): Elaborating entity "irda_inverter" for hierarchy "tx_uart:tx|irda_inverter:inv_tx"
+Info (12128): Elaborating entity "irda_encoder" for hierarchy "tx_uart:tx|irda_encoder:enc_tx"
+Warning (10235): Verilog HDL Always Construct warning at irda_encoder.v(6): variable "irda_baud" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Info (12128): Elaborating entity "rx_uart" for hierarchy "rx_uart:rx"
 Info (12128): Elaborating entity "rx_parity_check" for hierarchy "rx_uart:rx|rx_parity_check:parity_rx"
 Warning (10235): Verilog HDL Always Construct warning at rx_parity_check.v(9): variable "parity_out" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Info (12128): Elaborating entity "rx_shift_register" for hierarchy "rx_uart:rx|rx_shift_register:sr_rx"
 Info (12128): Elaborating entity "rx_controller" for hierarchy "rx_uart:rx|rx_controller:ctrl_rx"
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 4 input pin(s) that do not drive logic
@@ -450,14 +481,14 @@ Warning (21074): Design contains 4 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "IRDA_RXD"
-Info (21057): Implemented 192 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 193 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 54 output pins
-    Info (21061): Implemented 122 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4614 megabytes
-    Info: Processing ended: Thu Feb 08 12:12:16 2024
+    Info (21061): Implemented 123 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4593 megabytes
+    Info: Processing ended: Fri Feb 09 12:48:40 2024
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:03
 
 

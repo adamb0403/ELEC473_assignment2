@@ -1,5 +1,5 @@
 EDA Netlist Writer report for rx_uart
-Wed Feb 07 11:23:45 2024
+Fri Feb 09 12:40:54 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Feb 07 11:23:45 2024 ;
+; EDA Netlist Writer Status ; Successful - Fri Feb 09 12:40:54 2024 ;
 ; Revision Name             ; rx_uart                               ;
 ; Top-level Entity Name     ; rx_uart                               ;
 ; Family                    ; Cyclone II                            ;
@@ -50,7 +50,8 @@ applicable agreement for further details.
 ; Option                                                                                            ; Setting                   ;
 +---------------------------------------------------------------------------------------------------+---------------------------+
 ; Tool Name                                                                                         ; ModelSim-Altera (Verilog) ;
-; Generate netlist for functional simulation only                                                   ; On                        ;
+; Generate netlist for functional simulation only                                                   ; Off                       ;
+; Time scale                                                                                        ; 1 ps                      ;
 ; Truncate long hierarchy paths                                                                     ; Off                       ;
 ; Map illegal HDL characters                                                                        ; Off                       ;
 ; Flatten buses into individual nodes                                                               ; Off                       ;
@@ -65,13 +66,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                   ;
-+----------------------------------------------------------------------------------------------+
-; Generated Files                                                                              ;
-+----------------------------------------------------------------------------------------------+
-; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/rx_uart.vo ;
-+----------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                           ;
++------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                      ;
++------------------------------------------------------------------------------------------------------+
+; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/rx_uart.vo         ;
+; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/rx_uart_fast.vo    ;
+; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/rx_uart_v.sdo      ;
+; C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/rx_uart_v_fast.sdo ;
++------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -80,12 +84,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Feb 07 11:23:44 2024
-Info: Command: quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog rx_uart -c rx_uart
-Info (204019): Generated file rx_uart.vo in folder "C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/" for EDA simulation tool
+    Info: Processing started: Fri Feb 09 12:40:52 2024
+Info: Command: quartus_eda --functional=off --timescale=1ps --simulation=on --tool=modelsim_oem --format=verilog rx_uart -c rx_uart
+Info (204026): Generated files "rx_uart.vo", "rx_uart_fast.vo", "rx_uart_v.sdo" and "rx_uart_v_fast.sdo" in directory "C:/Users/Adam/Documents/git-repos/ELEC473_assignment2/rx_uart/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4515 megabytes
-    Info: Processing ended: Wed Feb 07 11:23:46 2024
+    Info: Peak virtual memory: 4520 megabytes
+    Info: Processing ended: Fri Feb 09 12:40:54 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

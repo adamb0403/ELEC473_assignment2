@@ -4,11 +4,11 @@ K3
 cModel Technology
 Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\full_uart\simulation\qsim
 vfull_uart
-Z1 !s100 aAYi]YfGaf[Fj9JJYhG_X0
-Z2 I43DQ`k9E<AfA6ZUQ2;VO42
+Z1 !s100 S@iP7c1KlB0P?h;[i]d:h0
+Z2 Ii3]eAV@dDX0l3Wk4DRJGa3
 Z3 VGbd5WGFV?zoLJ2gI>0[HP3
-Z4 dM:\ELEC473\projects\ELEC473_assignment2\full_uart\simulation\qsim
-Z5 w1707394494
+Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\full_uart\simulation\qsim
+Z5 w1707483054
 Z6 8full_uart.vo
 Z7 Ffull_uart.vo
 L0 31
@@ -19,16 +19,16 @@ Z9 !s90 -work|work|full_uart.vo|
 Z10 o-work work -O0
 !i10b 1
 !s85 0
-Z11 !s108 1707394492.325000
+Z11 !s108 1707483055.311000
 Z12 !s107 full_uart.vo|
 !s101 -O0
 vfull_uart_vlg_check_tst
 !i10b 1
-Z13 !s100 F7;ne9QoHNL`kFoBoh9bC1
-Z14 IgGBLeMKWN^cX>ZX@dQmV21
+Z13 !s100 GQmAWf7C=>7>Jl3;9diV<1
+Z14 Ih=ZJe>ln>G?450VYTaiYi3
 Z15 V`48nPITAz3X>2hdHfzS5R0
 R4
-Z16 w1707394493
+Z16 w1707483052
 Z17 8full_uart.vt
 Z18 Ffull_uart.vt
 L0 65
@@ -36,7 +36,7 @@ R8
 r1
 !s85 0
 31
-Z19 !s108 1707394492.552000
+Z19 !s108 1707483055.491000
 Z20 !s107 full_uart.vt|
 Z21 !s90 -work|work|full_uart.vt|
 !s101 -O0
@@ -62,14 +62,14 @@ R21
 R10
 vfull_uart_vlg_vec_tst
 !i10b 1
-!s100 o[A]>S2UZJ6j9l21E[bod3
-I80eEZA1CR]=TZ:V0Zd4V23
+!s100 lMnUoX>D2hgOKnf1d?Mhm1
+Ih7D^S[VA4D49cFnB=[6fC0
 Z25 V3@DFfJi_=hL=E90C02mhk0
 R4
 R16
 R17
 R18
-Z26 L0 832
+Z26 L0 834
 R8
 r1
 !s85 0

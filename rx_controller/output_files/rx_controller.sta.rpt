@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for rx_controller
-Tue Feb 06 16:31:26 2024
+Fri Feb 09 12:02:58 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -131,13 +131,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                                         ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
-; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
-; 1466.28 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 946.97 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -149,11 +149,11 @@ HTML report is unavailable in plain text report export.
 
 +-------------------------------------+
 ; Slow 1200mV 85C Model Setup Summary ;
-+-------+-------+---------------------+
-; Clock ; Slack ; End Point TNS       ;
-+-------+-------+---------------------+
-; clk   ; 0.318 ; 0.000               ;
-+-------+-------+---------------------+
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -0.056 ; -0.056             ;
++-------+--------+--------------------+
 
 
 +------------------------------------+
@@ -186,13 +186,13 @@ No paths to report.
 +-------+--------+----------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Setup: 'clk'                                                                                    ;
-+-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; 0.318 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.038     ; 0.659      ;
-+-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                     ;
++--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
+; -0.056 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.038     ; 1.033      ;
++--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
@@ -211,14 +211,14 @@ No paths to report.
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 ; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                    ;
 ; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; current_state~reg0     ;
-; 0.158  ; 0.342        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
-; 0.320  ; 0.320        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
+; 0.154  ; 0.338        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
+; 0.316  ; 0.316        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
 ; 0.326  ; 0.326        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o            ;
-; 0.440  ; 0.656        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
+; 0.444  ; 0.660        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i            ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i            ;
 ; 0.674  ; 0.674        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|o            ;
-; 0.680  ; 0.680        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
+; 0.684  ; 0.684        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 
 
@@ -227,9 +227,11 @@ No paths to report.
 +--------------+------------+-------+-------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +--------------+------------+-------+-------+------------+-----------------+
-; ctrl_counter ; clk        ; 2.010 ; 2.403 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; 1.937 ; 2.359 ; Rise       ; clk             ;
-; reset        ; clk        ; 2.139 ; 2.552 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; 2.333 ; 2.748 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; 2.333 ; 2.748 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; 2.210 ; 2.632 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; 2.614 ; 3.049 ; Rise       ; clk             ;
+; reset        ; clk        ; 2.046 ; 2.453 ; Rise       ; clk             ;
 +--------------+------------+-------+-------+------------+-----------------+
 
 
@@ -238,9 +240,11 @@ No paths to report.
 +--------------+------------+--------+--------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +--------------+------------+--------+--------+------------+-----------------+
-; ctrl_counter ; clk        ; -1.569 ; -1.971 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; -1.547 ; -1.949 ; Rise       ; clk             ;
-; reset        ; clk        ; -1.706 ; -2.100 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; -1.913 ; -2.285 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; -1.913 ; -2.285 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; -1.797 ; -2.218 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; -2.140 ; -2.564 ; Rise       ; clk             ;
+; reset        ; clk        ; -1.648 ; -2.037 ; Rise       ; clk             ;
 +--------------+------------+--------+--------+------------+-----------------+
 
 
@@ -249,9 +253,9 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 5.964 ; 5.786 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 7.075 ; 7.045 ; Rise       ; clk             ;
-; current_state   ; clk        ; 5.711 ; 5.621 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 5.784 ; 5.858 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 6.250 ; 6.162 ; Rise       ; clk             ;
+; current_state   ; clk        ; 5.732 ; 5.642 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -260,30 +264,36 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 5.767 ; 5.592 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 6.863 ; 6.833 ; Rise       ; clk             ;
-; current_state   ; clk        ; 5.525 ; 5.434 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 5.590 ; 5.667 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 6.039 ; 5.952 ; Rise       ; clk             ;
+; current_state   ; clk        ; 5.545 ; 5.455 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
-+------------------------------------------------------------+
-; Propagation Delay                                          ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 7.663 ;    ;    ; 8.017 ;
-; ctrl_rx        ; ctrl_reset_baud ; 7.026 ;    ;    ; 7.314 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 7.009 ; 7.145 ; 7.424 ; 7.526 ;
+; SW[0]               ; ctrl_sr_load    ; 7.188 ; 7.134 ; 7.652 ; 7.446 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 7.029 ;       ;       ; 7.325 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 7.299 ;       ;       ; 7.594 ;
+; ctrl_rx             ; ctrl_reset_baud ; 7.290 ; 7.397 ; 7.725 ; 7.835 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
-+------------------------------------------------------------+
-; Minimum Propagation Delay                                  ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 7.435 ;    ;    ; 7.783 ;
-; ctrl_rx        ; ctrl_reset_baud ; 6.796 ;    ;    ; 7.074 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Minimum Propagation Delay                                             ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 6.774 ; 6.909 ; 7.178 ; 7.281 ;
+; SW[0]               ; ctrl_sr_load    ; 6.949 ; 6.894 ; 7.403 ; 7.201 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 6.761 ;       ;       ; 7.048 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 7.057 ;       ;       ; 7.342 ;
+; ctrl_rx             ; ctrl_reset_baud ; 7.014 ; 7.136 ; 7.451 ; 7.560 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
 ----------------------------------------------
@@ -292,13 +302,13 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                                                          ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
-; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
-; 1661.13 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
-+-------------+-----------------+------------+---------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 1062.7 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -307,7 +317,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clk   ; 0.398 ; 0.000              ;
+; clk   ; 0.059 ; 0.000              ;
 +-------+-------+--------------------+
 
 
@@ -346,7 +356,7 @@ No paths to report.
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; 0.398 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.034     ; 0.583      ;
+; 0.059 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.034     ; 0.922      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -366,13 +376,13 @@ No paths to report.
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 ; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                    ;
 ; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; current_state~reg0     ;
-; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
+; 0.198  ; 0.382        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
 ; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o            ;
-; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
-; 0.400  ; 0.616        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
+; 0.358  ; 0.358        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
+; 0.402  ; 0.618        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i            ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i            ;
-; 0.640  ; 0.640        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
+; 0.642  ; 0.642        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
 ; 0.656  ; 0.656        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|o            ;
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 
@@ -382,9 +392,11 @@ No paths to report.
 +--------------+------------+-------+-------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +--------------+------------+-------+-------+------------+-----------------+
-; ctrl_counter ; clk        ; 1.666 ; 1.996 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; 1.621 ; 1.944 ; Rise       ; clk             ;
-; reset        ; clk        ; 1.805 ; 2.120 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; 1.965 ; 2.303 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; 1.965 ; 2.303 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; 1.859 ; 2.201 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; 2.218 ; 2.572 ; Rise       ; clk             ;
+; reset        ; clk        ; 1.713 ; 2.028 ; Rise       ; clk             ;
 +--------------+------------+-------+-------+------------+-----------------+
 
 
@@ -393,9 +405,11 @@ No paths to report.
 +--------------+------------+--------+--------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +--------------+------------+--------+--------+------------+-----------------+
-; ctrl_counter ; clk        ; -1.276 ; -1.611 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; -1.275 ; -1.585 ; Rise       ; clk             ;
-; reset        ; clk        ; -1.420 ; -1.720 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; -1.591 ; -1.893 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; -1.591 ; -1.893 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; -1.494 ; -1.834 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; -1.793 ; -2.142 ; Rise       ; clk             ;
+; reset        ; clk        ; -1.359 ; -1.661 ; Rise       ; clk             ;
 +--------------+------------+--------+--------+------------+-----------------+
 
 
@@ -404,9 +418,9 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 5.383 ; 5.191 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 6.360 ; 6.280 ; Rise       ; clk             ;
-; current_state   ; clk        ; 5.170 ; 5.039 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 5.186 ; 5.295 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 5.660 ; 5.525 ; Rise       ; clk             ;
+; current_state   ; clk        ; 5.187 ; 5.061 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -415,30 +429,36 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 5.206 ; 5.016 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 6.167 ; 6.089 ; Rise       ; clk             ;
-; current_state   ; clk        ; 5.001 ; 4.871 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 5.011 ; 5.118 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 5.468 ; 5.335 ; Rise       ; clk             ;
+; current_state   ; clk        ; 5.016 ; 4.890 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
-+------------------------------------------------------------+
-; Propagation Delay                                          ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 6.721 ;    ;    ; 7.005 ;
-; ctrl_rx        ; ctrl_reset_baud ; 6.220 ;    ;    ; 6.394 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 6.163 ; 6.320 ; 6.501 ; 6.628 ;
+; SW[0]               ; ctrl_sr_load    ; 6.355 ; 6.271 ; 6.732 ; 6.512 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 6.218 ;       ;       ; 6.403 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 6.468 ;       ;       ; 6.646 ;
+; ctrl_rx             ; ctrl_reset_baud ; 6.416 ; 6.547 ; 6.770 ; 6.905 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
-+------------------------------------------------------------+
-; Minimum Propagation Delay                                  ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 6.521 ;    ;    ; 6.797 ;
-; ctrl_rx        ; ctrl_reset_baud ; 6.015 ;    ;    ; 6.185 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Minimum Propagation Delay                                             ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 5.954 ; 6.109 ; 6.285 ; 6.411 ;
+; SW[0]               ; ctrl_sr_load    ; 6.144 ; 6.060 ; 6.511 ; 6.296 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 5.980 ;       ;       ; 6.159 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 6.252 ;       ;       ; 6.426 ;
+; ctrl_rx             ; ctrl_reset_baud ; 6.175 ; 6.311 ; 6.528 ; 6.660 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
 ---------------------------------------------
@@ -452,7 +472,7 @@ No synchronizer chains to report.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clk   ; 0.626 ; 0.000              ;
+; clk   ; 0.425 ; 0.000              ;
 +-------+-------+--------------------+
 
 
@@ -482,7 +502,7 @@ No paths to report.
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; clk   ; -3.000 ; -4.092                          ;
+; clk   ; -3.000 ; -4.095                          ;
 +-------+--------+---------------------------------+
 
 
@@ -491,7 +511,7 @@ No paths to report.
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; 0.626 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.022     ; 0.359      ;
+; 0.425 ; current_state~reg0 ; current_state~reg0 ; clk          ; clk         ; 1.000        ; -0.022     ; 0.560      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -511,14 +531,14 @@ No paths to report.
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 ; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                    ;
 ; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; current_state~reg0     ;
-; -0.092 ; 0.092        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
-; 0.088  ; 0.088        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
+; -0.095 ; 0.089        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0     ;
+; 0.085  ; 0.085        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; current_state~reg0|clk ;
 ; 0.125  ; 0.125        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o            ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i            ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i            ;
-; 0.688  ; 0.904        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
+; 0.692  ; 0.908        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0     ;
 ; 0.875  ; 0.875        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|o            ;
-; 0.910  ; 0.910        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
+; 0.914  ; 0.914        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; current_state~reg0|clk ;
 +--------+--------------+----------------+------------------+-------+------------+------------------------+
 
 
@@ -527,9 +547,11 @@ No paths to report.
 +--------------+------------+-------+-------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +--------------+------------+-------+-------+------------+-----------------+
-; ctrl_counter ; clk        ; 1.186 ; 1.725 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; 1.135 ; 1.705 ; Rise       ; clk             ;
-; reset        ; clk        ; 1.259 ; 1.818 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; 1.349 ; 1.914 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; 1.349 ; 1.914 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; 1.312 ; 1.883 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; 1.522 ; 2.104 ; Rise       ; clk             ;
+; reset        ; clk        ; 1.192 ; 1.756 ; Rise       ; clk             ;
 +--------------+------------+-------+-------+------------+-----------------+
 
 
@@ -538,9 +560,11 @@ No paths to report.
 +--------------+------------+--------+--------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +--------------+------------+--------+--------+------------+-----------------+
-; ctrl_counter ; clk        ; -0.939 ; -1.483 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; -0.918 ; -1.475 ; Rise       ; clk             ;
-; reset        ; clk        ; -1.019 ; -1.563 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; -1.110 ; -1.649 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; -1.110 ; -1.649 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; -1.078 ; -1.650 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; -1.257 ; -1.834 ; Rise       ; clk             ;
+; reset        ; clk        ; -0.971 ; -1.520 ; Rise       ; clk             ;
 +--------------+------------+--------+--------+------------+-----------------+
 
 
@@ -549,9 +573,9 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 3.413 ; 3.388 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 4.163 ; 4.239 ; Rise       ; clk             ;
-; current_state   ; clk        ; 3.270 ; 3.307 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 3.384 ; 3.346 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 3.542 ; 3.599 ; Rise       ; clk             ;
+; current_state   ; clk        ; 3.283 ; 3.317 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -560,30 +584,36 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 3.298 ; 3.273 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 4.040 ; 4.113 ; Rise       ; clk             ;
-; current_state   ; clk        ; 3.161 ; 3.196 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 3.270 ; 3.232 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 3.421 ; 3.476 ; Rise       ; clk             ;
+; current_state   ; clk        ; 3.172 ; 3.204 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
-+------------------------------------------------------------+
-; Propagation Delay                                          ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 4.583 ;    ;    ; 5.139 ;
-; ctrl_rx        ; ctrl_reset_baud ; 4.076 ;    ;    ; 4.642 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Propagation Delay                                                     ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 4.128 ; 4.127 ; 4.693 ; 4.673 ;
+; SW[0]               ; ctrl_sr_load    ; 4.147 ; 4.191 ; 4.751 ; 4.702 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 4.073 ;       ;       ; 4.631 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 4.220 ;       ;       ; 4.812 ;
+; ctrl_rx             ; ctrl_reset_baud ; 4.301 ; 4.286 ; 4.883 ; 4.877 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
-+------------------------------------------------------------+
-; Minimum Propagation Delay                                  ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 4.448 ;    ;    ; 4.998 ;
-; ctrl_rx        ; ctrl_reset_baud ; 3.939 ;    ;    ; 4.498 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Minimum Propagation Delay                                             ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 3.988 ; 3.987 ; 4.546 ; 4.526 ;
+; SW[0]               ; ctrl_sr_load    ; 4.007 ; 4.048 ; 4.601 ; 4.555 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 3.915 ;       ;       ; 4.467 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 4.076 ;       ;       ; 4.661 ;
+; ctrl_rx             ; ctrl_reset_baud ; 4.137 ; 4.134 ; 4.719 ; 4.711 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
 ---------------------------------------------
@@ -592,16 +622,16 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                         ;
-+------------------+-------+-------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 0.318 ; 0.201 ; N/A      ; N/A     ; -3.000              ;
-;  clk             ; 0.318 ; 0.201 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; -4.092              ;
-;  clk             ; 0.000 ; 0.000 ; N/A      ; N/A     ; -4.092              ;
-+------------------+-------+-------+----------+---------+---------------------+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.056 ; 0.201 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -0.056 ; 0.201 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -0.056 ; 0.0   ; 0.0      ; 0.0     ; -4.095              ;
+;  clk             ; -0.056 ; 0.000 ; N/A      ; N/A     ; -4.095              ;
++------------------+--------+-------+----------+---------+---------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -609,9 +639,11 @@ No synchronizer chains to report.
 +--------------+------------+-------+-------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +--------------+------------+-------+-------+------------+-----------------+
-; ctrl_counter ; clk        ; 2.010 ; 2.403 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; 1.937 ; 2.359 ; Rise       ; clk             ;
-; reset        ; clk        ; 2.139 ; 2.552 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; 2.333 ; 2.748 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; 2.333 ; 2.748 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; 2.210 ; 2.632 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; 2.614 ; 3.049 ; Rise       ; clk             ;
+; reset        ; clk        ; 2.046 ; 2.453 ; Rise       ; clk             ;
 +--------------+------------+-------+-------+------------+-----------------+
 
 
@@ -620,9 +652,11 @@ No synchronizer chains to report.
 +--------------+------------+--------+--------+------------+-----------------+
 ; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +--------------+------------+--------+--------+------------+-----------------+
-; ctrl_counter ; clk        ; -0.939 ; -1.483 ; Rise       ; clk             ;
-; ctrl_rx      ; clk        ; -0.918 ; -1.475 ; Rise       ; clk             ;
-; reset        ; clk        ; -1.019 ; -1.563 ; Rise       ; clk             ;
+; SW[*]        ; clk        ; -1.110 ; -1.649 ; Rise       ; clk             ;
+;  SW[0]       ; clk        ; -1.110 ; -1.649 ; Rise       ; clk             ;
+; ctrl_counter ; clk        ; -1.078 ; -1.650 ; Rise       ; clk             ;
+; ctrl_rx      ; clk        ; -1.257 ; -1.834 ; Rise       ; clk             ;
+; reset        ; clk        ; -0.971 ; -1.520 ; Rise       ; clk             ;
 +--------------+------------+--------+--------+------------+-----------------+
 
 
@@ -631,9 +665,9 @@ No synchronizer chains to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 5.964 ; 5.786 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 7.075 ; 7.045 ; Rise       ; clk             ;
-; current_state   ; clk        ; 5.711 ; 5.621 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 5.784 ; 5.858 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 6.250 ; 6.162 ; Rise       ; clk             ;
+; current_state   ; clk        ; 5.732 ; 5.642 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -642,30 +676,36 @@ No synchronizer chains to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; ctrl_reset_baud ; clk        ; 3.298 ; 3.273 ; Rise       ; clk             ;
-; ctrl_sr_load    ; clk        ; 4.040 ; 4.113 ; Rise       ; clk             ;
-; current_state   ; clk        ; 3.161 ; 3.196 ; Rise       ; clk             ;
+; ctrl_reset_baud ; clk        ; 3.270 ; 3.232 ; Rise       ; clk             ;
+; ctrl_sr_load    ; clk        ; 3.421 ; 3.476 ; Rise       ; clk             ;
+; current_state   ; clk        ; 3.172 ; 3.204 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
-+------------------------------------------------------------+
-; Progagation Delay                                          ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 7.663 ;    ;    ; 8.017 ;
-; ctrl_rx        ; ctrl_reset_baud ; 7.026 ;    ;    ; 7.314 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Progagation Delay                                                     ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 7.009 ; 7.145 ; 7.424 ; 7.526 ;
+; SW[0]               ; ctrl_sr_load    ; 7.188 ; 7.134 ; 7.652 ; 7.446 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 7.029 ;       ;       ; 7.325 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 7.299 ;       ;       ; 7.594 ;
+; ctrl_rx             ; ctrl_reset_baud ; 7.290 ; 7.397 ; 7.725 ; 7.835 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
-+------------------------------------------------------------+
-; Minimum Progagation Delay                                  ;
-+----------------+-----------------+-------+----+----+-------+
-; Input Port     ; Output Port     ; RR    ; RF ; FR ; FF    ;
-+----------------+-----------------+-------+----+----+-------+
-; ctrl_half_baud ; ctrl_sr_load    ; 4.448 ;    ;    ; 4.998 ;
-; ctrl_rx        ; ctrl_reset_baud ; 3.939 ;    ;    ; 4.498 ;
-+----------------+-----------------+-------+----+----+-------+
++-----------------------------------------------------------------------+
+; Minimum Progagation Delay                                             ;
++---------------------+-----------------+-------+-------+-------+-------+
+; Input Port          ; Output Port     ; RR    ; RF    ; FR    ; FF    ;
++---------------------+-----------------+-------+-------+-------+-------+
+; SW[0]               ; ctrl_reset_baud ; 3.988 ; 3.987 ; 4.546 ; 4.526 ;
+; SW[0]               ; ctrl_sr_load    ; 4.007 ; 4.048 ; 4.601 ; 4.555 ;
+; ctrl_half_baud      ; ctrl_sr_load    ; 3.915 ;       ;       ; 4.467 ;
+; ctrl_irda_half_baud ; ctrl_sr_load    ; 4.076 ;       ;       ; 4.661 ;
+; ctrl_rx             ; ctrl_reset_baud ; 4.137 ; 4.134 ; 4.719 ; 4.711 ;
++---------------------+-----------------+-------+-------+-------+-------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -681,20 +721,22 @@ No synchronizer chains to report.
 +-----------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 
 
-+-------------------------------------------------------------------+
-; Input Transition Times                                            ;
-+----------------+--------------+-----------------+-----------------+
-; Pin            ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
-+----------------+--------------+-----------------+-----------------+
-; ctrl_half_baud ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; ctrl_rx        ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; reset          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; ctrl_counter   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; clk            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; ~ALTERA_DATA0~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; ~ALTERA_ASDO~  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; ~ALTERA_NCSO~  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-+----------------+--------------+-----------------+-----------------+
++------------------------------------------------------------------------+
+; Input Transition Times                                                 ;
++---------------------+--------------+-----------------+-----------------+
+; Pin                 ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++---------------------+--------------+-----------------+-----------------+
+; ctrl_irda_half_baud ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ctrl_half_baud      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[0]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ctrl_rx             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ctrl_counter        ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO~       ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_NCSO~       ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++---------------------+--------------+-----------------+-----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -702,7 +744,7 @@ No synchronizer chains to report.
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin             ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.34 V              ; -0.00668 V          ; 0.218 V                              ; 0.076 V                              ; 1.92e-09 s                  ; 1.81e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.34 V             ; -0.00668 V         ; 0.218 V                             ; 0.076 V                             ; 1.92e-09 s                 ; 1.81e-09 s                 ; No                        ; Yes                       ;
+; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00317 V          ; 0.179 V                              ; 0.007 V                              ; 4.7e-10 s                   ; 4.72e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00317 V         ; 0.179 V                             ; 0.007 V                             ; 4.7e-10 s                  ; 4.72e-10 s                 ; No                        ; Yes                       ;
 ; current_state   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00317 V          ; 0.179 V                              ; 0.007 V                              ; 4.7e-10 s                   ; 4.72e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00317 V         ; 0.179 V                             ; 0.007 V                             ; 4.7e-10 s                  ; 4.72e-10 s                 ; No                        ; Yes                       ;
 ; ctrl_reset_baud ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00317 V          ; 0.179 V                              ; 0.007 V                              ; 4.7e-10 s                   ; 4.72e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00317 V         ; 0.179 V                             ; 0.007 V                             ; 4.7e-10 s                  ; 4.72e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_NCEO~   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.76e-09 V                   ; 2.4 V               ; -0.034 V            ; 0.102 V                              ; 0.065 V                              ; 2.49e-10 s                  ; 3.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.76e-09 V                  ; 2.4 V              ; -0.034 V           ; 0.102 V                             ; 0.065 V                             ; 2.49e-10 s                 ; 3.49e-10 s                 ; Yes                       ; Yes                       ;
@@ -715,7 +757,7 @@ No synchronizer chains to report.
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin             ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.33 V              ; -0.00286 V          ; 0.193 V                              ; 0.042 V                              ; 2.32e-09 s                  ; 2.21e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.33 V             ; -0.00286 V         ; 0.193 V                             ; 0.042 V                             ; 2.32e-09 s                 ; 2.21e-09 s                 ; Yes                       ; Yes                       ;
+; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.36 V              ; -0.00833 V          ; 0.113 V                              ; 0.035 V                              ; 6.32e-10 s                  ; 5.89e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.36 V             ; -0.00833 V         ; 0.113 V                             ; 0.035 V                             ; 6.32e-10 s                 ; 5.89e-10 s                 ; No                        ; Yes                       ;
 ; current_state   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.36 V              ; -0.00833 V          ; 0.113 V                              ; 0.035 V                              ; 6.32e-10 s                  ; 5.89e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.36 V             ; -0.00833 V         ; 0.113 V                             ; 0.035 V                             ; 6.32e-10 s                 ; 5.89e-10 s                 ; No                        ; Yes                       ;
 ; ctrl_reset_baud ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.36 V              ; -0.00833 V          ; 0.113 V                              ; 0.035 V                              ; 6.32e-10 s                  ; 5.89e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.36 V             ; -0.00833 V         ; 0.113 V                             ; 0.035 V                             ; 6.32e-10 s                 ; 5.89e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_NCEO~   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.93e-07 V                   ; 2.37 V              ; -0.0278 V           ; 0.106 V                              ; 0.115 V                              ; 2.69e-10 s                  ; 4.05e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.93e-07 V                  ; 2.37 V             ; -0.0278 V          ; 0.106 V                             ; 0.115 V                             ; 2.69e-10 s                 ; 4.05e-10 s                 ; Yes                       ; Yes                       ;
@@ -728,7 +770,7 @@ No synchronizer chains to report.
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin             ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.65 V              ; -0.0115 V           ; 0.219 V                              ; 0.115 V                              ; 1.64e-09 s                  ; 1.57e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.65 V             ; -0.0115 V          ; 0.219 V                             ; 0.115 V                             ; 1.64e-09 s                 ; 1.57e-09 s                 ; No                        ; Yes                       ;
+; ctrl_sr_load    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.72 V              ; -0.0215 V           ; 0.161 V                              ; 0.061 V                              ; 4.44e-10 s                  ; 4.06e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.72 V             ; -0.0215 V          ; 0.161 V                             ; 0.061 V                             ; 4.44e-10 s                 ; 4.06e-10 s                 ; No                        ; Yes                       ;
 ; current_state   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.72 V              ; -0.0215 V           ; 0.161 V                              ; 0.061 V                              ; 4.44e-10 s                  ; 4.06e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.72 V             ; -0.0215 V          ; 0.161 V                             ; 0.061 V                             ; 4.44e-10 s                 ; 4.06e-10 s                 ; No                        ; Yes                       ;
 ; ctrl_reset_baud ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.72 V              ; -0.0215 V           ; 0.161 V                              ; 0.061 V                              ; 4.44e-10 s                  ; 4.06e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.72 V             ; -0.0215 V          ; 0.161 V                             ; 0.061 V                             ; 4.44e-10 s                 ; 4.06e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_NCEO~   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.06e-08 V                   ; 2.86 V              ; -0.0341 V           ; 0.364 V                              ; 0.046 V                              ; 1.17e-10 s                  ; 2.6e-10 s                   ; No                         ; Yes                        ; 2.62 V                      ; 3.06e-08 V                  ; 2.86 V             ; -0.0341 V          ; 0.364 V                             ; 0.046 V                             ; 1.17e-10 s                 ; 2.6e-10 s                  ; No                        ; Yes                       ;
@@ -741,7 +783,7 @@ No synchronizer chains to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 1        ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 2        ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -751,7 +793,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 1        ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 2        ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -775,10 +817,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 5     ; 5    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 9     ; 9    ;
 ; Unconstrained Output Ports      ; 3     ; 3    ;
-; Unconstrained Output Port Paths ; 5     ; 5    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
 +---------------------------------+-------+------+
 
 
@@ -788,7 +830,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Feb 06 16:31:22 2024
+    Info: Processing started: Fri Feb 09 12:02:53 2024
 Info: Command: quartus_sta rx_controller -c rx_controller
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -802,18 +844,18 @@ Info (332143): No user constrained clock uncertainty found in the design. Callin
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
-Info (332146): Worst-case setup slack is 0.318
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.056
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.318         0.000 clk 
+    Info (332119):    -0.056        -0.056 clk 
 Info (332146): Worst-case hold slack is 0.382
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
     Info (332119):     0.382         0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Critical Warning (332148): Timing requirements not met
-    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -822,10 +864,10 @@ Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332146): Worst-case setup slack is 0.398
+Info (332146): Worst-case setup slack is 0.059
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.398         0.000 clk 
+    Info (332119):     0.059         0.000 clk 
 Info (332146): Worst-case hold slack is 0.333
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -840,10 +882,10 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):    -3.000        -4.000 clk 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332146): Worst-case setup slack is 0.626
+Info (332146): Worst-case setup slack is 0.425
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.626         0.000 clk 
+    Info (332119):     0.425         0.000 clk 
 Info (332146): Worst-case hold slack is 0.201
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -855,13 +897,13 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -3.000        -4.092 clk 
+    Info (332119):    -3.000        -4.095 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4612 megabytes
-    Info: Processing ended: Tue Feb 06 16:31:26 2024
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 4592 megabytes
+    Info: Processing ended: Fri Feb 09 12:02:58 2024
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
 

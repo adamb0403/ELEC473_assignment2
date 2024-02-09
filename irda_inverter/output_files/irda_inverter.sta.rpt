@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for irda_inverter
-Thu Feb 08 12:53:24 2024
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+Fri Feb 09 12:18:25 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -72,35 +72,28 @@ applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------------+
-; TimeQuest Timing Analyzer Summary                                                       ;
-+--------------------+--------------------------------------------------------------------+
-; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version ;
-; Revision Name      ; irda_inverter                                                      ;
-; Device Family      ; Cyclone IV GX                                                      ;
-; Device Name        ; EP4CGX15BF14C6                                                     ;
-; Timing Models      ; Final                                                              ;
-; Delay Model        ; Combined                                                           ;
-; Rise/Fall Delays   ; Enabled                                                            ;
-+--------------------+--------------------------------------------------------------------+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; irda_inverter                                                     ;
+; Device Family      ; Cyclone IV GX                                                     ;
+; Device Name        ; EP4CGX15BF14C6                                                    ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Enabled                                                           ;
++--------------------+-------------------------------------------------------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ; < 0.1%      ;
-;     Processors 9-16        ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
 ----------
@@ -156,11 +149,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 7.457 ; 8.092 ;       ;
-; SW[0]      ; IRDA_output ; 6.869 ;       ;       ; 7.189 ;
-; SW[0]      ; UART_output ; 6.852 ;       ;       ; 7.173 ;
-; UART_input ; UART_output ; 6.893 ;       ;       ; 7.182 ;
-; irda_baud  ; IRDA_output ; 6.943 ;       ;       ; 7.226 ;
+; IRDA_input ; IRDA_output ;       ; 8.747 ; 9.349 ;       ;
+; IRDA_input ; rx_output   ;       ; 7.457 ; 8.096 ;       ;
+; SW[0]      ; IRDA_output ; 8.270 ;       ;       ; 8.608 ;
+; SW[0]      ; UART_output ; 7.166 ;       ;       ; 7.490 ;
+; SW[0]      ; rx_output   ; 7.108 ; 7.057 ; 7.594 ; 7.394 ;
+; UART_input ; UART_output ; 6.862 ;       ;       ; 7.184 ;
+; UART_input ; rx_output   ; 6.861 ;       ;       ; 7.179 ;
+; irda_baud  ; IRDA_output ; 8.191 ;       ;       ; 8.513 ;
+; irda_baud  ; rx_output   ; 6.940 ;       ;       ; 7.226 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -169,11 +166,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 7.174 ; 7.801 ;       ;
-; SW[0]      ; IRDA_output ; 6.641 ;       ;       ; 6.952 ;
-; SW[0]      ; UART_output ; 6.624 ;       ;       ; 6.935 ;
-; UART_input ; UART_output ; 6.664 ;       ;       ; 6.944 ;
-; irda_baud  ; IRDA_output ; 6.712 ;       ;       ; 6.986 ;
+; IRDA_input ; IRDA_output ;       ; 8.448 ; 9.041 ;       ;
+; IRDA_input ; rx_output   ;       ; 7.193 ; 7.824 ;       ;
+; SW[0]      ; IRDA_output ; 8.019 ;       ;       ; 8.349 ;
+; SW[0]      ; UART_output ; 6.865 ;       ;       ; 7.160 ;
+; SW[0]      ; rx_output   ; 6.869 ; 6.778 ; 7.313 ; 7.148 ;
+; UART_input ; UART_output ; 6.632 ;       ;       ; 6.946 ;
+; UART_input ; rx_output   ; 6.631 ;       ;       ; 6.941 ;
+; irda_baud  ; IRDA_output ; 7.944 ;       ;       ; 8.257 ;
+; irda_baud  ; rx_output   ; 6.708 ;       ;       ; 6.985 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -224,11 +225,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 6.583 ; 7.105 ;       ;
-; SW[0]      ; IRDA_output ; 6.047 ;       ;       ; 6.295 ;
-; SW[0]      ; UART_output ; 6.030 ;       ;       ; 6.280 ;
-; UART_input ; UART_output ; 6.076 ;       ;       ; 6.285 ;
-; irda_baud  ; IRDA_output ; 6.120 ;       ;       ; 6.322 ;
+; IRDA_input ; IRDA_output ;       ; 7.703 ; 8.220 ;       ;
+; IRDA_input ; rx_output   ;       ; 6.583 ; 7.106 ;       ;
+; SW[0]      ; IRDA_output ; 7.296 ;       ;       ; 7.530 ;
+; SW[0]      ; UART_output ; 6.319 ;       ;       ; 6.559 ;
+; SW[0]      ; rx_output   ; 6.266 ; 6.216 ; 6.655 ; 6.471 ;
+; UART_input ; UART_output ; 6.041 ;       ;       ; 6.291 ;
+; UART_input ; rx_output   ; 6.039 ;       ;       ; 6.284 ;
+; irda_baud  ; IRDA_output ; 7.227 ;       ;       ; 7.438 ;
+; irda_baud  ; rx_output   ; 6.116 ;       ;       ; 6.320 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -237,11 +242,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 6.337 ; 6.848 ;       ;
-; SW[0]      ; IRDA_output ; 5.845 ;       ;       ; 6.086 ;
-; SW[0]      ; UART_output ; 5.829 ;       ;       ; 6.071 ;
-; UART_input ; UART_output ; 5.873 ;       ;       ; 6.077 ;
-; irda_baud  ; IRDA_output ; 5.915 ;       ;       ; 6.112 ;
+; IRDA_input ; IRDA_output ;       ; 7.443 ; 7.946 ;       ;
+; IRDA_input ; rx_output   ;       ; 6.347 ; 6.867 ;       ;
+; SW[0]      ; IRDA_output ; 7.073 ;       ;       ; 7.302 ;
+; SW[0]      ; UART_output ; 6.050 ;       ;       ; 6.268 ;
+; SW[0]      ; rx_output   ; 6.054 ; 5.968 ; 6.406 ; 6.255 ;
+; UART_input ; UART_output ; 5.837 ;       ;       ; 6.081 ;
+; UART_input ; rx_output   ; 5.835 ;       ;       ; 6.074 ;
+; irda_baud  ; IRDA_output ; 7.006 ;       ;       ; 7.214 ;
+; irda_baud  ; rx_output   ; 5.910 ;       ;       ; 6.110 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -286,11 +295,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 4.393 ; 5.048 ;       ;
-; SW[0]      ; IRDA_output ; 3.993 ;       ;       ; 4.546 ;
-; SW[0]      ; UART_output ; 3.978 ;       ;       ; 4.531 ;
-; UART_input ; UART_output ; 3.996 ;       ;       ; 4.542 ;
-; irda_baud  ; IRDA_output ; 4.018 ;       ;       ; 4.569 ;
+; IRDA_input ; IRDA_output ;       ; 5.270 ; 5.896 ;       ;
+; IRDA_input ; rx_output   ;       ; 4.390 ; 5.046 ;       ;
+; SW[0]      ; IRDA_output ; 4.912 ;       ;       ; 5.499 ;
+; SW[0]      ; UART_output ; 4.154 ;       ;       ; 4.723 ;
+; SW[0]      ; rx_output   ; 4.113 ; 4.144 ; 4.723 ; 4.662 ;
+; UART_input ; UART_output ; 3.988 ;       ;       ; 4.541 ;
+; UART_input ; rx_output   ; 3.983 ;       ;       ; 4.536 ;
+; irda_baud  ; IRDA_output ; 4.858 ;       ;       ; 5.443 ;
+; irda_baud  ; rx_output   ; 4.011 ;       ;       ; 4.565 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -299,11 +312,15 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 4.224 ; 4.872 ;       ;
-; SW[0]      ; IRDA_output ; 3.857 ;       ;       ; 4.403 ;
-; SW[0]      ; UART_output ; 3.842 ;       ;       ; 4.388 ;
-; UART_input ; UART_output ; 3.858 ;       ;       ; 4.400 ;
-; irda_baud  ; IRDA_output ; 3.880 ;       ;       ; 4.424 ;
+; IRDA_input ; IRDA_output ;       ; 5.091 ; 5.710 ;       ;
+; IRDA_input ; rx_output   ;       ; 4.232 ; 4.883 ;       ;
+; SW[0]      ; IRDA_output ; 4.764 ;       ;       ; 5.342 ;
+; SW[0]      ; UART_output ; 3.977 ;       ;       ; 4.526 ;
+; SW[0]      ; rx_output   ; 3.972 ; 3.978 ; 4.555 ; 4.515 ;
+; UART_input ; UART_output ; 3.853 ;       ;       ; 4.399 ;
+; UART_input ; rx_output   ; 3.847 ;       ;       ; 4.394 ;
+; irda_baud  ; IRDA_output ; 4.712 ;       ;       ; 5.289 ;
+; irda_baud  ; rx_output   ; 3.873 ;       ;       ; 4.421 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -328,11 +345,15 @@ No synchronizer chains to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 7.457 ; 8.092 ;       ;
-; SW[0]      ; IRDA_output ; 6.869 ;       ;       ; 7.189 ;
-; SW[0]      ; UART_output ; 6.852 ;       ;       ; 7.173 ;
-; UART_input ; UART_output ; 6.893 ;       ;       ; 7.182 ;
-; irda_baud  ; IRDA_output ; 6.943 ;       ;       ; 7.226 ;
+; IRDA_input ; IRDA_output ;       ; 8.747 ; 9.349 ;       ;
+; IRDA_input ; rx_output   ;       ; 7.457 ; 8.096 ;       ;
+; SW[0]      ; IRDA_output ; 8.270 ;       ;       ; 8.608 ;
+; SW[0]      ; UART_output ; 7.166 ;       ;       ; 7.490 ;
+; SW[0]      ; rx_output   ; 7.108 ; 7.057 ; 7.594 ; 7.394 ;
+; UART_input ; UART_output ; 6.862 ;       ;       ; 7.184 ;
+; UART_input ; rx_output   ; 6.861 ;       ;       ; 7.179 ;
+; irda_baud  ; IRDA_output ; 8.191 ;       ;       ; 8.513 ;
+; irda_baud  ; rx_output   ; 6.940 ;       ;       ; 7.226 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -341,11 +362,15 @@ No synchronizer chains to report.
 +------------+-------------+-------+-------+-------+-------+
 ; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
 +------------+-------------+-------+-------+-------+-------+
-; IRDA_input ; IRDA_output ;       ; 4.224 ; 4.872 ;       ;
-; SW[0]      ; IRDA_output ; 3.857 ;       ;       ; 4.403 ;
-; SW[0]      ; UART_output ; 3.842 ;       ;       ; 4.388 ;
-; UART_input ; UART_output ; 3.858 ;       ;       ; 4.400 ;
-; irda_baud  ; IRDA_output ; 3.880 ;       ;       ; 4.424 ;
+; IRDA_input ; IRDA_output ;       ; 5.091 ; 5.710 ;       ;
+; IRDA_input ; rx_output   ;       ; 4.232 ; 4.883 ;       ;
+; SW[0]      ; IRDA_output ; 4.764 ;       ;       ; 5.342 ;
+; SW[0]      ; UART_output ; 3.977 ;       ;       ; 4.526 ;
+; SW[0]      ; rx_output   ; 3.972 ; 3.978 ; 4.555 ; 4.515 ;
+; UART_input ; UART_output ; 3.853 ;       ;       ; 4.399 ;
+; UART_input ; rx_output   ; 3.847 ;       ;       ; 4.394 ;
+; irda_baud  ; IRDA_output ; 4.712 ;       ;       ; 5.289 ;
+; irda_baud  ; rx_output   ; 3.873 ;       ;       ; 4.421 ;
 +------------+-------------+-------+-------+-------+-------+
 
 
@@ -356,6 +381,7 @@ No synchronizer chains to report.
 +---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 ; UART_output   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; IRDA_output   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rx_output     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; ~ALTERA_NCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
@@ -382,7 +408,8 @@ No synchronizer chains to report.
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; UART_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00339 V          ; 0.206 V                              ; 0.007 V                              ; 2.77e-10 s                  ; 3.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00339 V         ; 0.206 V                             ; 0.007 V                             ; 2.77e-10 s                 ; 3.24e-10 s                 ; Yes                       ; Yes                       ;
-; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00339 V          ; 0.206 V                              ; 0.007 V                              ; 2.77e-10 s                  ; 3.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00339 V         ; 0.206 V                             ; 0.007 V                             ; 2.77e-10 s                 ; 3.24e-10 s                 ; Yes                       ; Yes                       ;
+; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.34 V              ; -0.00668 V          ; 0.218 V                              ; 0.076 V                              ; 1.92e-09 s                  ; 1.81e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.34 V             ; -0.00668 V         ; 0.218 V                             ; 0.076 V                             ; 1.92e-09 s                 ; 1.81e-09 s                 ; No                        ; Yes                       ;
+; rx_output     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.29e-09 V                   ; 2.39 V              ; -0.00339 V          ; 0.206 V                              ; 0.007 V                              ; 2.77e-10 s                  ; 3.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.29e-09 V                  ; 2.39 V             ; -0.00339 V         ; 0.206 V                             ; 0.007 V                             ; 2.77e-10 s                 ; 3.24e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.76e-09 V                   ; 2.4 V               ; -0.034 V            ; 0.102 V                              ; 0.065 V                              ; 2.49e-10 s                  ; 3.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.76e-09 V                  ; 2.4 V              ; -0.034 V           ; 0.102 V                             ; 0.065 V                             ; 2.49e-10 s                 ; 3.49e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.94e-09 V                   ; 2.39 V              ; -0.0344 V           ; 0.156 V                              ; 0.089 V                              ; 2.68e-10 s                  ; 2.6e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.94e-09 V                  ; 2.39 V             ; -0.0344 V          ; 0.156 V                             ; 0.089 V                             ; 2.68e-10 s                 ; 2.6e-10 s                  ; Yes                       ; Yes                       ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -394,7 +421,8 @@ No synchronizer chains to report.
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; UART_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.37 V              ; -0.00606 V          ; 0.107 V                              ; 0.021 V                              ; 4.26e-10 s                  ; 4.03e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.37 V             ; -0.00606 V         ; 0.107 V                             ; 0.021 V                             ; 4.26e-10 s                 ; 4.03e-10 s                 ; Yes                       ; Yes                       ;
-; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.37 V              ; -0.00606 V          ; 0.107 V                              ; 0.021 V                              ; 4.26e-10 s                  ; 4.03e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.37 V             ; -0.00606 V         ; 0.107 V                             ; 0.021 V                             ; 4.26e-10 s                 ; 4.03e-10 s                 ; Yes                       ; Yes                       ;
+; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.33 V              ; -0.00286 V          ; 0.193 V                              ; 0.042 V                              ; 2.32e-09 s                  ; 2.21e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.33 V             ; -0.00286 V         ; 0.193 V                             ; 0.042 V                             ; 2.32e-09 s                 ; 2.21e-09 s                 ; Yes                       ; Yes                       ;
+; rx_output     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.21e-06 V                   ; 2.37 V              ; -0.00606 V          ; 0.107 V                              ; 0.021 V                              ; 4.26e-10 s                  ; 4.03e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.21e-06 V                  ; 2.37 V             ; -0.00606 V         ; 0.107 V                             ; 0.021 V                             ; 4.26e-10 s                 ; 4.03e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.93e-07 V                   ; 2.37 V              ; -0.0278 V           ; 0.106 V                              ; 0.115 V                              ; 2.69e-10 s                  ; 4.05e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.93e-07 V                  ; 2.37 V             ; -0.0278 V          ; 0.106 V                             ; 0.115 V                             ; 2.69e-10 s                 ; 4.05e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.76e-07 V                   ; 2.36 V              ; -0.00439 V          ; 0.088 V                              ; 0.007 V                              ; 4.05e-10 s                  ; 3.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.76e-07 V                  ; 2.36 V             ; -0.00439 V         ; 0.088 V                             ; 0.007 V                             ; 4.05e-10 s                 ; 3.35e-10 s                 ; Yes                       ; Yes                       ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -406,7 +434,8 @@ No synchronizer chains to report.
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; UART_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.73 V              ; -0.0205 V           ; 0.17 V                               ; 0.027 V                              ; 2.58e-10 s                  ; 2.57e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.73 V             ; -0.0205 V          ; 0.17 V                              ; 0.027 V                             ; 2.58e-10 s                 ; 2.57e-10 s                 ; Yes                       ; Yes                       ;
-; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.73 V              ; -0.0205 V           ; 0.17 V                               ; 0.027 V                              ; 2.58e-10 s                  ; 2.57e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.73 V             ; -0.0205 V          ; 0.17 V                              ; 0.027 V                             ; 2.58e-10 s                 ; 2.57e-10 s                 ; Yes                       ; Yes                       ;
+; IRDA_output   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.65 V              ; -0.0115 V           ; 0.219 V                              ; 0.115 V                              ; 1.64e-09 s                  ; 1.57e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.65 V             ; -0.0115 V          ; 0.219 V                             ; 0.115 V                             ; 1.64e-09 s                 ; 1.57e-09 s                 ; No                        ; Yes                       ;
+; rx_output     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.66e-08 V                   ; 2.73 V              ; -0.0205 V           ; 0.17 V                               ; 0.027 V                              ; 2.58e-10 s                  ; 2.57e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.66e-08 V                  ; 2.73 V             ; -0.0205 V          ; 0.17 V                              ; 0.027 V                             ; 2.58e-10 s                 ; 2.57e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.06e-08 V                   ; 2.86 V              ; -0.0341 V           ; 0.364 V                              ; 0.046 V                              ; 1.17e-10 s                  ; 2.6e-10 s                   ; No                         ; Yes                        ; 2.62 V                      ; 3.06e-08 V                  ; 2.86 V             ; -0.0341 V          ; 0.364 V                             ; 0.046 V                             ; 1.17e-10 s                 ; 2.6e-10 s                  ; No                        ; Yes                       ;
 ; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.81e-08 V                   ; 2.72 V              ; -0.0542 V           ; 0.144 V                              ; 0.087 V                              ; 2.55e-10 s                  ; 2.14e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.81e-08 V                  ; 2.72 V             ; -0.0542 V          ; 0.144 V                             ; 0.087 V                             ; 2.55e-10 s                 ; 2.14e-10 s                 ; Yes                       ; Yes                       ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -438,9 +467,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 5     ; 5    ;
-; Unconstrained Output Ports      ; 2     ; 2    ;
-; Unconstrained Output Port Paths ; 5     ; 5    ;
+; Unconstrained Input Port Paths  ; 9     ; 9    ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 9     ; 9    ;
 +---------------------------------+-------+------+
 
 
@@ -449,11 +478,11 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +------------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Feb 08 12:53:19 2024
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Feb 09 12:18:21 2024
 Info: Command: quartus_sta irda_inverter -c irda_inverter
 Info: qsta_default_script.tcl version: #1
-Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 8 of the 8 physical processors detected instead.
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
 Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'irda_inverter.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -496,10 +525,10 @@ Info (332140): No Removal paths to report
 Info (332140): No Minimum Pulse Width paths to report
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4643 megabytes
-    Info: Processing ended: Thu Feb 08 12:53:24 2024
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4604 megabytes
+    Info: Processing ended: Fri Feb 09 12:18:25 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

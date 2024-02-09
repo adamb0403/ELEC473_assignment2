@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "02/08/2024 12:14:49"
+// Generated on "02/09/2024 12:50:52"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    full_uart
 // 
@@ -194,12 +194,14 @@ end
 initial
 begin
 	UART_TXD_expected = 1'bX;
+	UART_TXD_expected = #2999000 1'b0;
 end 
 
 // expected IRDA_TXD
 initial
 begin
 	IRDA_TXD_expected = 1'bX;
+	IRDA_TXD_expected = #2999000 1'b0;
 end 
 // expected HEX4[ 6 ]
 initial
@@ -820,7 +822,7 @@ initial
 
 begin 
 $timeformat(-12,3," ps",6);
-#3000000;
+#6000000;
 if (nummismatches > 0)
 	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
 else
@@ -902,7 +904,7 @@ end
 // SW[0]
 initial
 begin
-	SW[0] = 1'b0;
+	SW[0] = 1'b1;
 end 
 
 // SW[8]

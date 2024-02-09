@@ -1,0 +1,108 @@
+$comment
+	File created using the following command:
+		vcd file irda_encoder.msim.vcd -direction
+$end
+$date
+	Fri Feb 09 12:34:20 2024
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module irda_encoder_vlg_vec_tst $end
+$var reg 1 ! encoder_input $end
+$var reg 1 " irda_baud $end
+$var wire 1 # encoder_output $end
+$var wire 1 $ sampler $end
+$scope module i1 $end
+$var wire 1 % gnd $end
+$var wire 1 & vcc $end
+$var wire 1 ' unknown $end
+$var tri1 1 ( devclrn $end
+$var tri1 1 ) devpor $end
+$var tri1 1 * devoe $end
+$var wire 1 + encoder_output~output_o $end
+$var wire 1 , encoder_input~input_o $end
+$var wire 1 - irda_baud~input_o $end
+$var wire 1 . encoder_output~0_combout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+x$
+0%
+1&
+x'
+1(
+1)
+1*
+0+
+0,
+0-
+0.
+$end
+#40000
+1!
+1,
+0$
+#70000
+1"
+1-
+1$
+1.
+1+
+1#
+#80000
+0"
+0-
+0$
+0.
+0+
+0#
+#130000
+0!
+0,
+1$
+#370000
+1!
+1,
+0$
+#410000
+1"
+1-
+1$
+1.
+1+
+1#
+#490000
+0"
+0-
+0$
+0.
+0+
+0#
+#560000
+1"
+1-
+1$
+1.
+1+
+1#
+#570000
+0"
+0-
+0$
+0.
+0+
+0#
+#660000
+0!
+0,
+1$
+#1000000

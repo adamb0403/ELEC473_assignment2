@@ -14,9 +14,9 @@
 
 // VENDOR "Altera"
 // PROGRAM "Quartus II 64-Bit"
-// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-// DATE "02/08/2024 12:54:59"
+// DATE "02/09/2024 12:20:27"
 
 // 
 // Device: Altera EP4CGX15BF14C6 Package FBGA169
@@ -34,19 +34,22 @@ module irda_inverter (
 	irda_baud,
 	SW,
 	UART_output,
-	IRDA_output);
+	IRDA_output,
+	rx_output);
 input 	UART_input;
 input 	IRDA_input;
 input 	irda_baud;
 input 	[0:0] SW;
 output 	UART_output;
 output 	IRDA_output;
+output 	rx_output;
 
 // Design Ports Information
-// UART_output	=>  Location: PIN_L4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// IRDA_output	=>  Location: PIN_M4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// UART_input	=>  Location: PIN_N6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW[0]	=>  Location: PIN_N4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// UART_output	=>  Location: PIN_M4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// IRDA_output	=>  Location: PIN_L7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rx_output	=>  Location: PIN_L4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// UART_input	=>  Location: PIN_N4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[0]	=>  Location: PIN_N6,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // irda_baud	=>  Location: PIN_M6,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // IRDA_input	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
@@ -64,15 +67,17 @@ tri1 devpor;
 tri1 devoe;
 wire \UART_output~output_o ;
 wire \IRDA_output~output_o ;
+wire \rx_output~output_o ;
 wire \SW[0]~input_o ;
 wire \UART_input~input_o ;
 wire \UART_output~0_combout ;
 wire \IRDA_input~input_o ;
 wire \irda_baud~input_o ;
 wire \IRDA_output~0_combout ;
+wire \rx_output~0_combout ;
 
 
-// Location: IOOBUF_X8_Y0_N9
+// Location: IOOBUF_X8_Y0_N2
 cycloneiv_io_obuf \UART_output~output (
 	.i(\UART_output~0_combout ),
 	.oe(vcc),
@@ -85,7 +90,7 @@ defparam \UART_output~output .bus_hold = "false";
 defparam \UART_output~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X8_Y0_N2
+// Location: IOOBUF_X14_Y0_N2
 cycloneiv_io_obuf \IRDA_output~output (
 	.i(\IRDA_output~0_combout ),
 	.oe(vcc),
@@ -98,7 +103,20 @@ defparam \IRDA_output~output .bus_hold = "false";
 defparam \IRDA_output~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X10_Y0_N8
+// Location: IOOBUF_X8_Y0_N9
+cycloneiv_io_obuf \rx_output~output (
+	.i(\rx_output~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\rx_output~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \rx_output~output .bus_hold = "false";
+defparam \rx_output~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X12_Y0_N1
 cycloneiv_io_ibuf \SW[0]~input (
 	.i(SW[0]),
 	.ibar(gnd),
@@ -108,7 +126,7 @@ defparam \SW[0]~input .bus_hold = "false";
 defparam \SW[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X12_Y0_N1
+// Location: IOIBUF_X10_Y0_N8
 cycloneiv_io_ibuf \UART_input~input (
 	.i(UART_input),
 	.ibar(gnd),
@@ -124,14 +142,14 @@ cycloneiv_lcell_comb \UART_output~0 (
 // \UART_output~0_combout  = (\SW[0]~input_o ) # (\UART_input~input_o )
 
 	.dataa(gnd),
-	.datab(gnd),
-	.datac(\SW[0]~input_o ),
-	.datad(\UART_input~input_o ),
+	.datab(\SW[0]~input_o ),
+	.datac(\UART_input~input_o ),
+	.datad(gnd),
 	.cin(gnd),
 	.combout(\UART_output~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \UART_output~0 .lut_mask = 16'hFFF0;
+defparam \UART_output~0 .lut_mask = 16'hFCFC;
 defparam \UART_output~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
@@ -155,7 +173,7 @@ defparam \irda_baud~input .bus_hold = "false";
 defparam \irda_baud~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X9_Y1_N10
+// Location: LCCOMB_X9_Y1_N18
 cycloneiv_lcell_comb \IRDA_output~0 (
 // Equation(s):
 // \IRDA_output~0_combout  = (!\IRDA_input~input_o  & (\SW[0]~input_o  & \irda_baud~input_o ))
@@ -172,8 +190,27 @@ defparam \IRDA_output~0 .lut_mask = 16'h5000;
 defparam \IRDA_output~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
+// Location: LCCOMB_X9_Y1_N12
+cycloneiv_lcell_comb \rx_output~0 (
+// Equation(s):
+// \rx_output~0_combout  = (\SW[0]~input_o  & (!\IRDA_input~input_o  & ((\irda_baud~input_o )))) # (!\SW[0]~input_o  & (((\UART_input~input_o ))))
+
+	.dataa(\IRDA_input~input_o ),
+	.datab(\SW[0]~input_o ),
+	.datac(\UART_input~input_o ),
+	.datad(\irda_baud~input_o ),
+	.cin(gnd),
+	.combout(\rx_output~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \rx_output~0 .lut_mask = 16'h7430;
+defparam \rx_output~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
 assign UART_output = \UART_output~output_o ;
 
 assign IRDA_output = \IRDA_output~output_o ;
+
+assign rx_output = \rx_output~output_o ;
 
 endmodule

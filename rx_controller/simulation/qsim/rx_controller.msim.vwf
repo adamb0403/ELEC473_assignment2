@@ -32,6 +32,26 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
+SIGNAL("rx_controller_vlg_vec_tst|SW")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 1;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("rx_controller_vlg_vec_tst|SW[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "rx_controller_vlg_vec_tst|SW";
+}
+
 SIGNAL("rx_controller_vlg_vec_tst|clk")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -53,6 +73,16 @@ SIGNAL("rx_controller_vlg_vec_tst|ctrl_counter")
 }
 
 SIGNAL("rx_controller_vlg_vec_tst|ctrl_half_baud")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("rx_controller_vlg_vec_tst|ctrl_irda_half_baud")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -182,16 +212,6 @@ SIGNAL("rx_controller_vlg_vec_tst|i1|devoe")
 	PARENT = "";
 }
 
-SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
 SIGNAL("rx_controller_vlg_vec_tst|i1|clk~input_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -242,7 +262,7 @@ SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_half_baud~input_o")
 	PARENT = "";
 }
 
-SIGNAL("rx_controller_vlg_vec_tst|i1|reset~input_o")
+SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -252,7 +272,7 @@ SIGNAL("rx_controller_vlg_vec_tst|i1|reset~input_o")
 	PARENT = "";
 }
 
-SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o")
+SIGNAL("rx_controller_vlg_vec_tst|i1|reset~input_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -282,7 +302,37 @@ SIGNAL("rx_controller_vlg_vec_tst|i1|current_state~reg0_q")
 	PARENT = "";
 }
 
+SIGNAL("rx_controller_vlg_vec_tst|i1|SW[0]~input_o")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_irda_half_baud~input_o")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
 SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_sr_load~0_combout")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -300,6 +350,16 @@ SIGNAL("rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~0_combout")
 	LSB_INDEX = -1;
 	DIRECTION = INPUT;
 	PARENT = "";
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|SW[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 520.0;
+		LEVEL 1 FOR 480.0;
+	}
 }
 
 TRANSITION_LIST("rx_controller_vlg_vec_tst|clk")
@@ -417,7 +477,9 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_counter")
 		REPEAT = 1;
 		LEVEL 0 FOR 420.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 560.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 90.0;
 	}
 }
 
@@ -426,7 +488,17 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_half_baud")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
@@ -440,7 +512,90 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_half_baud")
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 680.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+	}
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_irda_half_baud")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
 	}
 }
 
@@ -449,11 +604,19 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_rx")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 80.0;
+		LEVEL 1 FOR 120.0;
 		LEVEL 0 FOR 80.0;
 		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 720.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
 	}
 }
 
@@ -471,9 +634,11 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_reset_baud")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
+		LEVEL 0 FOR 120.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 0 FOR 430.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 430.0;
 	}
 }
 
@@ -482,7 +647,7 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_sr_load")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 140.0;
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
@@ -496,7 +661,25 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|ctrl_sr_load")
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 680.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 166.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 120.0;
 	}
 }
 
@@ -505,9 +688,11 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|current_state")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 380.0;
-		LEVEL 0 FOR 570.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 110.0;
 	}
 }
 
@@ -519,103 +704,128 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|sampler")
 		LEVEL X FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 6.0;
+		LEVEL 0 FOR 4.0;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 10.0;
+		LEVEL 0 FOR 6.0;
+		LEVEL 1 FOR 4.0;
 	}
 }
 
@@ -670,17 +880,6 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|devoe")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 420.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 560.0;
 	}
 }
 
@@ -797,7 +996,7 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_sr_load~output_o")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 140.0;
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
@@ -811,7 +1010,25 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_sr_load~output_o")
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 680.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 166.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 120.0;
 	}
 }
 
@@ -820,9 +1037,11 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|current_state~output_o")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 380.0;
-		LEVEL 0 FOR 570.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 110.0;
 	}
 }
 
@@ -831,9 +1050,11 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~output_o")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
+		LEVEL 0 FOR 120.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 0 FOR 430.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 430.0;
 	}
 }
 
@@ -842,7 +1063,17 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_half_baud~input_o")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
@@ -856,7 +1087,45 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_half_baud~input_o")
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 680.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+	}
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 420.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 90.0;
 	}
 }
 
@@ -869,27 +1138,16 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|reset~input_o")
 	}
 }
 
-TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 80.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 720.0;
-	}
-}
-
 TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|current_state~0_combout")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 380.0;
-		LEVEL 0 FOR 580.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 120.0;
 	}
 }
 
@@ -898,9 +1156,79 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|current_state~reg0_q")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 380.0;
-		LEVEL 0 FOR 570.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 110.0;
+	}
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|SW[0]~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 520.0;
+		LEVEL 1 FOR 480.0;
+	}
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_irda_half_baud~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
 	}
 }
 
@@ -909,21 +1237,60 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_sr_load~0_combout")
 	NODE
 	{
 		REPEAT = 1;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 166.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 36.0;
+		LEVEL 1 FOR 4.0;
+		LEVEL 0 FOR 120.0;
+	}
+}
+
+TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 60.0;
 		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 680.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
 	}
 }
 
@@ -932,33 +1299,37 @@ TRANSITION_LIST("rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~0_combout")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 430.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 430.0;
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|clk";
+	CHANNEL = "rx_controller_vlg_vec_tst|SW";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
 	TREE_LEVEL = 0;
+	CHILDREN = 1;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_counter";
+	CHANNEL = "rx_controller_vlg_vec_tst|SW[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
-	TREE_LEVEL = 0;
+	TREE_LEVEL = 1;
+	PARENT = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_half_baud";
+	CHANNEL = "rx_controller_vlg_vec_tst|clk";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;
@@ -967,7 +1338,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_rx";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_counter";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -976,7 +1347,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|reset";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_half_baud";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
@@ -985,7 +1356,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_reset_baud";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_irda_half_baud";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 5;
@@ -994,7 +1365,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_sr_load";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_rx";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 6;
@@ -1003,7 +1374,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|current_state";
+	CHANNEL = "rx_controller_vlg_vec_tst|reset";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 7;
@@ -1012,7 +1383,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|sampler";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_reset_baud";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 8;
@@ -1021,7 +1392,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|gnd";
+	CHANNEL = "rx_controller_vlg_vec_tst|ctrl_sr_load";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 9;
@@ -1030,7 +1401,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|vcc";
+	CHANNEL = "rx_controller_vlg_vec_tst|current_state";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 10;
@@ -1039,7 +1410,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|unknown";
+	CHANNEL = "rx_controller_vlg_vec_tst|sampler";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 11;
@@ -1048,7 +1419,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|devclrn";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|gnd";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 12;
@@ -1057,7 +1428,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|devpor";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|vcc";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 13;
@@ -1066,7 +1437,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|devoe";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|unknown";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 14;
@@ -1075,7 +1446,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|devclrn";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 15;
@@ -1084,7 +1455,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|clk~input_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|devpor";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 16;
@@ -1093,7 +1464,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_sr_load~output_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|devoe";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 17;
@@ -1102,7 +1473,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~output_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|clk~input_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 18;
@@ -1111,7 +1482,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~output_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_sr_load~output_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 19;
@@ -1120,7 +1491,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_half_baud~input_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~output_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 20;
@@ -1129,7 +1500,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|reset~input_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~output_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 21;
@@ -1138,7 +1509,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_half_baud~input_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 22;
@@ -1147,7 +1518,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~0_combout";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_counter~input_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 23;
@@ -1156,7 +1527,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~reg0_q";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|reset~input_o";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 24;
@@ -1165,7 +1536,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_sr_load~0_combout";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~0_combout";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 25;
@@ -1174,10 +1545,55 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~0_combout";
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|current_state~reg0_q";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 26;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|SW[0]~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 27;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_irda_half_baud~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 28;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_sr_load~0_combout";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 29;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_rx~input_o";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 30;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "rx_controller_vlg_vec_tst|i1|ctrl_reset_baud~0_combout";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 31;
 	TREE_LEVEL = 0;
 }
 ;

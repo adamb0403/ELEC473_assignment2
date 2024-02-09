@@ -4,11 +4,11 @@ K3
 cModel Technology
 Z0 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_controller\simulation\qsim
 vrx_controller
-Z1 !s100 hmK=V<07EC=ZE3W@;8BzU2
-Z2 IKeR:Z45H=X];CKCNS:?I63
-Z3 V_62UQgHoFAc`@F=VNb5i93
+Z1 !s100 1SFc@mzH4<l1S6aM_C^UL1
+Z2 IPgQC?MW>:5L]2_KBGf0dZ3
+Z3 V:>lIIEeChZ`7eT8b7[j1U0
 Z4 dC:\Users\Adam\Documents\git-repos\ELEC473_assignment2\rx_controller\simulation\qsim
-Z5 w1707237435
+Z5 w1707421325
 Z6 8rx_controller.vo
 Z7 Frx_controller.vo
 L0 31
@@ -19,63 +19,63 @@ Z9 !s90 -work|work|rx_controller.vo|
 Z10 o-work work -O0
 !i10b 1
 !s85 0
-Z11 !s108 1707237436.696000
+Z11 !s108 1707421326.557000
 Z12 !s107 rx_controller.vo|
 !s101 -O0
 vrx_controller_vlg_check_tst
 !i10b 1
-Z13 !s100 bZDmO^WkHJA6K_^EnmTnU0
-Z14 IJIIAE<>:DK<;9ZGIfDkBT2
+Z13 !s100 YUbG]7Ke4SUg>O3ej[RI[3
+Z14 I>VVXihYMob7:>I:fFV2ml0
 Z15 VXZA?QUYlJTTgH8O[WC1GB2
 R4
-Z16 w1707237434
-Z17 8rx_controller.vt
-Z18 Frx_controller.vt
-L0 65
+R5
+Z16 8rx_controller.vt
+Z17 Frx_controller.vt
+L0 69
 R8
 r1
 !s85 0
 31
-Z19 !s108 1707237436.835000
-Z20 !s107 rx_controller.vt|
-Z21 !s90 -work|work|rx_controller.vt|
+Z18 !s108 1707421326.647000
+Z19 !s107 rx_controller.vt|
+Z20 !s90 -work|work|rx_controller.vt|
 !s101 -O0
 R10
 vrx_controller_vlg_sample_tst
 !i10b 1
-Z22 !s100 KlAl>K@=1AB_TCode9Q2^2
-Z23 IZj2[elnZV5f320cVjXKkM0
-Z24 Vi204AlKM?n4IHO:Cnl9m01
+Z21 !s100 DhnmbhFM5^FOLGg;1M8[b3
+Z22 I6c@WB=G=6iPUY5M?j;9T[2
+Z23 V0@96bh5V]Zei182AB6gE]1
 R4
+R5
 R16
 R17
-R18
 L0 29
 R8
 r1
 !s85 0
 31
+R18
 R19
 R20
-R21
 !s101 -O0
 R10
 vrx_controller_vlg_vec_tst
 !i10b 1
-Z25 !s100 CR@?goLUXHlJm=JLbY:zA0
-Z26 IIHGWaL@@P6kLC`1l<:NgK0
-Z27 Vf8Ea`7XNdeZRWVh^_]mL93
+!s100 7_d>RBaKjQlcoYBaUX0GW2
+In_LO7o5Ak?]_z<XoOfdX01
+Z24 Vf8Ea`7XNdeZRWVh^_]mL93
 R4
+R5
 R16
 R17
-R18
-Z28 L0 214
+Z25 L0 218
 R8
 r1
 !s85 0
 31
+R18
 R19
 R20
-R21
 !s101 -O0
 R10
